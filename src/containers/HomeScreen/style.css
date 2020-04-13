@@ -1,0 +1,95 @@
+.home-container {
+      /* width: 1096px; */
+      width: 90%;
+      margin: 0 auto;
+      display: flex;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      /* flex-flow: row; */
+}
+
+.home-flex1 {
+      /* display: flex; */
+      flex: 5 1 500px;
+      margin: 10px;
+      height: 600px;
+      /* border: 1px solid var(--shadeRed); */
+      border-radius: 10px;
+      background-image: url("../../images/home/shanghai2.jpg");
+      background-size: cover;
+
+      display: flex;
+      /* justify-content: center;
+      align-items: center; */
+}
+
+h1 {
+      color: white;
+      font-weight: bold;
+      font-size: 88px;
+      margin-left: 10px;
+}
+
+/* .headline-home {
+      width: 90%;
+      height: 90%;
+
+   
+} */
+
+.home-flex2 {
+      flex: 4 1 400px;
+      margin: 10px;
+      /* height: 400px; */
+      display: flex;
+      flex-direction: column;
+      border: 1px solid #e17721;
+      border-radius: 10px;
+}
+
+h3 {
+      color: var(--flashyGreen);
+      font-size: 36px;
+      /* margin-left: 10px; */
+      margin: 5px 0 5px 10px;
+}
+
+h4 {
+      color: var(--flashyGreen);
+      /* font-size: px; */
+      margin: 5px 0 5px 10px;
+}
+.image-headline-prod {
+      width: 450px;
+      height: 350px;
+      margin-left: 10px;
+}
+/* -------------------- media queries ---*/
+
+@media (max-width: 1024px /* Landscape tab */) {
+}
+
+@media (max-width: 768px /* Ipad vertical position zone */) {
+      h1 {
+            color: white;
+            font-weight: bold;
+            font-size: 64px;
+      }
+
+      .image-headline-prod {
+            width: 98%;
+            height: 100%;
+            margin: 0 5px 10px 5px;
+      }
+}
+
+@media (max-width: 720px /* Smartphone zone */) {
+}
+
+@media (max-width: 360px /* Smartphone zone */) {
+      h1 {
+            color: white;
+            font-weight: bold;
+            font-size: 48px;
+      }
+}
