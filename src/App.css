@@ -1,5 +1,6 @@
 /* =============== POLICE IMPORT ======================== */
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap");
+
+@import url("https://fonts.googleapis.com/css?family=Montserrat|Roboto&display=swap");
 
 /* =============== REPERES DEBUG ================== */
 
@@ -37,13 +38,28 @@ a {
 }
 /* ================ GLOBAL RULES ======================= */
 
+/* h1,
+h3 {
+      font-family: "Roboto", sans-serif;
+} */
+
+h4,
+p,
+span,
+button {
+      font-family: "Montserrat", sans-serif;
+}
+
 /* ==== COLORS ==== */
 :root {
       --black: #1e1e1e;
       --grey: #f0f0f0;
       --white: #ffffff;
       --flashyGreen: #05f86a;
-      --deepGrey: #353c43;
+      /* --deepGrey: #353c43; */
+
+      --deepGrey: #373738;
+
       --shadeRed: #da3122;
 
       --orange: #f56b2b;
