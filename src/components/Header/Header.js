@@ -13,7 +13,12 @@ export default function Header({ indexPage, setIndexPage }) {
       const option = isLigthTheme ? light : dark;
 
       return (
-            <div className="header" style={{ background: option.bg }}>
+            <div
+                  className="header"
+                  style={{
+                        background: option.bg,
+                  }}
+            >
                   <div className="nav">
                         <ul>
                               <li>

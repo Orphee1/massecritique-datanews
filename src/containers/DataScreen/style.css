@@ -1,9 +1,13 @@
+.title {
+      margin: 0 0 0 25px;
+}
+
 .data-container {
       /* width: 1096px; */
       width: 80%;
       margin: 0 auto;
       display: flex;
-      align-items: flex-start;
+      /* align-items: flex-start; */
       flex-wrap: wrap;
       padding: 40px;
 
@@ -14,7 +18,7 @@
 
 .data-flex1 {
       /* display: flex; */
-      flex: 5 1 500px;
+      /* flex: 4 1 500px; */
       margin: 10px;
       /* height: 600px; */
       height: 100%;
@@ -28,25 +32,109 @@
 
 /* child1 */
 .graph-covid-france-map {
+      width: 600px;
 }
 
-/* Bloc Flex 2 > child 1 = graph-covid-france-map */
+/* Bloc Flex 2 > child 1 */
 
 .data-flex2 {
-      flex: 4 1 400px;
+      flex: 1 1 200px;
       margin: 10px;
       /* height: 400px; */
       display: flex;
       /* flex-direction: column; */
-      border: 1px solid #e17721;
+      /* border: 1px solid #e17721; */
       border-radius: 10px;
+      flex-wrap: wrap;
 }
 
 /* child1 */
 
-.data-covid {
+.graph-comment1 {
+      flex: 1 1 250px;
+      height: 50px;
+      margin-bottom: 10px;
+      padding: 10px;
+}
+
+.graph-comment1 h4 {
+      font-weight: bold;
+      font-size: 18px;
+      margin: 0;
+}
+
+.graph-comment2 {
+      flex: 1 1 250px;
+      height: 180px;
+      margin-bottom: 10px;
+      padding: 10px;
+}
+
+.graph-comment2 h4 {
+      font-weight: bold;
+      font-size: 18px;
+      margin: 0;
+}
+.graph-comment3 {
+      flex: 1 1 250px;
+      margin-bottom: 10px;
+      height: 150x;
+      padding: 10px;
+}
+.graph-comment3 h4 {
+      font-weight: bold;
+      font-size: 18px;
+      margin: 0;
+}
+
+/* Bloc Flex 3 > child 1 = barchart- container */
+
+.data-flex3 {
+      flex: 1 1 auto;
+      margin: 10px;
       display: flex;
-      flex-direction: column;
+      background-color: white;
+      flex-wrap: wrap;
+}
+
+/* child1 */
+
+.barchart-container {
+      display: flex;
+      flex: 1 1 auto;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+}
+
+.bar-chart {
+      flex: 1 1 200px;
+      /* margin-bottom: 10px; */
+}
+
+/* Bloc Flex 4 > child 1  = barchart- container */
+
+.data-flex4 {
+      flex: 1 1 auto;
+      margin: 10px;
+      display: flex;
+      border-radius: 10px;
+      flex-wrap: wrap;
+}
+
+/* child 1 */
+
+.barchart-container {
+      display: flex;
+      flex: 1 1 auto;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+}
+
+.bar-chart {
+      flex: 1 1 200px;
+      /* margin-bottom: 10px; */
 }
 
 /* -------------------- media queries ---*/
@@ -60,5 +148,14 @@
 @media (max-width: 720px /* Smartphone zone */) {
 }
 
-@media (max-width: 360px /* Smartphone zone */) {
+@media (max-width: 380px /* Smartphone vertical zone */) {
+      .graph-covid-france-map {
+            width: 320px;
+      }
+}
+
+@media (max-width: 330px) {
+      .graph-covid-france-map {
+            width: 280px;
+      }
 }

@@ -29,7 +29,7 @@
 /* child1 */
 
 .head-line-home {
-      border-radius: 10px;
+      /* border-radius: 10px; */
       background-image: url("../../images/home/shanghai2.jpg");
       background-size: cover;
       width: 100%;

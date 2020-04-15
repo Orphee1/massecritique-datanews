@@ -7,12 +7,14 @@ export const ThemeContextProvider = (props) => {
             isLigthTheme: true,
             light: {
                   syntax: "#373738",
-                  // ui: "#ddd",
+                  // graph: "black",
+                  graph: "#373738",
                   bg: "#05f86a",
             },
             dark: {
                   syntax: "#05f86a",
-                  // ui: "#333",
+                  // graph: "white",
+                  graph: "#05f86a",
                   bg: "#373738",
             },
       });
