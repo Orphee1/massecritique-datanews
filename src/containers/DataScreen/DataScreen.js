@@ -275,58 +275,176 @@ export default function DataScreen() {
                         </div>
 
                         <div className="data-flex3">
-                              {COVID1404hrds.map((elem, index) => {
-                                    let dataArray = [];
-                                    dataArray.push(elem);
+                              {newArray.map((elem, index) => {
+                                    let dataArray1 = [];
+                                    let dataArray2 = [];
+                                    let dataArray3 = [];
+                                    console.log(elem);
+
+                                    dataArray1.push(elem[0]);
+                                    dataArray2.push(elem[1]);
+                                    dataArray3.push(elem[2]);
                                     return (
-                                          <div className="barchart-container">
-                                                <BarChart
-                                                      className="bar-chart"
-                                                      width={500}
-                                                      height={500}
-                                                      data={dataArray}
-                                                      margin={{
-                                                            top: 5,
-                                                            right: 30,
-                                                            left: 20,
-                                                            bottom: 5,
-                                                      }}
-                                                >
-                                                      <CartesianGrid
-                                                            strokeDasharray="3 3"
-                                                            // fill={option.syntax}
-                                                      />
-                                                      <XAxis dataKey="dep" />
-                                                      <YAxis
-                                                            fill={option.syntax}
-                                                      />
-                                                      <Tooltip />
-                                                      <Legend />
-                                                      <Bar
-                                                            dataKey="hosp"
-                                                            barSize={60}
-                                                            // fill="black"
-                                                            fill={option.syntax}
-                                                      />
-                                                      <Bar
-                                                            dataKey="rea"
-                                                            barSize={60}
-                                                            // fill="black"
-                                                            fill={option.syntax}
-                                                      />
-                                                      <Bar
-                                                            dataKey="rad"
-                                                            barSize={60}
-                                                            // fill="black"
-                                                            fill={option.syntax}
-                                                      />
-                                                      <Bar
-                                                            dataKey="dc"
-                                                            barSize={60}
-                                                            // fill="black"
-                                                            fill={option.syntax}
-                                                      />
-                                                </BarChart>
+                                          <div
+                                                className="barchart-container"
+                                                key={index}
+                                          >
+                                                <div className="bar-chart">
+                                                      <BarChart
+                                                            className="bar-chart"
+                                                            width={500}
+                                                            height={500}
+                                                            data={dataArray1}
+                                                            margin={{
+                                                                  top: 5,
+                                                                  right: 30,
+                                                                  left: 20,
+                                                                  bottom: 5,
+                                                            }}
+                                                      >
+                                                            <CartesianGrid strokeDasharray="3 3" />
+                                                            <XAxis dataKey="dep" />
+                                                            <YAxis />
+                                                            <Tooltip />
+                                                            <Legend />
+                                                            <Bar
+                                                                  dataKey="hosp"
+                                                                  barSize={60}
+                                                                  fill="black"
+                                                                  // fill={
+                                                                  //       option.syntax
+                                                                  // }
+                                                            />
+                                                            <Bar
+                                                                  dataKey="rea"
+                                                                  barSize={60}
+                                                                  fill="black"
+                                                                  // fill={
+                                                                  //       option.syntax
+                                                                  // }
+                                                            />
+                                                            <Bar
+                                                                  dataKey="rad"
+                                                                  barSize={60}
+                                                                  fill="black"
+                                                                  // fill={
+                                                                  //       option.syntax
+                                                                  // }
+                                                            />
+                                                            <Bar
+                                                                  dataKey="dc"
+                                                                  barSize={60}
+                                                                  fill="black"
+                                                                  // fill={
+                                                                  //       option.syntax
+                                                                  // }
+                                                            />
+                                                      </BarChart>
+                                                </div>
+                                                <div className="bar-chart">
+                                                      <BarChart
+                                                            className="bar-chart"
+                                                            width={500}
+                                                            height={500}
+                                                            data={dataArray2}
+                                                            margin={{
+                                                                  top: 5,
+                                                                  right: 30,
+                                                                  left: 20,
+                                                                  bottom: 5,
+                                                            }}
+                                                      >
+                                                            <CartesianGrid strokeDasharray="3 3" />
+                                                            <XAxis dataKey="dep" />
+                                                            <YAxis />
+                                                            <Tooltip />
+                                                            <Legend />
+                                                            <Bar
+                                                                  dataKey="hosp"
+                                                                  barSize={60}
+                                                                  fill="black"
+                                                                  // fill={
+                                                                  //       option.syntax
+                                                                  // }
+                                                            />
+                                                            <Bar
+                                                                  dataKey="rea"
+                                                                  barSize={60}
+                                                                  fill="black"
+                                                                  // fill={
+                                                                  //       option.syntax
+                                                                  // }
+                                                            />
+                                                            <Bar
+                                                                  dataKey="rad"
+                                                                  barSize={60}
+                                                                  fill="black"
+                                                                  // fill={
+                                                                  //       option.syntax
+                                                                  // }
+                                                            />
+                                                            <Bar
+                                                                  dataKey="dc"
+                                                                  barSize={60}
+                                                                  fill="black"
+                                                                  // fill={
+                                                                  //       option.syntax
+                                                                  // }
+                                                            />
+                                                      </BarChart>
+                                                </div>
+                                                <div className="bar-chart">
+                                                      <BarChart
+                                                            className="bar-chart"
+                                                            width={500}
+                                                            height={500}
+                                                            data={dataArray3}
+                                                            margin={{
+                                                                  top: 5,
+                                                                  right: 30,
+                                                                  left: 20,
+                                                                  bottom: 5,
+                                                            }}
+                                                      >
+                                                            <CartesianGrid strokeDasharray="3 3" />
+                                                            <XAxis dataKey="dep" />
+                                                            <YAxis />
+                                                            <Tooltip />
+                                                            <Legend />
+                                                            <Bar
+                                                                  dataKey="hosp"
+                                                                  barSize={60}
+                                                                  fill="black"
+                                                                  // fill={
+                                                                  //       option.syntax
+                                                                  // }
+                                                            />
+                                                            <Bar
+                                                                  dataKey="rea"
+                                                                  barSize={60}
+                                                                  fill="black"
+                                                                  // fill={
+                                                                  //       option.syntax
+                                                                  // }
+                                                            />
+                                                            <Bar
+                                                                  dataKey="rad"
+                                                                  barSize={60}
+                                                                  fill="black"
+                                                                  // fill={
+                                                                  //       option.syntax
+                                                                  // }
+                                                            />
+                                                            <Bar
+                                                                  dataKey="dc"
+                                                                  barSize={60}
+                                                                  fill="black"
+                                                                  // fill={
+                                                                  //       option.syntax
+                                                                  // }
+                                                            />
+                                                      </BarChart>
+                                                </div>
                                           </div>
                                     );
                               })}
