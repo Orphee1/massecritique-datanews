@@ -20,34 +20,31 @@ export default function Header({ indexPage, setIndexPage }) {
                   }}
             >
                   <div className="nav">
-                        <ul>
+                        <ul className="d-flex">
                               <li>
-                                    {indexPage !== 1 && (
-                                          <Link to="/">
-                                                <span
-                                                      className="logo"
-                                                      onClick={() => {
-                                                            setIndexPage(1);
-                                                      }}
-                                                      style={{
-                                                            color:
-                                                                  option.syntax,
-                                                      }}
-                                                >
-                                                      Masse Critique/Data News
-                                                </span>
-                                          </Link>
-                                    )}
+                                    <Link to="/">
+                                          <span
+                                                className="logo"
+                                                onClick={() => {
+                                                      setIndexPage(1);
+                                                }}
+                                                style={{
+                                                      color: option.syntax,
+                                                }}
+                                          >
+                                                Masse Critique/Data News
+                                          </span>
+                                    </Link>
                               </li>
                               <li>
                                     <button
-                                          type="button"
+                                          type="button-theme"
                                           style={{ color: option.syntax }}
                                           onClick={() => {
                                                 setTheme({
                                                       isLigthTheme: !isLigthTheme,
-                                                      dark: dark,
                                                       light: light,
+                                                      dark: dark,
                                                 });
                                           }}
                                     >
@@ -61,9 +58,6 @@ export default function Header({ indexPage, setIndexPage }) {
                               <li>
                                     <Link to="/data">
                                           <span
-                                                onClick={() => {
-                                                      setIndexPage(2);
-                                                }}
                                                 style={{ color: option.syntax }}
                                           >
                                                 Data
@@ -87,6 +81,10 @@ export default function Header({ indexPage, setIndexPage }) {
                               </li>
                         </ul>
                   </div>
+                  <div
+                        className="line red"
+                        style={{ background: option.bgClear }}
+                  ></div>
             </div>
       );
 }

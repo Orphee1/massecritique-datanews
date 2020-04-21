@@ -1,4 +1,4 @@
-import React, { Component, useState, createContext } from "react";
+import React, { useState, createContext } from "react";
 
 export const ThemeContext = createContext();
 
@@ -6,16 +6,14 @@ export const ThemeContextProvider = (props) => {
       const [theme, setTheme] = useState({
             isLigthTheme: true,
             light: {
-                  syntax: "#373738",
-                  // graph: "black",
-                  graph: "#373738",
-                  bg: "#05f86a",
+                  syntax: "#706C61",
+                  bgClear: "#86DDC4",
+                  bg: "#81F499",
             },
             dark: {
-                  syntax: "#05f86a",
-                  // graph: "white",
-                  graph: "#05f86a",
-                  bg: "#373738",
+                  syntax: "#81F499",
+                  bgClear: "#899E8B",
+                  bg: "#706C61",
             },
       });
 

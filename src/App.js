@@ -5,10 +5,13 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 // Pages import
 import HomeScreen from "./containers/HomeScreen/HomeScreen";
 
+import DataScreen from "./containers/DataScreen/DataScreen";
+
 // Components import
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
-import DataScreen from "./containers/DataScreen/DataScreen";
+
+// Context import
 import { ThemeContextProvider } from "./context/ThemeContext";
 
 function App() {

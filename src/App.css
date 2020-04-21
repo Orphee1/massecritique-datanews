@@ -86,9 +86,20 @@ button {
       align-items: center;
 }
 
+.base {
+      display: flex;
+      align-items: baseline;
+}
+
 .s-b {
       display: flex;
       justify-content: space-between;
+      align-items: center;
+}
+
+.s-a {
+      display: flex;
+      justify-content: space-around;
       align-items: center;
 }
 
