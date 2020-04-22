@@ -3,32 +3,59 @@ import React, { useState, useContext } from "react";
 import { DataContext } from "../../context/DataContext";
 
 export default function Test() {
-      // Managing data display
-      const [data] = useContext(DataContext);
-      let { dataSelected, dataKeyHosp, dataKeyRea, dataKeyDead } = data;
-      let dataKeySelected;
+      const [data, setData] = useState({
+            dataSelected: "rea",
+      });
+      const { dataSelected } = data;
+      let dataKeyHosp = {
+            h: "hosph",
+            f: "hospf",
+      };
+      let dataKeyRea = {
+            h: "reah",
+            f: "reaf",
+      };
+      let dataKeyDead = {
+            h: "deadh",
+            f: "deadf",
+      };
 
-      console.log(dataSelected);
-      console.log(dataKeyHosp);
-      console.log(dataKeyRea);
-      // let dataToDisplay;
-      switch (dataSelected) {
-            case "hosp":
-                  dataKeySelected = dataKeyHosp;
-                  // dataToDisplay = dataHospDec;
-                  return;
-            case "rea":
-                  dataKeySelected = dataKeyRea;
-                  // dataToDisplay = dataReaDec;
+      const dataKeySelected =
+            dataSelected === "hosp"
+                  ? dataKeyHosp
+                  : dataSelected === "rea"
+                  ? dataKeyRea
+                  : dataKeyDead;
 
-                  return;
-            case "hosp":
-                  dataKeySelected = dataKeyDead;
-                  // dataToDisplay = dataDeadDec;
+      console.log(data);
 
-                  return;
-      }
       console.log(dataKeySelected);
 
-      return <div></div>;
+      // switch (dataSelected) {
+      //       case "category1":
+      //             option = "option1";
+      //             return;
+      //       case "category2":
+      //             option = "option2";
+      //             return;
+      //       case "category3":
+      //             option = "option3";
+      //             return;
+      // }
+      return (
+            <div>
+                  <select
+                        onChange={(event) => {
+                              setData({
+                                    dataSelected: event.target.value,
+                              });
+                        }}
+                  >
+                        <option value="hosp">hospitalisés</option>
+                        <option value="rea">réanimation</option>
+                        <option value="dead">décès</option>
+                  </select>
+                  <div>TEST IN PROGRESS</div>
+            </div>
+      );
 }

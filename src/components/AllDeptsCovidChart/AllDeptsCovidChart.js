@@ -10,7 +10,6 @@ import {
       Legend,
 } from "recharts";
 import { ThemeContext } from "../../context/ThemeContext";
-import { DataContext } from "../../context/DataContext";
 
 import "../../App.css";
 import "./style.css";
@@ -70,35 +69,35 @@ export default function AllDeptsCovidChart() {
       }
       const dataDeadDec = dataUpdated.sort(compareDeadDec);
 
-      const [dataSelected, setDataSelected] = useState("hosp");
-      console.log(dataSelected);
-
-      // // Managing data display
-      // const [data] = useContext(DataContext);
-      // let { dataSelected, dataKeyHosp, dataKeyRea, dataKeyDead } = data;
-      // let dataKeySelected;
-
-      // console.log(dataSelected);
-      // console.log(dataKeyHosp);
-      // console.log(dataKeyRea);
-      // // let dataToDisplay;
-      // switch (dataSelected) {
-      //       case "hosp":
-      //             dataKeySelected = dataKeyHosp;
-      //             // dataToDisplay = dataHospDec;
-      //             return;
-      //       case "rea":
-      //             dataKeySelected = dataKeyRea;
-      //             // dataToDisplay = dataReaDec;
-
-      //             return;
-      //       case "hosp":
-      //             dataKeySelected = dataKeyDead;
-      //             // dataToDisplay = dataDeadDec;
-
-      //             return;
-      // }
-      // console.log(dataKeySelected);
+      // Select data to display in chart for all departments
+      const [data, setData] = useState({
+            dataSelected: "rea",
+      });
+      const { dataSelected } = data;
+      let dataKeyHosp = {
+            h: "hosph",
+            f: "hospf",
+      };
+      let dataKeyRea = {
+            h: "reah",
+            f: "reaf",
+      };
+      let dataKeyDead = {
+            h: "deadh",
+            f: "deadf",
+      };
+      const dataKeySelected =
+            dataSelected === "hosp"
+                  ? dataKeyHosp
+                  : dataSelected === "rea"
+                  ? dataKeyRea
+                  : dataKeyDead;
+      const dataToDisplay =
+            dataSelected === "hosp"
+                  ? dataHospDec
+                  : dataSelected === "hosp"
+                  ? dataReaDec
+                  : dataDeadDec;
 
       return (
             <div>
@@ -111,7 +110,9 @@ export default function AllDeptsCovidChart() {
                   <select
                         className="hosp-rea-dead-select"
                         onChange={(event) => {
-                              setDataSelected(event.target.value);
+                              setData({
+                                    dataSelected: event.target.value,
+                              });
                         }}
                   >
                         <option value="hosp">Afficher</option>
@@ -119,160 +120,57 @@ export default function AllDeptsCovidChart() {
                         <option value="rea">Patients en réanimation</option>
                         <option value="dead">Décès</option>
                   </select>
-                  {dataSelected === "hosp" ? (
-                        <BarChart
-                              width={800}
-                              height={1800}
-                              layout="vertical"
-                              // data={dataUpdated}
-                              data={dataHospDec}
-                              margin={{
-                                    top: 5,
-                                    right: 5,
-                                    bottom: 5,
-                                    left: 105,
+
+                  <BarChart
+                        width={800}
+                        height={1800}
+                        layout="vertical"
+                        // data={dataUpdated}
+                        data={dataToDisplay}
+                        margin={{
+                              top: 5,
+                              right: 5,
+                              bottom: 5,
+                              left: 105,
+                        }}
+                  >
+                        <CartesianGrid
+                              strokeDasharray="3 3"
+                              stroke={option.syntax}
+                        />
+                        <XAxis type="number" stroke={option.syntax} />
+                        <YAxis
+                              type="category"
+                              dataKey="dep"
+                              interval={0}
+                              stroke={option.syntax}
+                              width={110}
+                        />
+                        <Tooltip />
+                        <Legend
+                              width={200}
+                              wrapperStyle={{
+                                    top: 1780,
+                                    right: 150,
+                                    backgroundColor: option.bgClear,
+                                    border: "3px solid",
+                                    borderColor: option.syntax,
+                                    lineHeight: "30px",
                               }}
-                        >
-                              <CartesianGrid
-                                    strokeDasharray="3 3"
-                                    stroke={option.syntax}
-                              />
-                              <XAxis type="number" stroke={option.syntax} />
-                              <YAxis
-                                    type="category"
-                                    dataKey="dep"
-                                    interval={0}
-                                    stroke={option.syntax}
-                                    width={110}
-                              />
-                              <Tooltip />
-                              <Legend
-                                    width={200}
-                                    wrapperStyle={{
-                                          top: 1780,
-                                          right: 150,
-                                          backgroundColor: option.bgClear,
-                                          border: "3px solid",
-                                          borderColor: option.syntax,
-                                          lineHeight: "30px",
-                                    }}
-                              />
-                              <Bar
-                                    dataKey="hosph"
-                                    // dataKey={dataKeyH}
-                                    stackId="a"
-                                    fill="#EC6554"
-                              />
-                              <Bar
-                                    dataKey="hospf"
-                                    // dataKey={dataKeyF}
-                                    stackId="a"
-                                    fill="#D24738"
-                              />
-                        </BarChart>
-                  ) : dataSelected === "rea" ? (
-                        <BarChart
-                              width={800}
-                              height={1800}
-                              layout="vertical"
-                              // data={dataUpdated}
-                              data={dataReaDec}
-                              margin={{
-                                    top: 5,
-                                    right: 5,
-                                    bottom: 5,
-                                    left: 105,
-                              }}
-                        >
-                              <CartesianGrid
-                                    strokeDasharray="3 3"
-                                    stroke={option.syntax}
-                              />
-                              <XAxis type="number" stroke={option.syntax} />
-                              <YAxis
-                                    type="category"
-                                    dataKey="dep"
-                                    interval={0}
-                                    stroke={option.syntax}
-                                    width={110}
-                              />
-                              <Tooltip />
-                              <Legend
-                                    width={200}
-                                    wrapperStyle={{
-                                          top: 1780,
-                                          right: 150,
-                                          backgroundColor: option.bgClear,
-                                          border: "3px solid",
-                                          borderColor: option.syntax,
-                                          lineHeight: "30px",
-                                    }}
-                              />
-                              <Bar
-                                    dataKey="reah"
-                                    // dataKey={dataKeyH}
-                                    stackId="a"
-                                    fill="#EC6554"
-                              />
-                              <Bar
-                                    dataKey="reaf"
-                                    // dataKey={dataKeyF}
-                                    stackId="a"
-                                    fill="#D24738"
-                              />
-                        </BarChart>
-                  ) : (
-                        <BarChart
-                              width={800}
-                              height={1800}
-                              layout="vertical"
-                              // data={dataUpdated}
-                              data={dataDeadDec}
-                              margin={{
-                                    top: 5,
-                                    right: 5,
-                                    bottom: 5,
-                                    left: 105,
-                              }}
-                        >
-                              <CartesianGrid
-                                    strokeDasharray="3 3"
-                                    stroke={option.syntax}
-                              />
-                              <XAxis type="number" stroke={option.syntax} />
-                              <YAxis
-                                    type="category"
-                                    dataKey="dep"
-                                    interval={0}
-                                    stroke={option.syntax}
-                                    width={110}
-                              />
-                              <Tooltip />
-                              <Legend
-                                    width={200}
-                                    wrapperStyle={{
-                                          top: 1780,
-                                          right: 150,
-                                          backgroundColor: option.bgClear,
-                                          border: "3px solid",
-                                          borderColor: option.syntax,
-                                          lineHeight: "30px",
-                                    }}
-                              />
-                              <Bar
-                                    dataKey="deadh"
-                                    // dataKey={dataKeyH}
-                                    stackId="a"
-                                    fill="#EC6554"
-                              />
-                              <Bar
-                                    dataKey="deadf"
-                                    // dataKey={dataKeyF}
-                                    stackId="a"
-                                    fill="#D24738"
-                              />
-                        </BarChart>
-                  )}
+                        />
+                        <Bar
+                              // dataKey="hosph"
+                              dataKey={dataKeySelected.h}
+                              stackId="a"
+                              fill="#EC6554"
+                        />
+                        <Bar
+                              // dataKey="hospf"
+                              dataKey={dataKeySelected.f}
+                              stackId="a"
+                              fill="#D24738"
+                        />
+                  </BarChart>
             </div>
       );
 }

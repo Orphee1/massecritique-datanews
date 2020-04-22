@@ -33,6 +33,7 @@ import franceDepts from "../../assets/maps/FranceDepts.json";
 // Data import
 import COVIDhrd2004 from "../../assets/data/COVID/COVIDhrd2004.json";
 import COVID2104 from "../../assets/data/COVID/COVID2104.json";
+import Test from "../../components/Test/Test";
 
 const date = "21 avril";
 const dataUpdated = COVID2104;

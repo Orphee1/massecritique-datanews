@@ -13,7 +13,6 @@ import Footer from "./components/Footer/Footer";
 
 // Context import
 import { ThemeContextProvider } from "./context/ThemeContext";
-import { DataContextProvider } from "./context/DataContext";
 
 function App() {
       const [indexPage, setIndexPage] = useState(1);
@@ -26,11 +25,10 @@ function App() {
                               setIndexPage={setIndexPage}
                         />
                         <Switch>
-                              <DataContextProvider>
-                                    <Route path="/data">
-                                          <DataScreen />
-                                    </Route>
-                              </DataContextProvider>
+                              <Route path="/data">
+                                    <DataScreen />
+                              </Route>
+
                               <Route path="/">
                                     <HomeScreen />
                               </Route>
