@@ -131,10 +131,8 @@ for (let i = 0; i < optionDepts.length; i++) {
 }
 
 export default function CovidChartScreen({ data }) {
-      const { width, height } = useWindowDimensions();
+      const { height } = useWindowDimensions();
       const [depSelected, setDepSelected] = useState("Ain");
-      const [scale, setScale] = useState("absolute");
-      console.log(depSelected);
 
       // Theme definition
       const [theme] = useContext(ThemeContext);
