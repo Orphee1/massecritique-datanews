@@ -1,0 +1,67 @@
+[
+      {
+            "code": 1,
+            "dep": "Ain",
+            "hosp": 169,
+            "hosph": 81,
+            "hospf": 85,
+            "rea": 23,
+            "reah": 19,
+            "reaf": 4,
+            "dead": 64,
+            "deadh": 38,
+            "deadf": 25
+      },
+      {
+            "code": 2,
+            "dep": "Aisne",
+            "hosp": 295,
+            "hosph": 146,
+            "hospf": 149,
+            "rea": 40,
+            "reah": 27,
+            "reaf": 13,
+            "dead": 183,
+            "deadh": 108,
+            "deadf": 72
+      },
+      {
+            "code": 3,
+            "dep": "Allier",
+            "hosp": 56,
+            "hosph": 28,
+            "hospf": 27,
+            "rea": 18,
+            "reah": 13,
+            "reaf": 5,
+            "dead": 22,
+            "deadh": 11,
+            "deadf": 11
+      },
+      {
+            "code": 4,
+            "dep": "Alpes-de-Haute-Provence",
+            "hosp": 41,
+            "hosph": 15,
+            "hospf": 23,
+            "rea": 2,
+            "reah": 0,
+            "reaf": 2,
+            "dead": 7,
+            "deadh": 5,
+            "deadf": 2
+      },
+      {
+            "code": 5,
+            "dep": "Hautes-Alpes",
+            "hosp": 41,
+            "hosph": 17,
+            "hospf": 24,
+            "rea": 9,
+            "reah": 5,
+            "reaf": 4,
+            "dead": 6,
+            "deadh": 2,
+            "deadf": 4
+      }
+]

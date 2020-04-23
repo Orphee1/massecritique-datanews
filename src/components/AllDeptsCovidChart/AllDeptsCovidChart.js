@@ -37,7 +37,7 @@ export default function AllDeptsCovidChart() {
             }
             return comparison;
       }
-      const dataHospDec = dataUpdated.sort(compareHospDec);
+      // const dataHospDec = dataUpdated.sort(compareHospDec);
 
       // Sort data according to rea value
 
@@ -52,7 +52,8 @@ export default function AllDeptsCovidChart() {
             }
             return comparison;
       }
-      const dataReaDec = dataUpdated.sort(compareReaDec);
+
+      // const dataReaDec = dataUpdated.sort(compareReaDec);
 
       // Sort data according to dead value
 
@@ -67,7 +68,7 @@ export default function AllDeptsCovidChart() {
             }
             return comparison;
       }
-      const dataDeadDec = dataUpdated.sort(compareDeadDec);
+      // const dataDeadDec = dataUpdated.sort(compareDeadDec);
 
       // Select data to display in chart for all departments
       const [data, setData] = useState({
@@ -86,6 +87,7 @@ export default function AllDeptsCovidChart() {
             h: "deadh",
             f: "deadf",
       };
+
       const dataKeySelected =
             dataSelected === "hosp"
                   ? dataKeyHosp
@@ -94,10 +96,10 @@ export default function AllDeptsCovidChart() {
                   : dataKeyDead;
       const dataToDisplay =
             dataSelected === "hosp"
-                  ? dataHospDec
-                  : dataSelected === "hosp"
-                  ? dataReaDec
-                  : dataDeadDec;
+                  ? dataUpdated.sort(compareHospDec)
+                  : dataSelected === "rea"
+                  ? dataUpdated.sort(compareReaDec)
+                  : dataUpdated.sort(compareDeadDec);
 
       return (
             <div>

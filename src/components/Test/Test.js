@@ -1,61 +1,43 @@
-import React, { useState, useContext } from "react";
+const data = require("../../assets/data/COVID/COVID2104.json");
 
-import { DataContext } from "../../context/DataContext";
-
-export default function Test() {
-      const [data, setData] = useState({
-            dataSelected: "rea",
-      });
-      const { dataSelected } = data;
-      let dataKeyHosp = {
-            h: "hosph",
-            f: "hospf",
-      };
-      let dataKeyRea = {
-            h: "reah",
-            f: "reaf",
-      };
-      let dataKeyDead = {
-            h: "deadh",
-            f: "deadf",
-      };
-
-      const dataKeySelected =
-            dataSelected === "hosp"
-                  ? dataKeyHosp
-                  : dataSelected === "rea"
-                  ? dataKeyRea
-                  : dataKeyDead;
-
-      console.log(data);
-
-      console.log(dataKeySelected);
-
-      // switch (dataSelected) {
-      //       case "category1":
-      //             option = "option1";
-      //             return;
-      //       case "category2":
-      //             option = "option2";
-      //             return;
-      //       case "category3":
-      //             option = "option3";
-      //             return;
-      // }
-      return (
-            <div>
-                  <select
-                        onChange={(event) => {
-                              setData({
-                                    dataSelected: event.target.value,
-                              });
-                        }}
-                  >
-                        <option value="hosp">hospitalisés</option>
-                        <option value="rea">réanimation</option>
-                        <option value="dead">décès</option>
-                  </select>
-                  <div>TEST IN PROGRESS</div>
-            </div>
-      );
+function compareHospDec(a, b) {
+      const hospA = a.hosp;
+      const hospB = b.hosp;
+      let comparison = 0;
+      if (hospA < hospB) {
+            comparison = 1;
+      } else if (hospA > hospB) {
+            comparison = -1;
+      }
+      return comparison;
 }
+
+function compareDeadDec(a, b) {
+      const deadA = a.dead;
+      const deadB = b.dead;
+      let comparison = 0;
+      if (deadA < deadB) {
+            comparison = 1;
+      } else if (deadA > deadB) {
+            comparison = -1;
+      }
+      return comparison;
+}
+
+function compareReaDec(a, b) {
+      const reaA = a.rea;
+      const reaB = b.rea;
+      let comparison = 0;
+      if (reaA < reaB) {
+            comparison = 1;
+      } else if (reaA > reaB) {
+            comparison = -1;
+      }
+      return comparison;
+}
+
+// const newSort = data.sort(compareHospDec);
+const newSort = data.sort(function (a, b) {
+      return b.hosp - a.hosp;
+});
+console.log(newSort);
