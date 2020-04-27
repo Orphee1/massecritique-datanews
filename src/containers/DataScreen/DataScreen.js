@@ -14,7 +14,6 @@ import {
 } from "recharts";
 
 import { ThemeContext } from "../../context/ThemeContext";
-import { DataContext } from "../../context/DataContext";
 
 import "../../App.css";
 import "./style.css";
@@ -23,6 +22,9 @@ import useWindowDimensions from "../../assets/useWindowDimension";
 // Components import
 import CovidChartScreen from "../../components/CovidChartScreen/CovidChartScreen";
 import AllDeptsCovidChart from "../../components/AllDeptsCovidChart/AllDeptsCovidChart";
+import AllDeptAgeCovidChart from "../../components/AllDeptAgeCovidChart/AllDeptAgeCovidChart";
+
+import SimpleBarChart from "../../components/Test/Test";
 
 // Icons import
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -31,15 +33,20 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import franceDepts from "../../assets/maps/FranceDepts.json";
 
 // Data import
-import COVIDhrd2004 from "../../assets/data/COVID/COVIDhrd2004.json";
-import COVID2104 from "../../assets/data/COVID/COVID2104.json";
-import Test from "../../components/Test/Test";
 
-const date = "21 avril";
-const dataUpdated = COVID2104;
+import COVID2104 from "../../assets/data/COVID/COVID2104.json";
+import COVID2204 from "../../assets/data/COVID/COVID2204.json";
+import COVIDDcAge2204 from "../../assets/data/COVID/COVIDDcAge2204.json";
+import COVIDHospAge2204 from "../../assets/data/COVID/COVIDHospAge2204.json";
+import COVIDReaAge2204 from "../../assets/data/COVID/COVIDReaAge2204.json";
+import COVID2504 from "../../assets/data/COVID/COVID2504.json";
+import COVID2604 from "../../assets/data/COVID/COVID2604.json";
+
+const date = "26 avril";
+const dataUpdated = COVID2604;
 
 export default function DataScreen() {
-      const { width, height } = useWindowDimensions();
+      const { height } = useWindowDimensions();
       // Theme definition
       const [theme] = useContext(ThemeContext);
       let { isLigthTheme, light, dark } = theme;
@@ -66,8 +73,8 @@ export default function DataScreen() {
       // console.log(totalD);
 
       const [hovered, setHovered] = useState("None");
-      const [focused, setFocused] = useState("None");
-      const [clicked, setClicked] = useState("None");
+      const [setFocused] = useState("None");
+      const [setClicked] = useState("None");
       const [dataHToDisplay, setDataHToDisplay] = useState();
       const [dataRToDisplay, setDataRToDisplay] = useState();
       const [dataDToDisplay, setDataDToDisplay] = useState();
@@ -242,7 +249,7 @@ export default function DataScreen() {
                                                       marginBottom: 5,
                                                 }}
                                           >
-                                                Nombre de personnes
+                                                Personnes actuellement
                                                 hospitalisées: {totalH}
                                           </div>
                                           <div
@@ -252,7 +259,7 @@ export default function DataScreen() {
                                                       marginBottom: 5,
                                                 }}
                                           >
-                                                Nombre de personnes en
+                                                Personnes actuellement en
                                                 réanimation: {totalR}
                                           </div>
                                           <div
@@ -261,7 +268,7 @@ export default function DataScreen() {
                                                       marginBottom: 5,
                                                 }}
                                           >
-                                                Nombre de personnes décédées:{" "}
+                                                Personnes décédées à l'hôpital:{" "}
                                                 {totalD}
                                           </div>
                                     </div>
@@ -275,7 +282,10 @@ export default function DataScreen() {
                                     marginBottom: "20px",
                               }}
                         >
-                              <AllDeptsCovidChart />
+                              <h4 style={{ color: option.syntax }}>
+                                    Impact de l'épidémie selon le sexe
+                              </h4>
+                              <AllDeptsCovidChart data={dataUpdated} />
                         </div>
 
                         <div
@@ -286,6 +296,19 @@ export default function DataScreen() {
                               }}
                         >
                               <CovidChartScreen data={dataUpdated} />
+                        </div>
+                        <div
+                              className="data-flex5"
+                              style={{
+                                    // height: height * 0.9,
+                                    height: "100%",
+                                    marginBottom: "20px",
+                              }}
+                        >
+                              <h4 style={{ color: option.syntax }}>
+                                    Impact de l'épidémie selon la classe d'âge
+                              </h4>
+                              <AllDeptAgeCovidChart />
                         </div>
                   </div>
             </div>

@@ -22,7 +22,7 @@ const optionDepts = [
       "Allier",
       "Alpes-de-Haute-Provence",
       "Hautes-Alpes",
-      "Alpes-Maritime",
+      "Alpes-Maritimes",
       "Ardèche",
       "Ardennes",
       "Ariège",
@@ -254,6 +254,14 @@ export default function CovidChartScreen({ data }) {
                                                       {hospf} femmes.
                                                 </p>
                                           </div>
+                                          <p
+                                                style={{
+                                                      color: option.syntax,
+                                                      marginLeft: "20px",
+                                                }}
+                                          >
+                                                Total : {hospf + hosph}
+                                          </p>
                                     </div>
                                     <div className="rea">
                                           <p
@@ -302,6 +310,14 @@ export default function CovidChartScreen({ data }) {
                                                       {reaf} femmes.
                                                 </p>
                                           </div>
+                                          <p
+                                                style={{
+                                                      color: option.syntax,
+                                                      marginLeft: "20px",
+                                                }}
+                                          >
+                                                Total : {reaf + reah}
+                                          </p>
                                     </div>
                                     <div className="dead">
                                           <p
@@ -350,6 +366,14 @@ export default function CovidChartScreen({ data }) {
                                                       {deadf} femmes.
                                                 </p>
                                           </div>
+                                          <p
+                                                style={{
+                                                      color: option.syntax,
+                                                      marginLeft: "20px",
+                                                }}
+                                          >
+                                                Total : {deadf + deadh}
+                                          </p>
                                     </div>
                               </div>
                         </div>
@@ -381,6 +405,7 @@ export default function CovidChartScreen({ data }) {
                                                 type="number"
                                           />
                                           <Tooltip
+                                                cursor={false}
                                                 wrapperStyle={{
                                                       width: 100,
                                                       backgroundColor:

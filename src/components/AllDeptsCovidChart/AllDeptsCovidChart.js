@@ -15,10 +15,10 @@ import "../../App.css";
 import "./style.css";
 import useWindowDimensions from "../../assets/useWindowDimension";
 
-import COVID2104 from "../../assets/data/COVID/COVID2104.json";
-const dataUpdated = COVID2104;
+// import COVID2104 from "../../assets/data/COVID/COVID2104.json";
+// const dataUpdated = COVID2104;
 
-export default function AllDeptsCovidChart() {
+export default function AllDeptsCovidChart({ data }) {
       // Theme definition
       const [theme] = useContext(ThemeContext);
       let { isLigthTheme, light, dark } = theme;
@@ -71,53 +71,69 @@ export default function AllDeptsCovidChart() {
       // const dataDeadDec = dataUpdated.sort(compareDeadDec);
 
       // Select data to display in chart for all departments
-      const [data, setData] = useState({
-            dataSelected: "rea",
+      const [dataOK, setDataOK] = useState({
+            dataSelected: "hosp",
       });
-      const { dataSelected } = data;
-      let dataKeyHosp = {
+      const { dataSelected } = dataOK;
+      const dataKeyHosp = {
             h: "hosph",
             f: "hospf",
       };
-      let dataKeyRea = {
+      const dataKeyRea = {
             h: "reah",
             f: "reaf",
       };
-      let dataKeyDead = {
+      const dataKeyDead = {
             h: "deadh",
             f: "deadf",
       };
 
-      const dataKeySelected =
-            dataSelected === "hosp"
-                  ? dataKeyHosp
-                  : dataSelected === "rea"
-                  ? dataKeyRea
-                  : dataKeyDead;
-      const dataToDisplay =
-            dataSelected === "hosp"
-                  ? dataUpdated.sort(compareHospDec)
-                  : dataSelected === "rea"
-                  ? dataUpdated.sort(compareReaDec)
-                  : dataUpdated.sort(compareDeadDec);
+      let dataKeySelected;
+      let dataToDisplay;
+      switch (dataSelected) {
+            case "hosp":
+                  dataKeySelected = dataKeyHosp;
+                  dataToDisplay = data.sort(compareHospDec);
+                  break;
+            case "rea":
+                  dataKeySelected = dataKeyRea;
+                  dataToDisplay = data.sort(compareReaDec);
+                  break;
+            case "dead":
+                  dataKeySelected = dataKeyDead;
+                  dataToDisplay = data.sort(compareDeadDec);
+                  break;
+      }
 
       return (
             <div>
                   <p
                         style={{
                               color: option.syntax,
+
                               fontWeight: "bold",
                         }}
-                  ></p>
+                        className=""
+                  >
+                        Librairie :{" "}
+                        <a
+                              style={{
+                                    color: option.syntax,
+                                    fontWeight: "bold",
+                              }}
+                              href="http://recharts.org/en-US/"
+                        >
+                              Recharts
+                        </a>
+                  </p>
                   <select
                         className="hosp-rea-dead-select"
                         onChange={(event) => {
-                              setData({
+                              setDataOK({
                                     dataSelected: event.target.value,
                               });
                         }}
                   >
-                        <option value="hosp">Afficher</option>
                         <option value="hosp">Patients hospitalisés</option>
                         <option value="rea">Patients en réanimation</option>
                         <option value="dead">Décès</option>
@@ -127,7 +143,7 @@ export default function AllDeptsCovidChart() {
                         width={800}
                         height={1800}
                         layout="vertical"
-                        // data={dataUpdated}
+                        // data={data}
                         data={dataToDisplay}
                         margin={{
                               top: 5,
@@ -140,7 +156,11 @@ export default function AllDeptsCovidChart() {
                               strokeDasharray="3 3"
                               stroke={option.syntax}
                         />
-                        <XAxis type="number" stroke={option.syntax} />
+                        <XAxis
+                              type="number"
+                              stroke={option.syntax}
+                              orientation="top"
+                        />
                         <YAxis
                               type="category"
                               dataKey="dep"
@@ -148,7 +168,7 @@ export default function AllDeptsCovidChart() {
                               stroke={option.syntax}
                               width={110}
                         />
-                        <Tooltip />
+                        <Tooltip cursor={false} />
                         <Legend
                               width={200}
                               wrapperStyle={{

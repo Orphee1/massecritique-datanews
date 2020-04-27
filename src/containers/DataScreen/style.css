@@ -103,6 +103,18 @@
       /* overflow-x: auto; */
 }
 
+/* Bloc Flex 5 > child 1 =  */
+
+.data-flex5 {
+      flex: 1 1 auto;
+      margin: 10px;
+      display: flex;
+      /* justify-content: center; */
+      flex-direction: column;
+      align-items: flex-start;
+      /* overflow-x: auto; */
+}
+
 /* -------------------- media queries ---*/
 
 @media (max-width: 1024px /* Landscape tab */) {
