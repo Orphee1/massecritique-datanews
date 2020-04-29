@@ -1,5 +1,7 @@
 .page {
       margin-top: 60px;
+      display: flex;
+      flex-direction: column;
 }
 
 .article-container {
@@ -7,7 +9,6 @@
       margin: 0 auto;
       padding: 30px;
       display: flex;
-
       flex-wrap: wrap;
 }
 h2 {
@@ -68,15 +69,28 @@ h4 {
 li {
       margin: 10px;
 }
-span {
-      /* font-weight: 700; */
+
+.page-button {
+      margin: 0 10px 30px 10px;
+      outline: none;
 }
 
+.page-button-selected {
+      margin: 0 10px 30px 10px;
+      /* background-color: black; */
+      border: 1px solid black;
+      border-radius: 5px;
+      outline: none;
+      /* color: "#FFFFF0"; */
+}
 /* Bloc Flex 1 >  */
 
 .article-flex {
+      flex: 1 1 400px;
+      height: 300px;
       margin: 20px;
       padding: 10px;
+
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
