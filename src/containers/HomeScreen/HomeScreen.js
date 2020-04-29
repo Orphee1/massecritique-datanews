@@ -12,18 +12,37 @@ export default function HomeScreen() {
       const { width, height } = useWindowDimensions();
 
       // Theme definition
-      const [theme] = useContext(ThemeContext);
-      let { isLigthTheme, light, dark } = theme;
-      const option = isLigthTheme ? light : dark;
+      const [theme, setTheme] = useContext(ThemeContext);
+      const { themeSelected, themeOne, themeTwo, themeThree } = theme;
+      let option;
+      switch (themeSelected) {
+            case "theme1":
+                  option = themeOne;
+                  break;
+            case "theme2":
+                  option = themeTwo;
+                  break;
+            case "theme3":
+                  option = themeThree;
+                  break;
+      }
 
       return (
             <div
                   className="page"
-                  style={{ background: option.bg, marginTop: "20px" }}
+                  style={{
+                        background: option.syntax,
+                        marginTop: "60px",
+                  }}
             >
-                  <div className="home-container">
+                  <div
+                        className="home-container"
+                        style={{
+                              background: option.bg,
+                        }}
+                  >
                         <div
-                              className="home-flex1 yellow"
+                              className="home-flex1"
                               style={{
                                     height: height * 0.9,
                                     marginBottom: "20px",
@@ -60,7 +79,11 @@ export default function HomeScreen() {
                                     <h3 style={{ color: option.syntax }}>
                                           Solar production growth
                                     </h3>
-                                    <h4 style={{ color: option.syntax }}>
+                                    <h4
+                                          style={{
+                                                color: option.syntax,
+                                          }}
+                                    >
                                           Chapeau destiné à présenter la
                                           production mise en valeur en home
                                     </h4>
@@ -82,7 +105,11 @@ export default function HomeScreen() {
                               <h3 style={{ color: option.syntax }}>
                                     Autre prod mise en home
                               </h3>
-                              <h4 style={{ color: option.syntax }}>
+                              <h4
+                                    style={{
+                                          color: option.syntax,
+                                    }}
+                              >
                                     Encore un chapeau destiné à présenter une
                                     production mise en valeur en home
                               </h4>

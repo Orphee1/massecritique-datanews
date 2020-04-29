@@ -135,9 +135,20 @@ export default function CovidChartScreen({ data }) {
       const [depSelected, setDepSelected] = useState("Ain");
 
       // Theme definition
-      const [theme] = useContext(ThemeContext);
-      let { isLigthTheme, light, dark } = theme;
-      const option = isLigthTheme ? light : dark;
+      const [theme, setTheme] = useContext(ThemeContext);
+      const { themeSelected, themeOne, themeTwo, themeThree } = theme;
+      let option;
+      switch (themeSelected) {
+            case "theme1":
+                  option = themeOne;
+                  break;
+            case "theme2":
+                  option = themeTwo;
+                  break;
+            case "theme3":
+                  option = themeThree;
+                  break;
+      }
 
       // Data treatment
 
@@ -412,7 +423,7 @@ export default function CovidChartScreen({ data }) {
                                                             option.bgClear,
                                                 }}
                                           />
-                                          <Legend
+                                          {/* <Legend
                                                 width={400}
                                                 wrapperStyle={{
                                                       top: 330,
@@ -424,7 +435,7 @@ export default function CovidChartScreen({ data }) {
                                                             option.syntax,
                                                       lineHeight: "30px",
                                                 }}
-                                          />
+                                          /> */}
                                           <Bar
                                                 dataKey="hosph"
                                                 stackId="a"

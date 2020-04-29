@@ -3,9 +3,9 @@ import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 // Pages import
-import HomeScreen from "./containers/HomeScreen/HomeScreen";
-
+import ArticleScreen from "./containers/ArticleScreen/ArticleScreen";
 import DataScreen from "./containers/DataScreen/DataScreen";
+import HomeScreen from "./containers/HomeScreen/HomeScreen";
 
 // Components import
 import Header from "./components/Header/Header";
@@ -27,6 +27,9 @@ function App() {
                         <Switch>
                               <Route path="/data">
                                     <DataScreen />
+                              </Route>
+                              <Route path="/article">
+                                    <ArticleScreen />
                               </Route>
 
                               <Route path="/">

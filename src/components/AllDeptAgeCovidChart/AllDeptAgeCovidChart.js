@@ -50,9 +50,20 @@ for (let i = 0; i < optionReg.length; i++) {
 
 export default function AllDeptAgeCovidChart() {
       // Theme definition
-      const [theme] = useContext(ThemeContext);
-      let { isLigthTheme, light, dark } = theme;
-      const option = isLigthTheme ? light : dark;
+      const [theme, setTheme] = useContext(ThemeContext);
+      const { themeSelected, themeOne, themeTwo, themeThree } = theme;
+      let option;
+      switch (themeSelected) {
+            case "theme1":
+                  option = themeOne;
+                  break;
+            case "theme2":
+                  option = themeTwo;
+                  break;
+            case "theme3":
+                  option = themeThree;
+                  break;
+      }
 
       const [regSelected, setRegSelected] = useState("Île-de-France");
       const [mode, setMode] = useState("absolute");
@@ -687,7 +698,7 @@ export default function AllDeptAgeCovidChart() {
                                           color: option.syntax,
                                           backgroundColor: option.bgClear,
                                     }}
-                                    // allowEscapeViewBox={{ x: true, y: true }}
+                                    allowEscapeViewBox={{ x: true, y: true }}
                                     animationDuration={2000}
                                     animationEasing="ease-in-out"
                               />

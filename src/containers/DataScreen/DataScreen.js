@@ -48,9 +48,20 @@ const dataUpdated = COVID2604;
 export default function DataScreen() {
       const { height } = useWindowDimensions();
       // Theme definition
-      const [theme] = useContext(ThemeContext);
-      let { isLigthTheme, light, dark } = theme;
-      const option = isLigthTheme ? light : dark;
+      const [theme, setTheme] = useContext(ThemeContext);
+      const { themeSelected, themeOne, themeTwo, themeThree } = theme;
+      let option;
+      switch (themeSelected) {
+            case "theme1":
+                  option = themeOne;
+                  break;
+            case "theme2":
+                  option = themeTwo;
+                  break;
+            case "theme3":
+                  option = themeThree;
+                  break;
+      }
 
       // Date treatment
 
@@ -108,17 +119,38 @@ export default function DataScreen() {
       return (
             <div
                   className="page"
-                  style={{ background: option.bg, marginTop: "20px" }}
+                  style={{
+                        background: option.syntax,
+                        marginTop: "60px",
+                  }}
             >
                   <div
-                        className="title"
-                        style={{ justifyContent: "space-around" }}
+                        className="data-container"
+                        style={{
+                              background: option.bg,
+                        }}
                   >
-                        <h3 className="" style={{ color: option.syntax }}>
-                              Epidémie de COVID-19
-                        </h3>
-                  </div>
-                  <div className="data-container">
+                        <div className="data-flex0">
+                              <h2
+                                    style={{
+                                          color: option.syntax,
+                                          marginBottom: "0",
+                                          marginTop: "0",
+                                          // fontWeight: "900",
+                                    }}
+                              >
+                                    Data
+                              </h2>
+                              <h3
+                                    style={{
+                                          color: option.syntax,
+                                          fontWeight: "600",
+                                          fontSize: "30px",
+                                    }}
+                              >
+                                    Epidémie de COVID-19
+                              </h3>
+                        </div>
                         <div
                               className="data-flex1"
                               style={{

@@ -1,0 +1,214 @@
+.article-container {
+      width: 85%;
+      margin: 0 auto;
+      padding: 30px;
+      display: flex;
+
+      flex-wrap: wrap;
+}
+h2 {
+      font-size: 56px;
+      margin-left: 10px;
+      /* font-weight: 900; */
+      font-family: "Montserrat", sans-serif;
+}
+
+h3,
+a {
+      color: white;
+      font-weight: 900;
+      /* font-family: "Montserrat"; */
+      /* font-family: "Roboto"; */
+      /* font-family: Arial, Helvetica, sans-serif; */
+}
+
+h4 {
+      color: white;
+      font-weight: 900;
+      width: 70%;
+      font-family: "Roboto", sans-serif;
+      /* font-family: Arial, Helvetica, sans-serif; */
+}
+
+.article-title {
+      width: 70%;
+}
+
+.article-flex0 {
+      flex: 1 1 1000px;
+      height: 80px;
+      margin: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+}
+
+.menu-article {
+      display: flex;
+}
+li {
+      margin: 10px;
+}
+span {
+      /* font-weight: 700; */
+}
+
+/* Bloc Flex 1 >  */
+
+.article-flex1 {
+      flex: 1 1 1000px;
+      height: 400px;
+      margin: 20px;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      background-image: url("../../images/articles/Vaca1.jpg");
+      background-size: cover;
+      justify-content: flex-start;
+      /* align-items: center; */
+}
+
+.article-flex2 {
+      flex: 1 1 300px;
+      height: 300px;
+      margin: 20px;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: flex-end;
+}
+
+.article-flex3 {
+      flex: 2 1 400px;
+      height: 300px;
+      margin: 20px;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      background-image: url("../../images/articles/roms.jpg");
+      background-size: cover;
+      justify-content: flex-end;
+      /* align-items: center; */
+}
+
+.article-flex4 {
+      flex: 2 1 400px;
+      height: 300px;
+      margin: 20px;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      background-image: url("../../images/articles/Mayotte1.jpg");
+      background-size: cover;
+      justify-content: flex-end;
+      /* align-items: center; */
+}
+
+.article-flex5 {
+      flex: 1 1 300px;
+      height: 300px;
+      margin: 20px;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: flex-start;
+}
+
+.article-flex6 {
+      flex: 1 1 400px;
+      height: 300px;
+      margin: 20px;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      background-image: url("../../images/articles/SansPapiers.jpg");
+      background-size: cover;
+      justify-content: flex-end;
+}
+
+.article-flex7 {
+      flex: 1 1 200px;
+      height: 300px;
+      margin: 20px;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+}
+
+.article-flex8 {
+      flex: 1 1 400px;
+      height: 300px;
+      margin: 20px;
+      padding: 10px;
+      display: flex;
+      background-image: url("../../images/articles/FMI.jpg");
+      background-size: cover;
+      flex-direction: column;
+      justify-content: flex-end;
+}
+/* -------------------- media queries ---*/
+
+@media (max-width: 1024px /* Landscape tab */) {
+}
+
+@media (max-width: 768px /* Ipad vertical position zone */) {
+      .article-title {
+            width: 100%;
+      }
+      h4 {
+            color: white;
+            font-weight: 900;
+            width: 100%;
+            /* font-family: "Montserrat"; */
+            font-family: "Roboto", sans-serif;
+            /* font-family: Arial, Helvetica, sans-serif; */
+      }
+      h2 {
+            font-size: 34px;
+      }
+      h3 {
+            font-size: 34px;
+      }
+}
+
+@media (max-width: 720px /* Smartphone zone */) {
+      .article-container {
+            width: 100%;
+            margin: 0 auto;
+            padding: 30px;
+            display: flex;
+
+            flex-wrap: wrap;
+      }
+}
+
+@media (max-width: 414px /* iPhone 11 vertical zone */) {
+      .article-container {
+            width: 100%;
+            margin: 0 auto;
+            padding: 0;
+            display: flex;
+
+            flex-wrap: wrap;
+      }
+}
+
+@media (max-width: 414px /* iPhone 11 vertical zone */) {
+      .article-container {
+            width: 100%;
+            margin: 0 auto;
+            padding: 0;
+            display: flex;
+
+            flex-wrap: wrap;
+      }
+}
+
+@media (max-width: 360px /* Smartphone zone */) {
+      .freeHeight {
+            height: 100%;
+      }
+}

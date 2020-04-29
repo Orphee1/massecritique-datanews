@@ -7,12 +7,31 @@ import "./style.css";
 
 export default function Footer() {
       // Theme definition
-      const [theme] = useContext(ThemeContext);
-      let { isLigthTheme, light, dark } = theme;
-      const option = isLigthTheme ? light : dark;
+      const [theme, setTheme] = useContext(ThemeContext);
+      const { themeSelected, themeOne, themeTwo, themeThree } = theme;
+      let option;
+      switch (themeSelected) {
+            case "theme1":
+                  option = themeOne;
+                  break;
+            case "theme2":
+                  option = themeTwo;
+                  break;
+            case "theme3":
+                  option = themeThree;
+                  break;
+      }
 
       return (
             <footer className="footer" style={{ background: option.syntax }}>
+                  <div
+                        className="line"
+                        style={{ background: option.syntax }}
+                  ></div>
+                  <div
+                        className="line"
+                        style={{ background: option.plus }}
+                  ></div>
                   <div
                         className="line"
                         style={{ background: option.bgClear }}

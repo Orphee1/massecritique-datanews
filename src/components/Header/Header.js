@@ -9,8 +9,19 @@ import "./style.css";
 export default function Header({ indexPage, setIndexPage }) {
       // Theme definition
       const [theme, setTheme] = useContext(ThemeContext);
-      let { isLigthTheme, light, dark } = theme;
-      const option = isLigthTheme ? light : dark;
+      const { themeSelected, themeOne, themeTwo, themeThree } = theme;
+      let option;
+      switch (themeSelected) {
+            case "theme1":
+                  option = themeOne;
+                  break;
+            case "theme2":
+                  option = themeTwo;
+                  break;
+            case "theme3":
+                  option = themeThree;
+                  break;
+      }
 
       return (
             <div
@@ -37,24 +48,30 @@ export default function Header({ indexPage, setIndexPage }) {
                                     </Link>
                               </li>
                               <li>
-                                    <button
-                                          type="button-theme"
-                                          style={{ color: option.syntax }}
-                                          onClick={() => {
+                                    <select
+                                          onChange={(event) => {
                                                 setTheme({
-                                                      isLigthTheme: !isLigthTheme,
-                                                      light: light,
-                                                      dark: dark,
+                                                      themeSelected:
+                                                            event.target.value,
+                                                      themeOne: themeOne,
+                                                      themeTwo: themeTwo,
+                                                      themeThree: themeThree,
                                                 });
                                           }}
                                     >
-                                          {isLigthTheme
-                                                ? "Mode sombre"
-                                                : "Mode clair"}
-                                    </button>
+                                          <option value="theme1">
+                                                theme 1
+                                          </option>
+                                          <option value="theme2">
+                                                theme 2
+                                          </option>
+                                          <option value="theme3">
+                                                theme 3
+                                          </option>
+                                    </select>
                               </li>
                         </ul>
-                        <ul className="d-flex">
+                        <ul className="d-flex mini-nav">
                               <li>
                                     <Link to="/data">
                                           <span
@@ -65,9 +82,13 @@ export default function Header({ indexPage, setIndexPage }) {
                                     </Link>
                               </li>
                               <li>
-                                    <span style={{ color: option.syntax }}>
-                                          Articles
-                                    </span>
+                                    <Link to="/article">
+                                          <span
+                                                style={{ color: option.syntax }}
+                                          >
+                                                Articles
+                                          </span>
+                                    </Link>
                               </li>
                               <li>
                                     <span style={{ color: option.syntax }}>
@@ -82,8 +103,16 @@ export default function Header({ indexPage, setIndexPage }) {
                         </ul>
                   </div>
                   <div
-                        className="line red"
-                        style={{ background: option.bgClear }}
+                        className="line"
+                        style={{ background: option.syntax }}
+                  ></div>
+                  <div
+                        className="line2"
+                        style={{ background: option.plus }}
+                  ></div>
+                  <div
+                        className="line2"
+                        style={{ background: option.syntax }}
                   ></div>
             </div>
       );

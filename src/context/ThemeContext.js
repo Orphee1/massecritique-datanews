@@ -4,16 +4,24 @@ export const ThemeContext = createContext();
 
 export const ThemeContextProvider = (props) => {
       const [theme, setTheme] = useState({
-            isLigthTheme: true,
-            light: {
+            themeSelected: "theme3",
+            themeOne: {
                   syntax: "#706C61",
                   bgClear: "#86DDC4",
                   bg: "#81F499",
+                  plus: "#81F499",
             },
-            dark: {
+            themeTwo: {
                   syntax: "#81F499",
                   bgClear: "#899E8B",
                   bg: "#706C61",
+                  plus: "#81F499",
+            },
+            themeThree: {
+                  syntax: "#000000",
+                  bgClear: "#FFFF00",
+                  bg: "#FFFFF0",
+                  plus: "#128125",
             },
       });
 

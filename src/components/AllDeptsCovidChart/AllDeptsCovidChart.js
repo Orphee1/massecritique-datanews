@@ -20,9 +20,20 @@ import useWindowDimensions from "../../assets/useWindowDimension";
 
 export default function AllDeptsCovidChart({ data }) {
       // Theme definition
-      const [theme] = useContext(ThemeContext);
-      let { isLigthTheme, light, dark } = theme;
-      const option = isLigthTheme ? light : dark;
+      const [theme, setTheme] = useContext(ThemeContext);
+      const { themeSelected, themeOne, themeTwo, themeThree } = theme;
+      let option;
+      switch (themeSelected) {
+            case "theme1":
+                  option = themeOne;
+                  break;
+            case "theme2":
+                  option = themeTwo;
+                  break;
+            case "theme3":
+                  option = themeThree;
+                  break;
+      }
 
       // Sort data according to hosp value
 
@@ -169,7 +180,7 @@ export default function AllDeptsCovidChart({ data }) {
                               width={110}
                         />
                         <Tooltip cursor={false} />
-                        <Legend
+                        {/* <Legend
                               width={200}
                               wrapperStyle={{
                                     top: 1780,
@@ -179,7 +190,7 @@ export default function AllDeptsCovidChart({ data }) {
                                     borderColor: option.syntax,
                                     lineHeight: "30px",
                               }}
-                        />
+                        /> */}
                         <Bar
                               // dataKey="hosph"
                               dataKey={dataKeySelected.h}
