@@ -3,6 +3,9 @@ import { ThemeContext } from "../../context/ThemeContext";
 import "../../App.css";
 import "./style.css";
 
+// Data import
+import articles from "../../assets/data/Articles";
+
 export default function ArticleScreen() {
       // Theme definition
       const [theme, setTheme] = useContext(ThemeContext);
@@ -45,169 +48,119 @@ export default function ArticleScreen() {
                                     Articles
                               </h2>
                               <div className="menu-article">
-                                    <ul className="d-flex">
+                                    <ul className="d-flex mini-nav">
                                           <li>
-                                                <span>Société</span>
+                                                <span
+                                                      style={{
+                                                            color:
+                                                                  option.syntax,
+                                                      }}
+                                                >
+                                                      Société
+                                                </span>
                                           </li>
                                           <li>
-                                                <span>Eco</span>
+                                                <span
+                                                      style={{
+                                                            color:
+                                                                  option.syntax,
+                                                      }}
+                                                >
+                                                      Eco
+                                                </span>
                                           </li>
                                           <li>
-                                                <span>Social</span>
+                                                <span
+                                                      style={{
+                                                            color:
+                                                                  option.syntax,
+                                                      }}
+                                                >
+                                                      Social
+                                                </span>
                                           </li>
                                           <li>
-                                                <span>Culture</span>
+                                                <span
+                                                      style={{
+                                                            color:
+                                                                  option.syntax,
+                                                      }}
+                                                >
+                                                      Culture
+                                                </span>
                                           </li>
 
                                           <li>
-                                                <span>AFP</span>
+                                                <span
+                                                      style={{
+                                                            color:
+                                                                  option.syntax,
+                                                      }}
+                                                >
+                                                      AFP
+                                                </span>
                                           </li>
                                     </ul>
                               </div>
                         </div>
-                        <div className="article-flex1 freeHeight">
-                              <div className="article-title">
-                                    <h2>
-                                          <a href="https://reporterre.net/En-Argentine-la-Patagonie-est-le-nouvel-eldorado-du-gaz-de-schiste">
-                                                La Patagonie est le nouvel
-                                                Eldorado du gaz de schiste
-                                          </a>
-                                    </h2>
-                                    <h4
+                        {articles.map((article, index) => {
+                              return (
+                                    <div
+                                          className="article-flex freeHeight"
+                                          key={index}
                                           style={{
-                                                background: option.bg,
-                                                color: option.syntax,
-                                                padding: "5px",
+                                                backgroundImage:
+                                                      "url(" +
+                                                      article.image +
+                                                      ")",
+                                                backgroundSize: "cover",
                                           }}
                                     >
-                                          Depuis deux ans, l’exploitation des
-                                          gaz et huile de schiste explose en
-                                          Patagonie argentine. Tous les majors
-                                          du secteur, y compris Total, sont
-                                          présents.
-                                    </h4>
-                              </div>
-                        </div>
-                        <div className="article-flex2 freeHeight">
-                              <h3
-                                    style={{
-                                          color: option.syntax,
-                                          textAlign: "right",
-                                    }}
-                              >
-                                    <a
-                                          style={{ color: option.syntax }}
-                                          href="http://www.millebabords.org/spip.php?article16089"
-                                    >
-                                          L'Europe verrouille les frontières de
-                                          l'Afrique
-                                    </a>
-                              </h3>
-                              <h4
-                                    style={{
-                                          color: option.syntax,
-                                          textAlign: "right",
-                                    }}
-                              >
-                                    Après avoir fermé ses portes aux migrants,
-                                    l’Europe cherche depuis quelques années à
-                                    maîtriser les voies d’accès. Elle exerce de
-                                    nombreuses pressions pour imposer ses
-                                    politiques migratoires jusqu’aux frontières
-                                    africaines et de plus en plus de pays les
-                                    mettent en place.
-                              </h4>
-                        </div>
-
-                        <div className="article-flex3 freeHeight">
-                              <h3>
-                                    <a href="https://www.lemonde.fr/societe/article/2009/06/27/de-la-courneuve-a-saint-denis-l-errance-des-roms-citoyens-europeens_1212035_3224.html">
-                                          De La Courneuve à Saint-Denis,
-                                          l'errance des Roms, citoyens européens
-                                    </a>
-                              </h3>
-                        </div>
-                        <div className="article-flex4 freeHeight">
-                              <h3>
-                                    <a href="https://www.lemonde.fr/societe/article/2009/10/14/a-mayotte-la-chasse-aux-clandestins-aggrave-leur-situation-sanitaire_1253537_3224.html">
-                                          A Mayotte, la chasse aux sans-papiers
-                                          aggrave leur situation sanitaire
-                                    </a>
-                              </h3>
-                        </div>
-                        <div className="article-flex5 freeHeight">
-                              <h3
-                                    style={{
-                                          color: option.syntax,
-                                    }}
-                              >
-                                    <a
-                                          style={{ color: option.syntax }}
-                                          href="https://www.lemonde.fr/societe/article/2009/12/22/les-couples-mixtes-se-heurtent-aux-entraves-des-prefectures_1282848_3224.html"
-                                    >
-                                          Les couples mixtes se heurtent aux
-                                          entraves des préfectures
-                                    </a>
-                              </h3>
-                              <h4
-                                    style={{
-                                          color: option.syntax,
-                                          // textAlign: "right",
-                                    }}
-                              >
-                                    L'association Les Amoureux au ban public
-                                    dénonce les entraves opposées aux couples
-                                    mixtes, quand le conjoint de Français a
-                                    pourtant le droit de faire sa demande de
-                                    visa en France.
-                              </h4>
-                        </div>
-                        <div className="article-flex8 freeHeight">
-                              <h3>
-                                    <a
-                                          // style={{ color: option.syntax }}
-                                          href="https://lexpansion.lexpress.fr/actualite-economique/quelle-politique-de-relance-pour-contrer-la-crise_1372831.html"
-                                    >
-                                          Quelle politique de relance pour
-                                          contrer la crise?
-                                    </a>
-                              </h3>
-                              <div className="article-title">
-                                    <h4
-                                          style={{
-                                                background: option.bg,
-                                                color: option.syntax,
-                                                padding: "10px",
-                                          }}
-                                    >
-                                          Pour éviter que la récession ne
-                                          dégénère en dépression, il reste
-                                          l'arme d'un plan de relance. C'est une
-                                          des résolutions adoptée lors du G20,
-                                          réclamée avec insistance par les
-                                          industriels.
-                                    </h4>
-                              </div>
-                        </div>
-                        <div className="article-flex6 freeHeight">
-                              <h3>
-                                    <a href="https://www.lemonde.fr/societe/article/2010/06/07/le-soutien-de-chefs-d-entreprises-aux-travailleurs-sans-papiers_1368052_3224.html">
-                                          Quand les patrons soutiennent les
-                                          travailleurs sans-papiers
-                                    </a>
-                              </h3>
-                        </div>
-                        <div className="article-flex7 freeHeight">
-                              <h3>
-                                    <a
-                                          style={{ color: option.syntax }}
-                                          href="https://lexpansion.lexpress.fr/actualite-economique/ce-qu-on-ne-vous-dit-jamais-sur-la-dette-de-la-france_1428192.html"
-                                    >
-                                          Ce qu'on ne vous dit jamais sur la
-                                          dette de la France
-                                    </a>
-                              </h3>
-                        </div>
+                                          <h2>
+                                                {article.image === undefined ? (
+                                                      <a
+                                                            href={article.link}
+                                                            style={{
+                                                                  color:
+                                                                        option.syntax,
+                                                            }}
+                                                      >
+                                                            {article.title}
+                                                      </a>
+                                                ) : (
+                                                      <a href={article.link}>
+                                                            {article.title}
+                                                      </a>
+                                                )}
+                                          </h2>
+                                          {article.image === undefined ? (
+                                                <h4
+                                                      style={{
+                                                            color:
+                                                                  option.syntax,
+                                                      }}
+                                                >
+                                                      {article.p}
+                                                </h4>
+                                          ) : (
+                                                article.p !== undefined && (
+                                                      <h4
+                                                            style={{
+                                                                  color:
+                                                                        option.syntax,
+                                                                  background:
+                                                                        option.bg,
+                                                                  padding:
+                                                                        "5px",
+                                                            }}
+                                                      >
+                                                            {article.p}
+                                                      </h4>
+                                                )
+                                          )}
+                                    </div>
+                              );
+                        })}
                   </div>
             </div>
       );

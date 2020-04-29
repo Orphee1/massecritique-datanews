@@ -11,15 +11,19 @@ export default function Header({ indexPage, setIndexPage }) {
       const [theme, setTheme] = useContext(ThemeContext);
       const { themeSelected, themeOne, themeTwo, themeThree } = theme;
       let option;
+      let hoverOption;
       switch (themeSelected) {
             case "theme1":
                   option = themeOne;
+                  hoverOption = "span1";
                   break;
             case "theme2":
                   option = themeTwo;
+                  hoverOption = "span2";
                   break;
             case "theme3":
                   option = themeThree;
+                  hoverOption = "span3";
                   break;
       }
 
@@ -35,7 +39,8 @@ export default function Header({ indexPage, setIndexPage }) {
                               <li>
                                     <Link to="/">
                                           <span
-                                                className="logo"
+                                                // className="logo"
+                                                className={`${hoverOption} logo`}
                                                 onClick={() => {
                                                       setIndexPage(1);
                                                 }}
@@ -75,6 +80,7 @@ export default function Header({ indexPage, setIndexPage }) {
                               <li>
                                     <Link to="/data">
                                           <span
+                                                className={hoverOption}
                                                 style={{ color: option.syntax }}
                                           >
                                                 Data
@@ -84,6 +90,7 @@ export default function Header({ indexPage, setIndexPage }) {
                               <li>
                                     <Link to="/article">
                                           <span
+                                                className={hoverOption}
                                                 style={{ color: option.syntax }}
                                           >
                                                 Articles
@@ -91,12 +98,18 @@ export default function Header({ indexPage, setIndexPage }) {
                                     </Link>
                               </li>
                               <li>
-                                    <span style={{ color: option.syntax }}>
+                                    <span
+                                          className={hoverOption}
+                                          style={{ color: option.syntax }}
+                                    >
                                           Photos/Videos
                                     </span>
                               </li>
                               <li>
-                                    <span style={{ color: option.syntax }}>
+                                    <span
+                                          className={hoverOption}
+                                          style={{ color: option.syntax }}
+                                    >
                                           Sounds
                                     </span>
                               </li>
