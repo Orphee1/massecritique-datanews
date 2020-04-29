@@ -28,7 +28,6 @@ export default function ArticleScreen() {
                   className="page"
                   style={{
                         background: option.syntax,
-                        marginTop: "60px",
                   }}
             >
                   <div
@@ -41,8 +40,6 @@ export default function ArticleScreen() {
                               <h2
                                     style={{
                                           color: option.syntax,
-                                          marginBottom: "0",
-                                          // fontWeight: "900",
                                     }}
                               >
                                     Articles
@@ -106,7 +103,7 @@ export default function ArticleScreen() {
                         {articles.map((article, index) => {
                               return (
                                     <div
-                                          className="article-flex freeHeight"
+                                          className="article-flex freeHeight stopWidth"
                                           key={index}
                                           style={{
                                                 backgroundImage:
@@ -135,6 +132,7 @@ export default function ArticleScreen() {
                                           </h2>
                                           {article.image === undefined ? (
                                                 <h4
+                                                      className="remove414"
                                                       style={{
                                                             color:
                                                                   option.syntax,
@@ -145,6 +143,7 @@ export default function ArticleScreen() {
                                           ) : (
                                                 article.p !== undefined && (
                                                       <h4
+                                                            className="remove414"
                                                             style={{
                                                                   color:
                                                                         option.syntax,

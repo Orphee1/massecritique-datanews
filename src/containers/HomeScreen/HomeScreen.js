@@ -32,7 +32,6 @@ export default function HomeScreen() {
                   className="page"
                   style={{
                         background: option.syntax,
-                        marginTop: "60px",
                   }}
             >
                   <div

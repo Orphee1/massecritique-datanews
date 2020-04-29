@@ -1,3 +1,7 @@
+.page {
+      margin-top: 60px;
+}
+
 .article-container {
       width: 85%;
       margin: 0 auto;
@@ -7,10 +11,8 @@
       flex-wrap: wrap;
 }
 h2 {
-      /* font-size: 56px; */
       font-size: 34px;
       margin-left: 10px;
-      /* font-weight: 900; */
       font-family: "Montserrat", sans-serif;
 }
 
@@ -18,17 +20,13 @@ h3,
 a {
       color: #fffff0;
       font-weight: 900;
-      /* font-family: "Montserrat"; */
-      /* font-family: "Roboto"; */
-      /* font-family: Arial, Helvetica, sans-serif; */
 }
 
 h4 {
       color: #fffff0;
-      font-weight: 900;
+      font-weight: 700;
       width: 70%;
       font-family: "Roboto", sans-serif;
-      /* font-family: Arial, Helvetica, sans-serif; */
 }
 
 .article-title {
@@ -167,134 +165,41 @@ h4 {
       justify-content: flex-end;
 }
 
-/* =========================== */
-
-.article-flex1 {
-      flex: 1 1 1000px;
-      height: 400px;
-      margin: 20px;
-      padding: 10px;
-      display: flex;
-      flex-direction: column;
-      background-size: cover;
-      justify-content: flex-start;
-}
-
-.article-flex2 {
-      flex: 1 1 300px;
-      height: 300px;
-      margin: 20px;
-      padding: 10px;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      align-items: flex-end;
-}
-
-.article-flex3 {
-      flex: 2 1 400px;
-      height: 300px;
-      margin: 20px;
-      padding: 10px;
-      display: flex;
-      flex-direction: column;
-      /* background-image: url("../../images/articles/roms.jpg"); */
-      /* background-size: cover; */
-      justify-content: flex-end;
-      /* align-items: center; */
-}
-
-.article-flex4 {
-      flex: 2 1 400px;
-      height: 300px;
-      margin: 20px;
-      padding: 10px;
-      display: flex;
-      flex-direction: column;
-      background-image: url("../../images/articles/Mayotte1.jpg");
-      background-size: cover;
-      justify-content: flex-end;
-      /* align-items: center; */
-}
-
-.article-flex5 {
-      flex: 1 1 300px;
-      height: 300px;
-      margin: 20px;
-      padding: 10px;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      align-items: flex-start;
-}
-
-.article-flex6 {
-      flex: 1 1 400px;
-      height: 300px;
-      margin: 20px;
-      padding: 10px;
-      display: flex;
-      flex-direction: column;
-      background-image: url("../../images/articles/SansPapiers.jpg");
-      background-size: cover;
-      justify-content: flex-end;
-}
-
-.article-flex7 {
-      flex: 1 1 200px;
-      height: 300px;
-      margin: 20px;
-      padding: 10px;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-}
-
-.article-flex8 {
-      flex: 1 1 400px;
-      height: 300px;
-      margin: 20px;
-      padding: 10px;
-      display: flex;
-      /* background-image: url("../../images/articles/FMI.jpg"); */
-      background-size: cover;
-      flex-direction: column;
-      justify-content: flex-end;
-}
-
-.article-flex9 {
-      flex: 3 1 300px;
-      height: 300px;
-      margin: 20px;
-      padding: 10px;
-      display: flex;
-      background-image: url("../../images/articles/desk.jpg");
-      background-size: cover;
-      flex-direction: column;
-      justify-content: flex-end;
-}
 /* -------------------- media queries ---*/
 
 @media (max-width: 1024px /* Landscape tab */) {
 }
 
 @media (max-width: 768px /* Ipad vertical position zone */) {
+      .article-container {
+            width: 100%;
+            margin: 0 auto;
+            padding: 0px;
+            display: flex;
+            flex-wrap: wrap;
+      }
+      .article-flex0 {
+            flex: 1 1 768px;
+            height: 100%;
+            margin: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+      }
       .article-title {
             width: 100%;
       }
       h4 {
-            color: #fffff0;
-            font-weight: 900;
-            width: 100%;
-            /* font-family: "Montserrat"; */
-            font-family: "Roboto", sans-serif;
-            /* font-family: Arial, Helvetica, sans-serif; */
+            width: 80%;
       }
       h2 {
             font-size: 34px;
       }
       h3 {
             font-size: 34px;
+      }
+      .freeHeight {
+            height: 100%;
       }
 }
 
@@ -308,24 +213,23 @@ h4 {
             flex-wrap: wrap;
       }
       .article-flex0 {
-            flex: 1 1 1000px;
+            flex: 1 1 720px;
             height: 100%;
-            margin: 20px;
+            margin: 0px;
             display: flex;
             flex-direction: column;
-            /* justify-content: space-between; */
             align-items: flex-start;
       }
-}
 
-@media (max-width: 414px /* iPhone 11 vertical zone */) {
-      .article-container {
+      .stopWidth {
             width: 100%;
-            margin: 0 auto;
-            padding: 0;
-            display: flex;
+      }
 
-            flex-wrap: wrap;
+      .freeHeight {
+            height: 100%;
+      }
+      .page {
+            margin-top: 40px;
       }
 }
 
@@ -337,15 +241,65 @@ h4 {
             display: flex;
 
             flex-wrap: wrap;
+      }
+
+      .freeHeight {
+            height: 100%;
+      }
+      .remove414 {
+            display: none;
+      }
+      .article-flex:nth-child(2) h2 {
+            font-size: 38px;
       }
 }
 
 @media (max-width: 360px /* Smartphone zone */) {
+      .article-container {
+            width: 100%;
+            margin: 0 auto;
+            padding: 0;
+            display: flex;
+
+            flex-wrap: wrap;
+      }
+
+      .article-flex {
+            margin: 0px;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+      }
       .freeHeight {
             height: 100%;
       }
       .mini-nav {
             display: flex;
             flex-direction: column;
+      }
+}
+
+@media (max-width: 320px /* Smartphone zone */) {
+      .article-container {
+            width: 100%;
+            margin: 0 auto;
+            padding: 0;
+            display: flex;
+
+            flex-wrap: wrap;
+      }
+      .freeHeight {
+            height: 100%;
+      }
+      .mini-nav {
+            display: flex;
+            flex-direction: column;
+      }
+      h2 {
+            font-size: 28px;
+      }
+      h3 {
+            font-size: 28px;
       }
 }
