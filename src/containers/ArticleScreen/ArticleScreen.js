@@ -11,16 +11,32 @@ export default function ArticleScreen() {
       const [theme, setTheme] = useContext(ThemeContext);
       const { themeSelected, themeOne, themeTwo, themeThree } = theme;
       let option;
+      let selected;
       switch (themeSelected) {
             case "theme1":
                   option = themeOne;
+                  selected = "selected1";
                   break;
             case "theme2":
                   option = themeTwo;
+                  selected = "selected2";
                   break;
             case "theme3":
                   option = themeThree;
+                  selected = "selected3";
                   break;
+      }
+
+      const [selectedTab, setSelectedTab] = useState("all");
+      let articlesToDisp = [];
+      if (selectedTab !== "all") {
+            for (let i = 0; i < articles.length; i++) {
+                  if (articles[i].category === selectedTab) {
+                        articlesToDisp.push(articles[i]);
+                  }
+            }
+      } else {
+            articlesToDisp = articles;
       }
 
       return (
@@ -40,6 +56,15 @@ export default function ArticleScreen() {
                               <h2
                                     style={{
                                           color: option.syntax,
+                                          cursor: "pointer",
+                                    }}
+                                    className={
+                                          selectedTab === "all"
+                                                ? selected
+                                                : "unselected"
+                                    }
+                                    onClick={() => {
+                                          setSelectedTab("all");
                                     }}
                               >
                                     Articles
@@ -48,9 +73,21 @@ export default function ArticleScreen() {
                                     <ul className="d-flex mini-nav">
                                           <li>
                                                 <span
+                                                      className={
+                                                            selectedTab ===
+                                                            "societe"
+                                                                  ? selected
+                                                                  : "unselected"
+                                                      }
                                                       style={{
                                                             color:
                                                                   option.syntax,
+                                                            cursor: "pointer",
+                                                      }}
+                                                      onClick={() => {
+                                                            setSelectedTab(
+                                                                  "societe"
+                                                            );
                                                       }}
                                                 >
                                                       Société
@@ -61,6 +98,18 @@ export default function ArticleScreen() {
                                                       style={{
                                                             color:
                                                                   option.syntax,
+                                                            cursor: "pointer",
+                                                      }}
+                                                      className={
+                                                            selectedTab ===
+                                                            "eco"
+                                                                  ? selected
+                                                                  : "unselected"
+                                                      }
+                                                      onClick={() => {
+                                                            setSelectedTab(
+                                                                  "eco"
+                                                            );
                                                       }}
                                                 >
                                                       Eco
@@ -71,7 +120,19 @@ export default function ArticleScreen() {
                                                       style={{
                                                             color:
                                                                   option.syntax,
+                                                            cursor: "pointer",
                                                       }}
+                                                      className={
+                                                            selectedTab ===
+                                                            "social"
+                                                                  ? selected
+                                                                  : "unselected"
+                                                      }
+                                                      // onClick={() => {
+                                                      //       setSelectedTab(
+                                                      //             "social"
+                                                      //       );
+                                                      // }}
                                                 >
                                                       Social
                                                 </span>
@@ -81,7 +142,19 @@ export default function ArticleScreen() {
                                                       style={{
                                                             color:
                                                                   option.syntax,
+                                                            cursor: "pointer",
                                                       }}
+                                                      className={
+                                                            selectedTab ===
+                                                            "cult"
+                                                                  ? selected
+                                                                  : "unselected"
+                                                      }
+                                                      // onClick={() => {
+                                                      //       setSelectedTab(
+                                                      //             "cult"
+                                                      //       );
+                                                      // }}
                                                 >
                                                       Culture
                                                 </span>
@@ -92,6 +165,18 @@ export default function ArticleScreen() {
                                                       style={{
                                                             color:
                                                                   option.syntax,
+                                                            cursor: "pointer",
+                                                      }}
+                                                      className={
+                                                            selectedTab ===
+                                                            "afp"
+                                                                  ? selected
+                                                                  : "unselected"
+                                                      }
+                                                      onClick={() => {
+                                                            setSelectedTab(
+                                                                  "afp"
+                                                            );
                                                       }}
                                                 >
                                                       AFP
@@ -100,7 +185,7 @@ export default function ArticleScreen() {
                                     </ul>
                               </div>
                         </div>
-                        {articles.map((article, index) => {
+                        {articlesToDisp.map((article, index) => {
                               return (
                                     <div
                                           className="article-flex freeHeight stopWidth"
