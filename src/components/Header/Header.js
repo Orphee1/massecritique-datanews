@@ -98,20 +98,34 @@ export default function Header({ indexPage, setIndexPage }) {
                                     </Link>
                               </li>
                               <li>
-                                    <span
-                                          className={hoverOption}
-                                          style={{ color: option.syntax }}
-                                    >
-                                          Photos/Videos
-                                    </span>
+                                    <Link to="/video">
+                                          <span
+                                                className={hoverOption}
+                                                style={{ color: option.syntax }}
+                                          >
+                                                Videos
+                                          </span>
+                                    </Link>
                               </li>
                               <li>
-                                    <span
-                                          className={hoverOption}
-                                          style={{ color: option.syntax }}
-                                    >
-                                          Sounds
-                                    </span>
+                                    <Link to="/photo">
+                                          <span
+                                                className={hoverOption}
+                                                style={{ color: option.syntax }}
+                                          >
+                                                Photos
+                                          </span>
+                                    </Link>
+                              </li>
+                              <li>
+                                    <Link to="/sound">
+                                          <span
+                                                className={hoverOption}
+                                                style={{ color: option.syntax }}
+                                          >
+                                                Sounds
+                                          </span>
+                                    </Link>
                               </li>
                         </ul>
                   </div>

@@ -6,6 +6,8 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import ArticleScreen from "./containers/ArticleScreen/ArticleScreen";
 import DataScreen from "./containers/DataScreen/DataScreen";
 import HomeScreen from "./containers/HomeScreen/HomeScreen";
+import VideoScreen from "./containers/VideoScreen/VideoScreen";
+import SoundScreen from "./containers/SoundScreen/SoundScreen";
 
 // Components import
 import Header from "./components/Header/Header";
@@ -13,6 +15,7 @@ import Footer from "./components/Footer/Footer";
 
 // Context import
 import { ThemeContextProvider } from "./context/ThemeContext";
+import PhotoScreen from "./containers/PhotoScreen/PhotoScreen";
 
 function App() {
       const [indexPage, setIndexPage] = useState(1);
@@ -30,6 +33,15 @@ function App() {
                               </Route>
                               <Route path="/article">
                                     <ArticleScreen />
+                              </Route>
+                              <Route path="/video">
+                                    <VideoScreen />
+                              </Route>
+                              <Route path="/photo">
+                                    <PhotoScreen />
+                              </Route>
+                              <Route path="/sound">
+                                    <SoundScreen />
                               </Route>
 
                               <Route path="/">
