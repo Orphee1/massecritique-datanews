@@ -24,8 +24,6 @@ import CovidChartScreen from "../../components/CovidChartScreen/CovidChartScreen
 import AllDeptsCovidChart from "../../components/AllDeptsCovidChart/AllDeptsCovidChart";
 import AllDeptAgeCovidChart from "../../components/AllDeptAgeCovidChart/AllDeptAgeCovidChart";
 
-import SimpleBarChart from "../../components/Test/Test";
-
 // Icons import
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 

@@ -1,0 +1,124 @@
+.page {
+      margin-top: 60px;
+      display: flex;
+      flex-direction: column;
+}
+
+.photo-container {
+      width: 85%;
+      margin: 0 auto;
+      padding: 30px;
+      display: flex;
+      flex-wrap: wrap;
+}
+
+.photo-flex0 {
+      flex: 1 1 1000px;
+      height: 80px;
+      margin: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+}
+
+.photo-flex {
+      flex: 1 1 1000px;
+      height: 200px;
+      margin: 20px;
+      display: flex;
+      flex-wrap: wrap;
+}
+
+/* -------------------- media queries ---*/
+
+@media (max-width: 1024px /* Landscape tab */) {
+      .photo-flex {
+            flex: 1 1 1000px;
+            height: 280px;
+            margin: 20px;
+            display: flex;
+            flex-wrap: wrap;
+      }
+}
+
+@media (max-width: 768px /* Ipad vertical position zone */) {
+      .photo-container {
+            width: 100%;
+            margin: 0 auto;
+            padding: 0px;
+            display: flex;
+            flex-wrap: wrap;
+      }
+      .photo-flex {
+            flex: 1 1 auto;
+            height: 280px;
+            margin: 20px;
+            display: flex;
+            flex-wrap: wrap;
+      }
+}
+
+@media (max-width: 720px /* Smartphone zone */) {
+      .page {
+            margin-top: 40px;
+      }
+      .photo-container {
+            width: 100%;
+            margin: 0 auto;
+            padding: 30px;
+            display: flex;
+            flex-wrap: wrap;
+      }
+
+      .photo-flex {
+            flex: 1 1 auto;
+            height: 380px;
+            margin: 20px;
+            display: flex;
+            flex-wrap: wrap;
+      }
+}
+
+@media (max-width: 414px /* iPhone 11 vertical zone */) {
+      .page {
+            margin-top: 20px;
+      }
+      .photo-container {
+            width: 100%;
+            margin: 0 auto;
+            padding: 0;
+            display: flex;
+
+            flex-wrap: wrap;
+      }
+
+      .photo-flex {
+            flex: 1 1 auto;
+            height: 100%;
+            margin: 20px;
+            display: flex;
+            flex-wrap: wrap;
+      }
+}
+
+@media (max-width: 360px /* Smartphone zone */) {
+      .page {
+            margin-top: 0;
+      }
+      .photo-container {
+            width: 100%;
+            margin: 0 auto;
+            padding: 0;
+            display: flex;
+
+            flex-wrap: wrap;
+      }
+
+      .photo-flex {
+            flex: 1 1 auto;
+            height: 100%;
+            margin: 20px 0;
+            display: flex;
+            flex-wrap: wrap;
+      }
+}
