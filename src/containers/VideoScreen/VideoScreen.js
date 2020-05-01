@@ -37,7 +37,7 @@ export default function VideoScreen() {
                   }}
             >
                   <div
-                        className="video-container green"
+                        className="video-container"
                         style={{ background: option.bg }}
                   >
                         <div className="video-flex0">
@@ -77,9 +77,10 @@ export default function VideoScreen() {
                                     <ReactPlayer
                                           className="react-player"
                                           controls={true}
+                                          // light={true}
                                           width="100%"
                                           height="100%"
-                                          url="https://www.youtube.com/watch?v=1ii5G0Vltn8&list=RD1ii5G0Vltn8&index=1"
+                                          url="https://www.youtube.com/watch?v=r3IL-JXt2uA&feature=youtu.be"
                                     />
                               </div>
                               <div className="video-info">
