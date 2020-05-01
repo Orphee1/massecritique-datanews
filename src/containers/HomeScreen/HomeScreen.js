@@ -62,7 +62,7 @@ export default function HomeScreen() {
                               </div> */}
                         </div>
                         <div className="home-flex2">
-                              <div className="data-home red">
+                              <div className="data-home">
                                     <h3 style={{ color: option.syntax }}>
                                           Epidémie de Covid-19
                                     </h3>
@@ -84,9 +84,9 @@ export default function HomeScreen() {
                                     ></img> */}
                               </div>
                         </div>
-                        <div className="home-flex3 yellow">
+                        <div className="home-flex3">
                               <h3 style={{ color: option.syntax }}>
-                                    Autre prod mise en home
+                                    La Patagonie eldorado du fracking
                               </h3>
                               <h4
                                     style={{
@@ -94,21 +94,23 @@ export default function HomeScreen() {
                                           textAlign: "left",
                                     }}
                               >
-                                    Encore un chapeau destiné à présenter une
-                                    production mise en valeur en home
+                                    Depuis deux ans, l'exploitation de gaz et
+                                    d'huile de schiste explose en Patagonie
+                                    argentine.
                               </h4>
-                              <p style={{ color: option.syntax }}>
-                                    Lorem ipsum dolor sit amet, consectetur
-                                    adipiscing elit. Morbi ullamcorper tincidunt
-                                    lectus, finibus gravida sem maximus vitae.
-                                    Pellentesque habitant morbi tristique
-                                    senectus et netus et malesuada fames ac
-                                    turpis egestas. Praesent orci arcu,
-                                    pellentesque quis erat sit amet, cursus
-                                    ultricies augue. Donec tempor imperdiet
-                                    laoreet. Donec porta urna vel imperdiet
-                                    mattis. Nulla a justo tellus. Cras lacinia
-                                    ante et vehicula rhoncus.
+                              <p
+                                    style={{
+                                          color: option.syntax,
+                                          padding: "5px",
+                                    }}
+                              >
+                                    C’est une vaste tache noire qui souille la
+                                    steppe de la Patagonie. À Añelo, dans la
+                                    province de Neuquén, sur plus de 13
+                                    hectares, des résidus de l’extraction
+                                    d’hydrocarbures sont déversés à même la
+                                    terre creusée et au mépris de toutes les
+                                    normes environnementales
                               </p>
                         </div>
                   </div>
