@@ -1,0 +1,134 @@
+.page {
+      margin-top: 60px;
+      display: flex;
+      flex-direction: column;
+}
+.video-container {
+      width: 85%;
+      margin: 0 auto;
+      padding: 30px;
+      display: flex;
+      flex-wrap: wrap;
+}
+
+.video-flex0 {
+      flex: 1 1 1000px;
+      height: 80px;
+      margin: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+}
+
+/* ---------- bloc flex1 ------------ */
+.video-flex1 {
+      flex: 1 1 auto;
+      height: 100%;
+      margin: 20px;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+}
+
+.player-container {
+      position: relative;
+      width: 800px;
+      height: 500px;
+      /* padding-top: 56.25%; /* Player ratio: 100 / (1280 / 720) */
+}
+
+.react-player {
+      position: absolute;
+      top: 0;
+      left: 0;
+}
+.video-info {
+      width: 50%;
+}
+
+/* ---------- bloc flex2 ------------ */
+
+.video-flex2 {
+      flex: 1 1 auto;
+      height: 600px;
+      margin: 20px;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+}
+
+.react-player2 {
+      position: absolute;
+      top: 0;
+      left: 0;
+      /* outline: none; */
+      /* margin: 10px; */
+}
+
+/* -------------------- media queries ---*/
+
+@media (max-width: 1024px /* Landscape tab */) {
+      .player-container {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            /* padding-top: 56.25%; /* Player ratio: 100 / (1280 / 720) */
+      }
+}
+
+@media (max-width: 768px /* Ipad vertical position zone */) {
+      .container {
+            width: 100%;
+            margin: 0 auto;
+      }
+      .video-container {
+            width: 100%;
+            margin: 0 auto;
+            padding: 0px;
+            display: flex;
+            flex-wrap: wrap;
+      }
+      .player-container {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            /* padding-top: 56.25%; /* Player ratio: 100 / (1280 / 720) */
+      }
+}
+
+@media (max-width: 720px /* Smartphone zone */) {
+      .video-container {
+            width: 100%;
+            margin: 0 auto;
+            padding: 30px;
+            display: flex;
+            flex-wrap: wrap;
+      }
+}
+
+@media (max-width: 414px /* iPhone 11 vertical zone */) {
+      .video-container {
+            width: 100%;
+            margin: 0 auto;
+            padding: 0;
+            display: flex;
+
+            flex-wrap: wrap;
+      }
+      .video-info {
+            width: 90%;
+      }
+}
+
+@media (max-width: 360px /* Smartphone zone */) {
+      .video-container {
+            width: 100%;
+            margin: 0 auto;
+            padding: 0;
+            display: flex;
+
+            flex-wrap: wrap;
+      }
+}
