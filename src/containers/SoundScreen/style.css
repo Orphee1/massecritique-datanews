@@ -1,0 +1,178 @@
+.page {
+      margin-top: 60px;
+      display: flex;
+      flex-direction: column;
+}
+
+.sound-container {
+      width: 85%;
+      margin: 0 auto;
+      padding: 30px;
+      display: flex;
+      flex-wrap: wrap;
+}
+
+.sound-flex0 {
+      flex: 1 1 1000px;
+      height: 80px;
+      margin: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+}
+
+.sound-flex {
+      flex: 1 1 1000px;
+      height: 200px;
+      margin: 20px;
+      display: flex;
+      flex-wrap: wrap;
+}
+
+.sound-player-container {
+      position: relative;
+      width: 500px;
+      height: 110px;
+      margin-left: 10px;
+}
+.react-player-sound {
+      position: absolute;
+      top: 0px;
+      left: 0;
+}
+
+.bloc-sound-info {
+      flex: 1 0 400px;
+      height: 100%;
+      margin-left: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+}
+
+.bloc-sound-info h3 {
+      margin-left: 5px;
+}
+
+.bloc-sound-info > h4,
+p {
+      text-align: left;
+      margin-left: 0;
+}
+.info {
+      padding: 5px;
+}
+
+/* -------------------- media queries ---*/
+
+@media (max-width: 1024px /* Landscape tab */) {
+      .sound-flex {
+            flex: 1 1 1000px;
+            height: 280px;
+            margin: 20px;
+            display: flex;
+            flex-wrap: wrap;
+      }
+}
+
+@media (max-width: 768px /* Ipad vertical position zone */) {
+      .container {
+            width: 100%;
+            margin: 0 auto;
+      }
+      .sound-container {
+            width: 100%;
+            margin: 0 auto;
+            padding: 0px;
+            display: flex;
+            flex-wrap: wrap;
+      }
+      .sound-flex {
+            flex: 1 1 auto;
+            height: 280px;
+            margin: 20px;
+            display: flex;
+            flex-wrap: wrap;
+      }
+}
+
+@media (max-width: 720px /* Smartphone zone */) {
+      .page {
+            margin-top: 40px;
+      }
+      .sound-container {
+            width: 100%;
+            margin: 0 auto;
+            padding: 30px;
+            display: flex;
+            flex-wrap: wrap;
+      }
+
+      .sound-flex {
+            flex: 1 1 auto;
+            height: 380px;
+            margin: 20px;
+            display: flex;
+            flex-wrap: wrap;
+      }
+}
+
+@media (max-width: 414px /* iPhone 11 vertical zone */) {
+      .page {
+            margin-top: 20px;
+      }
+      .sound-container {
+            width: 100%;
+            margin: 0 auto;
+            padding: 0;
+            display: flex;
+
+            flex-wrap: wrap;
+      }
+
+      .sound-flex {
+            flex: 1 1 auto;
+            height: 100%;
+            margin: 20px;
+            display: flex;
+            flex-wrap: wrap;
+      }
+
+      .sound-player-container {
+            position: relative;
+            width: 100%;
+            height: 150px;
+            margin-left: 0;
+      }
+
+      .bloc-sound-info {
+            flex: 1 1 auto;
+            height: 100%;
+            margin-left: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+      }
+}
+
+@media (max-width: 360px /* Smartphone zone */) {
+      .page {
+            margin-top: 0;
+      }
+      .sound-container {
+            width: 100%;
+            margin: 0 auto;
+            padding: 0;
+            display: flex;
+
+            flex-wrap: wrap;
+      }
+
+      .sound-flex {
+            flex: 1 1 auto;
+            height: 100%;
+            margin: 20px 0;
+            display: flex;
+            flex-wrap: wrap;
+      }
+}
