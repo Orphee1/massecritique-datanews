@@ -4,6 +4,9 @@ import { ThemeContext } from "../../context/ThemeContext";
 import "../../App.css";
 import "./style.css";
 
+import adult from "../../assets/sounds/adult.mp3";
+import silence from "../../assets/sounds/silence.mp3";
+
 export default function SoundScreen() {
       // Theme definition
       const [theme] = useContext(ThemeContext);
@@ -100,8 +103,8 @@ export default function SoundScreen() {
                                           width="100%"
                                           height="100%"
                                           type="mp3"
-                                          // url={adult}
-                                          url="https://www.youtube.com/watch?v=t2Eb8YNmSoM&list=LL23IMwRFgwTSET1CeBlThig&index=2&t=0s"
+                                          url={adult}
+                                          // url="https://www.youtube.com/watch?v=t2Eb8YNmSoM&list=LL23IMwRFgwTSET1CeBlThig&index=2&t=0s"
                                     />
                               </div>
                               <div className="bloc-sound-info">
@@ -158,8 +161,8 @@ export default function SoundScreen() {
                                           width="100%"
                                           height="100%"
                                           type="mp3"
-                                          // url={silence}
-                                          url="https://www.youtube.com/watch?v=t2Eb8YNmSoM&list=LL23IMwRFgwTSET1CeBlThig&index=2&t=0s"
+                                          url={silence}
+                                          // url="https://www.youtube.com/watch?v=t2Eb8YNmSoM&list=LL23IMwRFgwTSET1CeBlThig&index=2&t=0s"
                                     />
                               </div>
                               <div className="bloc-sound-info">
