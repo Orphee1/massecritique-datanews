@@ -31,8 +31,8 @@ export default function ArticleScreen() {
       const [skip, setSkip] = useState(0);
       const [buttonSelected, setButtonSelected] = useState(0);
 
-      let limit = 9;
-      let limitOK = skip + 9;
+      let limit = 5;
+      let limitOK = skip + 5;
 
       console.log("skip " + skip);
       console.log("limitOK " + limitOK);
@@ -62,7 +62,7 @@ export default function ArticleScreen() {
                   <div
                         className="fl-col"
                         style={{
-                              background: option.bg,
+                              background: option.syntax,
                         }}
                   >
                         <div

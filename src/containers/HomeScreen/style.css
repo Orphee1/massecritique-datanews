@@ -24,9 +24,9 @@
 /* child1 */
 
 .head-line-home {
-      /* border-radius: 10px; */
       background-image: url("../../images/home/shanghai2.jpg");
       background-size: cover;
+      height: 300px;
       width: 100%;
       margin-bottom: 10px;
 }
@@ -34,7 +34,7 @@
 h1 {
       color: white;
       font-weight: bold;
-      font-size: 76px;
+      font-size: 66px;
       margin-left: 10px;
       padding: 10px;
 }
@@ -49,7 +49,11 @@ h1 {
 /* Bloc flex2 > DataHome */
 .home-flex2 {
       flex: 1 1 200px;
-      margin: 10px;
+      margin-left: 10px;
+      margin-right: 10px;
+      margin-bottom: 20px;
+      margin-top: 10px;
+
       display: flex;
 }
 
@@ -83,9 +87,13 @@ h4 {
 
 .home-flex3 {
       flex: 1 1 200px;
-      margin: 10px;
+      margin-left: 10px;
+      margin-right: 10px;
+      margin-bottom: 20px;
+      margin-top: 10px;
       display: flex;
       flex-direction: column;
+      background-image: url("../../images/articles/Vaca1.jpg");
 }
 
 h3 {
@@ -124,6 +132,24 @@ p {
 @media (max-width: 720px /* Smartphone zone */) {
       .page {
             margin-top: 40px;
+      }
+
+      .home-container {
+            width: 100%;
+            margin: 0 auto;
+            padding: 30px;
+            display: flex;
+            flex-wrap: wrap;
+      }
+}
+
+@media (max-width: 414px /* iPhone 11 vertical zone */) {
+      .home-container {
+            width: 100%;
+            margin: 0 auto;
+            padding: 0px;
+            display: flex;
+            flex-wrap: wrap;
       }
 }
 

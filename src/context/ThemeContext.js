@@ -19,9 +19,9 @@ export const ThemeContextProvider = (props) => {
             },
             themeThree: {
                   syntax: "#000000",
-                  bgClear: "#FFFF00",
+                  bgClear: "#326E6E",
                   bg: "#FFFFF0",
-                  plus: "#128125",
+                  plus: "#1E3618",
             },
       });
 

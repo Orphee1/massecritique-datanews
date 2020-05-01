@@ -131,11 +131,11 @@ export default function Header({ indexPage, setIndexPage }) {
                   </div>
                   <div
                         className="line"
-                        style={{ background: option.syntax }}
+                        style={{ background: option.plus }}
                   ></div>
                   <div
                         className="line2"
-                        style={{ background: option.plus }}
+                        style={{ background: option.bgClear }}
                   ></div>
                   <div
                         className="line2"

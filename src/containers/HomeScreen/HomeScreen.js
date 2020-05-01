@@ -40,13 +40,7 @@ export default function HomeScreen() {
                               background: option.bg,
                         }}
                   >
-                        <div
-                              className="home-flex1"
-                              style={{
-                                    height: height * 0.9,
-                                    marginBottom: "20px",
-                              }}
-                        >
+                        <div className="home-flex1">
                               <div className="head-line-home">
                                     <h1>
                                           Masse Critique <br />
@@ -67,24 +61,20 @@ export default function HomeScreen() {
                                     </h4>
                               </div> */}
                         </div>
-                        <div
-                              className="home-flex2"
-                              style={{
-                                    height: height * 0.9,
-                                    marginBottom: "20px",
-                              }}
-                        >
-                              <div className="data-home">
+                        <div className="home-flex2">
+                              <div className="data-home red">
                                     <h3 style={{ color: option.syntax }}>
-                                          Solar production growth
+                                          Epidémie de Covid-19
                                     </h3>
                                     <h4
                                           style={{
                                                 color: option.syntax,
+                                                textAlign: "left",
                                           }}
                                     >
-                                          Chapeau destiné à présenter la
-                                          production mise en valeur en home
+                                          Visualiser la prévalence de l'épidémie
+                                          au sein de la population française,
+                                          selon les régions, départements.
                                     </h4>
                                     <div className="image-data-home"></div>
                                     {/* <img
@@ -94,19 +84,14 @@ export default function HomeScreen() {
                                     ></img> */}
                               </div>
                         </div>
-                        <div
-                              className="home-flex3"
-                              style={{
-                                    height: height * 0.9,
-                                    marginBottom: "20px",
-                              }}
-                        >
+                        <div className="home-flex3 yellow">
                               <h3 style={{ color: option.syntax }}>
                                     Autre prod mise en home
                               </h3>
                               <h4
                                     style={{
                                           color: option.syntax,
+                                          textAlign: "left",
                                     }}
                               >
                                     Encore un chapeau destiné à présenter une

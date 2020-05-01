@@ -22,7 +22,7 @@ const articles = [
             title: "L'Europe verrouille les frontières de l'Afrique",
             link: "http://www.millebabords.org/spip.php?article16089",
             p:
-                  "Après avoir fermé ses portes aux migrants,l’Europe cherche depuis quelques années à maîtriser les voies d’accès. Elle exerce de nombreuses pressions pour imposer ses politiques migratoires jusqu’aux frontières africaines et de plus en plus de pays les mettent en place..",
+                  "Après avoir fermé ses portes aux migrants, l’Europe cherche depuis quelques années à maîtriser les voies d’accès. Elle exerce de nombreuses pressions pour imposer ses politiques migratoires jusqu’aux frontières africaines et de plus en plus de pays les mettent en place.",
             image: undefined,
             category: "societe",
       },

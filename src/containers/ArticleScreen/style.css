@@ -53,11 +53,11 @@ h4 {
 
 .article-flex0 {
       flex: 1 1 1000px;
-      height: 80px;
+      height: 40px;
       margin: 20px;
       display: flex;
       justify-content: space-between;
-      align-items: baseline;
+      align-items: center;
 }
 
 /* .menu-article {
@@ -73,15 +73,19 @@ li {
 .page-button {
       margin: 0 10px 30px 10px;
       outline: none;
+      font-weight: 800;
+      width: 28px;
 }
 
 .page-button-selected {
       margin: 0 10px 30px 10px;
-      /* background-color: black; */
-      border: 1px solid black;
+      background-color: black;
       border-radius: 5px;
       outline: none;
-      /* color: "#FFFFF0"; */
+      color: #fffff0;
+      font-weight: 800;
+      width: 20px;
+      width: 28px;
 }
 /* Bloc Flex 1 >  */
 
