@@ -305,7 +305,7 @@ export default function DataScreen() {
                               </div>
                         </div>
                         <div
-                              className="data-flex3"
+                              className="data-flex3 red"
                               style={{
                                     // height: height * 0.9,
                                     height: "100%",
@@ -315,7 +315,10 @@ export default function DataScreen() {
                               <h4 style={{ color: option.syntax }}>
                                     Impact de l'épidémie selon le sexe
                               </h4>
-                              <AllDeptsCovidChart data={dataUpdated} />
+                              <AllDeptsCovidChart
+                                    className="alldept-chart"
+                                    data={dataUpdated}
+                              />
                         </div>
 
                         <div

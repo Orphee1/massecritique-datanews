@@ -85,16 +85,11 @@
       margin: 0;
 }
 
-/* Bloc Flex 3 > child 1 =  CovidChartScreen*/
-
 .data-flex3 {
       flex: 1 1 auto;
       margin: 10px;
       display: flex;
-      /* justify-content: center; */
       flex-direction: column;
-      /* align-items: flex-start; */
-      /* overflow-x: auto; */
 }
 
 .hosp-rea-dead-select {
@@ -130,14 +125,89 @@
 }
 
 @media (max-width: 768px /* Ipad vertical position zone */) {
+      .data-container {
+            width: 100%;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            padding: 0px;
+      }
+      .data-flex0 {
+            flex: 1 1 768px;
+            height: 100%;
+            margin: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+      }
+
+      .data-flex3 {
+            flex: 1 1 768;
+            margin: 0px;
+            display: flex;
+            flex-direction: column;
+      }
+
+      .alldept-chart {
+            width: 768px;
+      }
 }
 
 @media (max-width: 720px /* Smartphone zone */) {
+      .data-flex0 {
+            flex: 1 1 720px;
+            height: 100%;
+            margin: 0px;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+      }
+}
+
+@media (max-width: 414px /* iPhone 11 vertical zone */) {
+      .data-flex0 {
+            flex: 1 1 414px;
+            height: 100%;
+            margin: 0px;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+      }
+
+      .data-flex1 {
+            flex: 1 1 414px;
+            margin: 0px;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+      }
+
+      .graph-covid-france-map {
+            width: 414px;
+      }
 }
 
 @media (max-width: 380px /* Smartphone vertical zone */) {
+      .data-flex0 {
+            flex: 1 1 380px;
+            height: 100%;
+            margin: 0px;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+      }
+
+      .data-flex1 {
+            flex: 1 1 380px;
+            margin: 0px;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+      }
       .graph-covid-france-map {
-            width: 320px;
+            width: 380px;
       }
 }
 

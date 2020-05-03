@@ -50,10 +50,13 @@ export default function HomeScreen() {
                                     // style={{ background: option.bgClear }}
                               >
                                     <h4
+                                          className="up-title"
                                           style={{
                                                 textAlign: "left",
 
                                                 color: option.syntax,
+                                                borderColor: option.syntax,
+                                                width: "65px",
                                                 // color: option.bg,
                                           }}
                                     >
@@ -72,7 +75,14 @@ export default function HomeScreen() {
                               </div>
 
                               <div className="vignette2">
-                                    <h4 style={{ textAlign: "left" }}>
+                                    <h4
+                                          className="up-title"
+                                          style={{
+                                                textAlign: "left",
+                                                borderColor: "#FFFFF0",
+                                                width: "65px",
+                                          }}
+                                    >
                                           La vidéo
                                     </h4>
                                     <Link to="/video">

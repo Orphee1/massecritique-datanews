@@ -58,6 +58,10 @@ h1 {
       align-items: flex-start;
 }
 
+.up-title {
+      border-bottom: 2px solid;
+}
+
 /* child 2 */
 
 .article-home {
