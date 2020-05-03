@@ -9,6 +9,21 @@ import "./style.css";
 // import tango from "../../videos/Tango.mp4";
 
 export default function VideoScreen() {
+      const [watchComplete, setWatchComplete] = useState(false);
+      console.log(watchComplete);
+      const handleWatchComplete = ({ played }) => {
+            console.log(played);
+            if (played >= 0.9 && !watchComplete) {
+                  setWatchComplete(true);
+            }
+      };
+      const [watchCompleteBis, setWatchCompleteBis] = useState(false);
+      const handleWatchCompleteBis = ({ played }) => {
+            console.log(played);
+            if (played >= 0.9 && !watchCompleteBis) {
+                  setWatchCompleteBis(true);
+            }
+      };
       // Theme definition
       const [theme] = useContext(ThemeContext);
       const { themeSelected, themeOne, themeTwo, themeThree } = theme;
@@ -54,13 +69,20 @@ export default function VideoScreen() {
                                     <ReactPlayer
                                           className="react-player2"
                                           controls={true}
-                                          light={true}
+                                          // light={true}
                                           width="100%"
                                           height="100%"
                                           url="https://www.youtube.com/watch?v=Mv-y4meRSf4&t=97s"
+                                          onProgress={handleWatchComplete}
                                     />
                               </div>
-                              <div className="video-info">
+                              <div
+                                    className={
+                                          watchComplete
+                                                ? "video-info-complete"
+                                                : "video-info"
+                                    }
+                              >
                                     <h5 style={{ color: option.syntax }}>
                                           Résidence de création de Karen Ramage,
                                           metteure en scène et Léa Debenedetti,
@@ -81,9 +103,16 @@ export default function VideoScreen() {
                                           width="100%"
                                           height="100%"
                                           url="https://www.youtube.com/watch?v=r3IL-JXt2uA&feature=youtu.be"
+                                          onProgress={handleWatchCompleteBis}
                                     />
                               </div>
-                              <div className="video-info">
+                              <div
+                                    className={
+                                          watchCompleteBis
+                                                ? "video-info-complete"
+                                                : "video-info"
+                                    }
+                              >
                                     <h5 style={{ color: option.syntax }}>
                                           Milonga un jour de canicule animée par
                                           Philippe Stainvurcel, au Caminito,
