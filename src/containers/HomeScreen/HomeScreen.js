@@ -1,18 +1,16 @@
 import React, { useContext } from "react";
 import { ThemeContext } from "../../context/ThemeContext";
+import { Link } from "react-router-dom";
 
 import "../../App.css";
 import "./style.css";
-import useWindowDimensions from "../../assets/useWindowDimension";
 
 // Image import
-import graph from "../../images/home/graph.png";
+import graph from "../../assets/images/home/graph.png";
 
 export default function HomeScreen() {
-      const { width, height } = useWindowDimensions();
-
       // Theme definition
-      const [theme, setTheme] = useContext(ThemeContext);
+      const [theme] = useContext(ThemeContext);
       const { themeSelected, themeOne, themeTwo, themeThree } = theme;
       let option;
       switch (themeSelected) {
@@ -47,25 +45,49 @@ export default function HomeScreen() {
                                           /Data News
                                     </h1>
                               </div>
-                              {/* <div className="article-home">
-                                    <h3 style={{ color: option.syntax }}>
-                                          Article mis en home
-                                    </h3>
-                                    <h4 style={{ color: option.syntax }}>
-                                          Chapeau destiné à présenter l'article
-                                          mise en valeur en home avec un lien
-                                          qui renvoie vers la page article et
-                                          plein de détails à l'intérieur juste
-                                          pour remplir cet espace qui sera
-                                          ensuite un composant.
+                              <div
+                                    className="vignette1"
+                                    // style={{ background: option.bgClear }}
+                              >
+                                    <h4
+                                          style={{
+                                                textAlign: "left",
+
+                                                color: option.syntax,
+                                                // color: option.bg,
+                                          }}
+                                    >
+                                          Le son
                                     </h4>
-                              </div> */}
+                                    <Link to="/sound">
+                                          <h3
+                                                style={{
+                                                      color: option.syntax,
+                                                      // color: option.bg,
+                                                }}
+                                          >
+                                                Adult babies
+                                          </h3>
+                                    </Link>
+                              </div>
+
+                              <div className="vignette2">
+                                    <h4 style={{ textAlign: "left" }}>
+                                          La vidéo
+                                    </h4>
+                                    <Link to="/video">
+                                          <h3>Ombres</h3>
+                                    </Link>
+                              </div>
                         </div>
+
                         <div className="home-flex2">
                               <div className="data-home">
-                                    <h3 style={{ color: option.syntax }}>
-                                          Epidémie de Covid-19
-                                    </h3>
+                                    <Link to="/data">
+                                          <h3 style={{ color: option.syntax }}>
+                                                Epidémie de Covid-19
+                                          </h3>
+                                    </Link>
                                     <h4
                                           style={{
                                                 color: option.syntax,
@@ -77,20 +99,24 @@ export default function HomeScreen() {
                                           selon les régions, départements.
                                     </h4>
                                     <div className="image-data-home"></div>
-                                    {/* <img
-                                          className="image-data-home"
-                                          src={graph}
-                                          alt="chart"
-                                    ></img> */}
                               </div>
                         </div>
+
                         <div className="home-flex3">
-                              <h3 style={{ color: option.syntax }}>
-                                    La Patagonie eldorado du fracking
-                              </h3>
+                              <Link to="article">
+                                    <h3
+                                          style={{
+                                                // color: option.bg,
+                                                color: "#fffff0",
+                                          }}
+                                    >
+                                          La Patagonie eldorado du fracking
+                                    </h3>
+                              </Link>
                               <h4
                                     style={{
-                                          color: option.syntax,
+                                          // color: option.bg,
+                                          color: "#fffff0",
                                           textAlign: "left",
                                     }}
                               >
@@ -99,8 +125,10 @@ export default function HomeScreen() {
                                     argentine.
                               </h4>
                               <p
+                                    className="remove414"
                                     style={{
-                                          color: option.syntax,
+                                          // color: option.bg,
+                                          color: "#fffff0",
                                           padding: "5px",
                                     }}
                               >

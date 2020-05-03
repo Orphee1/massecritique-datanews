@@ -2,8 +2,12 @@ import React, { useState, useEffect, useContext } from "react";
 import Axios from "axios";
 import ImageGallery from "react-image-gallery";
 import { ThemeContext } from "../../context/ThemeContext";
+
 import "../../App.css";
 import "./style.css";
+
+// Component import
+import PictureLoader from "../../components/PictureLoader/PictureLoader";
 
 export default function PhotoScreen() {
       // Theme definition
@@ -28,13 +32,14 @@ export default function PhotoScreen() {
 
       // Get Images to display
       const [image, setImage] = useState([]);
-      // console.log(image);
       const [isLoading, setIsLoading] = useState(true);
 
       const fetchImages = async () => {
             try {
                   const response = await Axios.get(
-                        "http://localhost:4000/picture"
+                        // "http://localhost:4000/picture"
+                        "https://massecritique-datanews-backend.herokuapp.com/picture"
+                        // process.env.REACT_APP_WEBADDRESS + "/picture"
                   );
                   if (response.data) {
                         // console.log(response.data);
@@ -86,9 +91,13 @@ export default function PhotoScreen() {
                               </h2>
                         </div>
                         {isLoading ? (
-                              <div>Chargement en cours ...</div>
+                              <PictureLoader
+                                    className="picture-loader"
+                                    backgroundColor={option.syntax}
+                                    foregroundColor={option.bg}
+                              />
                         ) : (
-                              <div className="photo-flex1">
+                              <div className="photo-flex">
                                     <ImageGallery
                                           items={images}
                                           infinite={true}

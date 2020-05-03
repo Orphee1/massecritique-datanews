@@ -30,18 +30,18 @@ h4 {
       font-family: "Roboto", sans-serif;
 }
 
-.selected1 {
-      border-bottom: 3px solid #706c61;
+.selected3 {
+      border-bottom: 3px solid white;
       transition: width 0.7s ease;
       font-weight: bold;
 }
 .selected2 {
-      border-bottom: 3px solid #81f499;
+      border-bottom: 3px solid #fffff0;
       transition: width 0.7s ease;
       font-weight: bold;
 }
 
-.selected3 {
+.selected1 {
       border-bottom: 3px solid black;
       transition: width 0.7s ease;
       font-weight: bold;

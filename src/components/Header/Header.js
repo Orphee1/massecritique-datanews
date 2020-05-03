@@ -54,6 +54,7 @@ export default function Header({ indexPage, setIndexPage }) {
                               </li>
                               <li>
                                     <select
+                                          className="theme-select"
                                           onChange={(event) => {
                                                 setTheme({
                                                       themeSelected:
@@ -65,13 +66,13 @@ export default function Header({ indexPage, setIndexPage }) {
                                           }}
                                     >
                                           <option value="theme1">
-                                                theme 1
+                                                mode clair
                                           </option>
                                           <option value="theme2">
-                                                theme 2
+                                                mode sombre
                                           </option>
                                           <option value="theme3">
-                                                theme 3
+                                                mode couleur
                                           </option>
                                     </select>
                               </li>
@@ -135,7 +136,7 @@ export default function Header({ indexPage, setIndexPage }) {
                   ></div>
                   <div
                         className="line2"
-                        style={{ background: option.bgClear }}
+                        style={{ background: option.bg }}
                   ></div>
                   <div
                         className="line2"

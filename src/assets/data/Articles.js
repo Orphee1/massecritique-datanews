@@ -1,12 +1,12 @@
-import FMI from "../../images/articles/FMI.jpg";
-import Vaca1 from "../../images/articles/Vaca1.jpg";
-import Roms from "../../images/articles/roms.jpg";
-import Mayotte from "../../images/articles/Mayotte1.jpg";
-import Grevistes from "../../images/articles/Grevistes.jpg";
-import SansPapiers from "../../images/articles/SansPapiers.jpg";
-import desk from "../../images/articles/desk.jpg";
-import gonzalo from "../../images/articles/gonzalo.jpeg";
-import euros from "../../images/articles/euros.jpg";
+import FMI from "../images/articles/FMI.jpg";
+import Vaca1 from "../images/articles/Vaca1.jpg";
+import Roms from "../images/articles/roms.jpg";
+import Mayotte from "../images/articles/Mayotte1.jpg";
+import Grevistes from "../images/articles/Grevistes.jpg";
+import SansPapiers from "../images/articles/SansPapiers.jpg";
+import desk from "../images/articles/desk.jpg";
+import gonzalo from "../images/articles/gonzalo.jpeg";
+import euros from "../images/articles/euros.jpg";
 
 const articles = [
       {

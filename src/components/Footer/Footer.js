@@ -23,7 +23,7 @@ export default function Footer() {
       }
 
       return (
-            <footer className="footer" style={{ background: option.syntax }}>
+            <footer className="footer" style={{ background: option.bg }}>
                   <div
                         className="line"
                         style={{ background: option.syntax }}
@@ -34,7 +34,7 @@ export default function Footer() {
                   ></div>
                   <div
                         className="line"
-                        style={{ background: option.bgClear }}
+                        style={{ background: option.syntax }}
                   ></div>
             </footer>
       );
