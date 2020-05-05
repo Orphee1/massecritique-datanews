@@ -305,7 +305,7 @@ export default function DataScreen() {
                               </div>
                         </div>
                         <div
-                              className="data-flex3 red"
+                              className="data-flex3"
                               style={{
                                     // height: height * 0.9,
                                     height: "100%",
