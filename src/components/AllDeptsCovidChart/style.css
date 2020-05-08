@@ -1,0 +1,34 @@
+.component {
+}
+
+/* -------------------- media queries ---*/
+
+@media (max-width: 1024px /* Landscape tab */) {
+}
+
+@media (max-width: 768px /* Ipad vertical position zone */) {
+      .component {
+            width: 768px;
+      }
+}
+
+@media (max-width: 720px /* Smartphone zone */) {
+      .component {
+            width: 720px;
+      }
+}
+
+@media (max-width: 414px /* iPhone 11 vertical zone */) {
+      .component {
+            width: 414px;
+      }
+}
+
+@media (max-width: 380px /* Smartphone vertical zone */) {
+      .component {
+            width: 380px;
+      }
+}
+
+@media (max-width: 330px) {
+}

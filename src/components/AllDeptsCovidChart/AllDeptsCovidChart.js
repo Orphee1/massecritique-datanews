@@ -19,6 +19,9 @@ import useWindowDimensions from "../../assets/useWindowDimension";
 // const dataUpdated = COVID2104;
 
 export default function AllDeptsCovidChart({ data }) {
+      const { width } = useWindowDimensions();
+      console.log(width);
+
       // Theme definition
       const [theme, setTheme] = useContext(ThemeContext);
       const { themeSelected, themeOne, themeTwo, themeThree } = theme;
@@ -117,7 +120,7 @@ export default function AllDeptsCovidChart({ data }) {
       }
 
       return (
-            <div>
+            <div className="component">
                   <p
                         style={{
                               color: option.syntax,
@@ -151,7 +154,7 @@ export default function AllDeptsCovidChart({ data }) {
                   </select>
 
                   <BarChart
-                        width={800}
+                        width={width * 0.8}
                         height={1800}
                         layout="vertical"
                         // data={data}

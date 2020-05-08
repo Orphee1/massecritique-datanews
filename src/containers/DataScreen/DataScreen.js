@@ -1,7 +1,10 @@
 import React, { useState, useContext } from "react";
-import { VectorMap } from "@south-paw/react-vector-maps";
 import { Link } from "react-router-dom";
 
+// Libraries
+
+import { VectorMap } from "@south-paw/react-vector-maps";
+// Recharts
 import {
       BarChart,
       Bar,
@@ -23,6 +26,7 @@ import useWindowDimensions from "../../assets/useWindowDimension";
 import CovidChartScreen from "../../components/CovidChartScreen/CovidChartScreen";
 import AllDeptsCovidChart from "../../components/AllDeptsCovidChart/AllDeptsCovidChart";
 import AllDeptAgeCovidChart from "../../components/AllDeptAgeCovidChart/AllDeptAgeCovidChart";
+import ReactVisChart from "../../components/ReactVisChart/ReactVisChart";
 
 // Icons import
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -39,14 +43,16 @@ import COVIDHospAge2204 from "../../assets/data/COVID/COVIDHospAge2204.json";
 import COVIDReaAge2204 from "../../assets/data/COVID/COVIDReaAge2204.json";
 import COVID2504 from "../../assets/data/COVID/COVID2504.json";
 import COVID2604 from "../../assets/data/COVID/COVID2604.json";
+import COVID0605 from "../../assets/data/COVID/COVID0605.json";
+import ReactVisChartAllDept from "../../components/ReactVisChartAllDept/ReactVisChartAllDept";
 
-const date = "26 avril";
-const dataUpdated = COVID2604;
+const date = "06 mai";
+const dataUpdated = COVID0605;
 
 export default function DataScreen() {
       const { height } = useWindowDimensions();
       // Theme definition
-      const [theme, setTheme] = useContext(ThemeContext);
+      const [theme] = useContext(ThemeContext);
       const { themeSelected, themeOne, themeTwo, themeThree } = theme;
       let option;
       switch (themeSelected) {
@@ -134,7 +140,6 @@ export default function DataScreen() {
                                           color: option.syntax,
                                           marginBottom: "0",
                                           marginTop: "0",
-                                          // fontWeight: "900",
                                     }}
                               >
                                     Data
@@ -173,25 +178,23 @@ export default function DataScreen() {
                               }}
                         >
                               <div className="graph-comment1">
-                                    <h4 style={{ color: option.syntax }}>
-                                          Données hospitalières au {date} :
+                                    <h4
+                                          className=""
+                                          style={{
+                                                color: option.syntax,
+                                                width: "100%",
+                                                marginLeft: "0",
+                                          }}
+                                    >
+                                          Données hospitalières au {date}:
                                     </h4>
                                     <p style={{ color: option.syntax }}>
-                                          Source :{" "}
+                                          Source:{" "}
                                           <a
                                                 style={{ color: option.syntax }}
                                                 href="https://geodes.santepubliquefrance.fr/#c=home"
                                           >
                                                 Santé Publique France
-                                          </a>
-                                    </p>
-                                    <p style={{ color: option.syntax }}>
-                                          Librairie :{" "}
-                                          <a
-                                                style={{ color: option.syntax }}
-                                                href="https://react-vector-maps.netlify.app/"
-                                          >
-                                                React Vector Maps
                                           </a>
                                     </p>
                               </div>
@@ -315,10 +318,7 @@ export default function DataScreen() {
                               <h4 style={{ color: option.syntax }}>
                                     Impact de l'épidémie selon le sexe
                               </h4>
-                              <AllDeptsCovidChart
-                                    className="alldept-chart"
-                                    data={dataUpdated}
-                              />
+                              <ReactVisChartAllDept data={dataUpdated} />
                         </div>
 
                         <div
@@ -328,12 +328,12 @@ export default function DataScreen() {
                                     marginBottom: "20px",
                               }}
                         >
-                              <CovidChartScreen data={dataUpdated} />
+                              <ReactVisChart data={dataUpdated} />
+                              {/* <CovidChartScreen data={dataUpdated} /> */}
                         </div>
-                        <div
-                              className="data-flex5"
+                        {/* <div
+                              className="data-flex5 remove720"
                               style={{
-                                    // height: height * 0.9,
                                     height: "100%",
                                     marginBottom: "20px",
                               }}
@@ -342,7 +342,7 @@ export default function DataScreen() {
                                     Impact de l'épidémie selon la classe d'âge
                               </h4>
                               <AllDeptAgeCovidChart />
-                        </div>
+                        </div> */}
                   </div>
             </div>
       );

@@ -237,6 +237,12 @@ input {
       background-color: #cad1d9;
 }
 
+.select {
+      width: 100px;
+      font-family: "Roboto", sans-serif;
+      outline: none;
+}
+
 /* ============== MyLoader ===========*/
 
 /* ============== Loader =============*/

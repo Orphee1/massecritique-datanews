@@ -177,7 +177,7 @@ export default function CovidChartScreen({ data }) {
 
       return (
             <div className="covid-chart" style={{ height: height * 0.8 }}>
-                  <div className="d-flex s-a">
+                  <div className="covid-chart-title">
                         <select
                               className="dept-select"
                               onChange={(event) => {
@@ -206,8 +206,8 @@ export default function CovidChartScreen({ data }) {
                               </a>
                         </p>
                   </div>
-                  <div className="d-flex">
-                        <div className="fl-col">
+                  <div className="covid-chart-body">
+                        <div className="fl-col ">
                               <h3
                                     style={{
                                           color: option.syntax,
@@ -216,7 +216,7 @@ export default function CovidChartScreen({ data }) {
                                     {depSelected}
                               </h3>
 
-                              <div className="info-chart">
+                              <div className="info-chart remove414 ">
                                     <div className="hosp">
                                           <p
                                                 style={{
