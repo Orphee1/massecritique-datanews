@@ -7,6 +7,7 @@ import {
       XYPlot,
       XAxis,
       YAxis,
+      DiscreteColorLegend,
       VerticalGridLines,
       HorizontalGridLines,
       VerticalBarSeries,
@@ -15,8 +16,10 @@ import {
 } from "react-vis";
 import "../../../node_modules/react-vis/dist/style.css";
 
+import "../../App.css";
+import "./style.css";
+
 const optionDepts = [
-      "Sélectionner un département",
       "Ain",
       "Aisne",
       "Allier",
@@ -175,23 +178,13 @@ export default function ReactVisChart({ data }) {
             }
       }
 
-      // const yDomain = myDATA.reduce(
-      //       (res, row) => {
-      //         return {
-      //           max: Math.max(res.max, row.y),
-      //           min: Math.min(res.min, row.y)
-      //         };
-      //       },
-      //       {max: -Infinity, min: Infinity}
-      //     );
-
       return (
             <div>
                   <div className="fl-col">
-                        <div className="d-flex">
-                              <h4 style={{ color: option.syntax }}>
-                                    Sélectionner un département:
-                              </h4>
+                        <div className="select-info">
+                              <h5 style={{ color: option.syntax }}>
+                                    Afficher les données par département:
+                              </h5>
                               <select
                                     className="select"
                                     style={{
@@ -241,6 +234,27 @@ export default function ReactVisChart({ data }) {
                                     data={menData}
                                     getLabel={(d) => d.y}
                                     style={{ fontWeight: "900" }}
+                              />
+                              <DiscreteColorLegend
+                                    style={{
+                                          position: "absolute",
+                                          left: "420px",
+                                          top: "10px",
+                                          fontWeight: "bold",
+                                    }}
+                                    orientation="vertical"
+                                    items={[
+                                          {
+                                                title: "Hommes",
+                                                color: "#1F939A",
+                                                strokeWidth: 4,
+                                          },
+                                          {
+                                                title: "Femmmes",
+                                                color: "#79C7E3",
+                                                strokeWidth: 4,
+                                          },
+                                    ]}
                               />
                         </XYPlot>
                   </div>

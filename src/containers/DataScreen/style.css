@@ -102,7 +102,7 @@
 /* Bloc Flex 4 > child 1 =  CovidChartScreen*/
 
 .data-flex4 {
-      flex: 1 1 auto;
+      flex: 1 1 600px;
       margin: 10px;
       display: flex;
       justify-content: center;
@@ -113,11 +113,21 @@
 /* Bloc Flex 5 > child 1 =  */
 
 .data-flex5 {
-      flex: 1 1 auto;
+      flex: 1 1 1000px;
       margin: 10px;
       display: flex;
+      justify-content: center;
       flex-direction: column;
       align-items: flex-start;
+}
+
+.chart-age-container {
+      display: flex;
+      width: 100%;
+      flex-wrap: wrap;
+}
+.chart-age-box {
+      flex: 1 1 300px;
 }
 
 /* -------------------- media queries ---*/

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 
 // React-vis
 import {
@@ -8,16 +8,31 @@ import {
       VerticalGridLines,
       HorizontalGridLines,
       DiscreteColorLegend,
-      VerticalBarSeries,
-      VerticalBarSeriesCanvas,
-      MarkSeries,
-      LabelSeries,
       HorizontalBarSeries,
       Hint,
 } from "react-vis";
 import "../../../node_modules/react-vis/dist/style.css";
+import { ThemeContext } from "../../context/ThemeContext";
 
 export default function ReactVisChartAllDept({ data }) {
+      // Theme definition
+      const [theme] = useContext(ThemeContext);
+      const { themeSelected, themeOne, themeTwo, themeThree } = theme;
+      let option;
+      switch (themeSelected) {
+            case "theme1":
+                  option = themeOne;
+                  break;
+            case "theme2":
+                  option = themeTwo;
+                  break;
+            case "theme3":
+                  option = themeThree;
+                  break;
+      }
+      //
+      const [type, setType] = useState("hosp");
+      //
       const {
             LEFT,
             RIGHT,
@@ -55,27 +70,39 @@ export default function ReactVisChartAllDept({ data }) {
 
       let menData = [];
       let womenData = [];
-
-      for (let i = 0; i < data.length; i++) {
-            menData.push(
-                  {
-                        // id: i,
+      if (type === "rea") {
+            for (let i = 0; i < data.length; i++) {
+                  menData.push({
                         y: data[i].dep,
-
+                        x: data[i].reah,
+                  });
+                  womenData.push({
+                        y: data[i].dep,
+                        x: data[i].reaf,
+                  });
+            }
+      } else if (type === "dec") {
+            for (let i = 0; i < data.length; i++) {
+                  menData.push({
+                        y: data[i].dep,
+                        x: data[i].deadh,
+                  });
+                  womenData.push({
+                        y: data[i].dep,
+                        x: data[i].deadf,
+                  });
+            }
+      } else {
+            for (let i = 0; i < data.length; i++) {
+                  menData.push({
+                        y: data[i].dep,
                         x: data[i].hosph,
-                  }
-                  // { x: "reanimation", y: data[i].reah },
-                  // { x: "décès", y: data[i].deadh }
-            );
-            womenData.push(
-                  {
-                        // x: "hospitalisation",
+                  });
+                  womenData.push({
                         y: data[i].dep,
                         x: data[i].hospf,
-                  }
-                  // { x: "reanimation", y: data[i].reaf },
-                  // { x: "décès", y: data[i].deadf }
-            );
+                  });
+            }
       }
 
       function compareMenData(a, b) {
@@ -110,39 +137,64 @@ export default function ReactVisChartAllDept({ data }) {
 
       return (
             <div>
-                  <div>
+                  <div className="">
+                        <h4 style={{ color: option.syntax }}>
+                              Impact de l'épidémie selon le sexe
+                        </h4>
+                        <select
+                              className="select"
+                              style={{ width: "150px", marginBottom: "10px" }}
+                              onChange={(event) => {
+                                    setType(event.target.value);
+                              }}
+                        >
+                              <option value="hosp">
+                                    Patients hospitalsées
+                              </option>
+                              <option value="rea">
+                                    Patients en réanimation
+                              </option>
+                              <option value="dec">Patients décédés</option>
+                        </select>
                         <XYPlot
-                              // xType="time"
                               type="category"
                               yType="ordinal"
                               margin={{ left: 135 }}
                               width={600}
-                              height={1200}
+                              height={1600}
+                              stackBy="x"
                         >
                               <VerticalGridLines />
                               <HorizontalGridLines />
                               <HorizontalBarSeries
                                     className="vertical-bar-series-example"
                                     data={menData}
-                                    barWidth={1}
-                                    onNearestX={_rememberValue}
+                                    barWidth={0.8}
                               />
                               <HorizontalBarSeries
                                     data={womenData}
-                                    barWidth={1}
-                                    // onNearestX={_rememberValue}
+                                    barWidth={0.8}
+                                    onNearestX={_rememberValue}
                               />
 
-                              <XAxis />
-                              <YAxis />
-                              {/* <MarkSeries
-                                    onNearestX={_rememberValue}
-                                    data={menData}
-                              /> */}
+                              <XAxis
+                                    style={{
+                                          // line: { stroke: option.syntax },
+                                          ticks: { fill: option.syntax },
+                                          // text: {stroke: 'none', fill: '#6b6b76', fontWeight: 600}
+                                    }}
+                              />
+                              <YAxis
+                                    style={{
+                                          ticks: { fill: option.syntax },
+                                          // text: {stroke: 'none', fill: '#6b6b76', fontWeight: 600}
+                                    }}
+                              />
+
                               {value ? (
                                     <Hint value={value}>
                                           <div className="rv-hint__content">
-                                                {`(${value.x}, ${value.y})`}
+                                                {`(${value.y}: ${value.x})`}
                                                 <br />
                                           </div>
                                     </Hint>
@@ -153,11 +205,13 @@ export default function ReactVisChartAllDept({ data }) {
                                           left: "620px",
                                           top: "10px",
                                           fontWeight: "bold",
+                                          color: option.syntax,
                                     }}
                                     orientation="vertical"
                                     items={[
                                           {
                                                 title: "Hommes",
+
                                                 color: "#1F939A",
                                                 strokeWidth: 4,
                                           },

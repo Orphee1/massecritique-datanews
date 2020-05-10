@@ -27,6 +27,8 @@ import CovidChartScreen from "../../components/CovidChartScreen/CovidChartScreen
 import AllDeptsCovidChart from "../../components/AllDeptsCovidChart/AllDeptsCovidChart";
 import AllDeptAgeCovidChart from "../../components/AllDeptAgeCovidChart/AllDeptAgeCovidChart";
 import ReactVisChart from "../../components/ReactVisChart/ReactVisChart";
+import ReactVisChartAllDept from "../../components/ReactVisChartAllDept/ReactVisChartAllDept";
+import COVIDageBar from "../../components/COVIDageBar/COVIDageBar";
 
 // Icons import
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -35,19 +37,44 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import franceDepts from "../../assets/maps/FranceDepts.json";
 
 // Data import
+import COVID0905 from "../../assets/data/COVID/COVID0905.json";
+import COVID09DeadAge from "../../assets/data/COVID/COVID0905DeadAge.json";
+import dead from "../../assets/data/COVID/COVID0905DeadAge.json";
+import hosp from "../../assets/data/COVID/COVID0905HospAge.json";
+import rea from "../../assets/data/COVID/COVID0905ReaAge.json";
 
-import COVID2104 from "../../assets/data/COVID/COVID2104.json";
-import COVID2204 from "../../assets/data/COVID/COVID2204.json";
-import COVIDDcAge2204 from "../../assets/data/COVID/COVIDDcAge2204.json";
-import COVIDHospAge2204 from "../../assets/data/COVID/COVIDHospAge2204.json";
-import COVIDReaAge2204 from "../../assets/data/COVID/COVIDReaAge2204.json";
-import COVID2504 from "../../assets/data/COVID/COVID2504.json";
-import COVID2604 from "../../assets/data/COVID/COVID2604.json";
-import COVID0605 from "../../assets/data/COVID/COVID0605.json";
-import ReactVisChartAllDept from "../../components/ReactVisChartAllDept/ReactVisChartAllDept";
+const date = "09 mai";
+const dataUpdated = COVID0905;
 
-const date = "06 mai";
-const dataUpdated = COVID0605;
+const optionReg = [
+      "Île-de-France",
+      "Guadeloupe",
+      "Martinique",
+      "Guyane",
+      "La Réunion",
+      "Mayotte",
+      "Centre-Val de Loire",
+      "Bourgogne-Franche-Comté",
+      "Normandie",
+      "Hauts-de-France",
+      "Grand-Est",
+      "Pays de la Loire",
+      "Bretagne",
+      "Nouvelle-Aquitaine",
+      "Occitanie",
+      "Auvergne-Rhône-Alpes",
+      "Provence-Alpes-Côte d'Azur",
+      "Corse",
+];
+
+const options = [];
+for (let i = 0; i < optionReg.length; i++) {
+      options.push(
+            <option key={i} value={optionReg[i]}>
+                  {optionReg[i]}
+            </option>
+      );
+}
 
 export default function DataScreen() {
       const { height } = useWindowDimensions();
@@ -119,6 +146,139 @@ export default function DataScreen() {
             onClick: ({ target }) => setClicked(target.attributes.name.value),
             // onClick: ({ target }) => setDataToDisplay(true)
       };
+
+      // State required by COVIDageBar component
+      const [regSelected, setRegSelected] = useState("Île-de-France");
+      console.log(regSelected);
+      // Data treatment for COVIDageBar component
+      let dataDCTodisplay = [];
+      for (let i = 0; i < dead.length; i++) {
+            if (dead[i].Libellé === regSelected) {
+                  dataDCTodisplay.push(
+                        { x: "0-9 ans", y: dead[i].re09 },
+                        { x: "10-19 ans", y: dead[i].rel1019 },
+                        {
+                              x: "20-29 ans",
+                              y: dead[i].rel2029,
+                        },
+                        {
+                              x: "30-39 ans",
+                              y: dead[i].rel3039,
+                        },
+                        {
+                              x: "40-49 ans",
+                              y: dead[i].rel4049,
+                        },
+                        {
+                              x: "50-59 ans",
+                              y: dead[i].rel5059,
+                        },
+                        {
+                              x: "60-69 ans",
+                              y: dead[i].rel6069,
+                        },
+                        {
+                              x: "70-79 ans",
+                              y: dead[i].rel7079,
+                        },
+                        {
+                              x: "80-89 ans",
+                              y: dead[i].rel8089,
+                        },
+                        {
+                              x: "Plus de 90 ans",
+                              y: dead[i].rel90,
+                        }
+                  );
+            }
+      }
+      // console.log(dataDCTodisplay);
+
+      let dataHTodisplay = [];
+      for (let i = 0; i < hosp.length; i++) {
+            if (hosp[i].Libelle === regSelected) {
+                  dataHTodisplay.push(
+                        { x: "0-9 ans", y: hosp[i].rel09 },
+                        { x: "10-19 ans", y: hosp[i].rel1019 },
+                        {
+                              x: "20-29 ans",
+                              y: hosp[i].rel2029,
+                        },
+                        {
+                              x: "30-39 ans",
+                              y: hosp[i].rel3039,
+                        },
+                        {
+                              x: "40-49 ans",
+                              y: hosp[i].rel4049,
+                        },
+                        {
+                              x: "50-59 ans",
+                              y: hosp[i].rel5059,
+                        },
+                        {
+                              x: "60-69 ans",
+                              y: hosp[i].rel6069,
+                        },
+                        {
+                              x: "70-79 ans",
+                              y: hosp[i].rel7079,
+                        },
+                        {
+                              x: "80-89 ans",
+                              y: hosp[i].rel8089,
+                        },
+                        {
+                              x: "Plus de 90 ans",
+                              y: hosp[i].rel90,
+                        }
+                  );
+            }
+      }
+      // console.log(dataHTodisplay);
+
+      let dataRTodisplay = [];
+      for (let i = 0; i < rea.length; i++) {
+            if (rea[i].Libellé === regSelected) {
+                  dataRTodisplay.push(
+                        { x: "0-9 ans", y: rea[i].rea09 },
+                        { x: "10-19 ans", y: rea[i].rel1019 },
+                        {
+                              x: "20-29 ans",
+                              y: rea[i].rel2029,
+                        },
+                        {
+                              x: "30-39 ans",
+                              y: rea[i].rel3039,
+                        },
+                        {
+                              x: "40-49 ans",
+                              y: rea[i].rel4049,
+                        },
+                        {
+                              x: "50-59 ans",
+                              y: rea[i].rel5059,
+                        },
+                        {
+                              x: "60-69 ans",
+                              y: rea[i].rel6069,
+                        },
+                        {
+                              x: "70-79 ans",
+                              y: rea[i].rel7079,
+                        },
+                        {
+                              x: "80-89 ans",
+                              y: rea[i].rel8089,
+                        },
+                        {
+                              x: "Plus de 90 ans",
+                              y: rea[i].rel90,
+                        }
+                  );
+            }
+      }
+      console.log(dataRTodisplay);
 
       return (
             <div
@@ -315,9 +475,6 @@ export default function DataScreen() {
                                     marginBottom: "20px",
                               }}
                         >
-                              <h4 style={{ color: option.syntax }}>
-                                    Impact de l'épidémie selon le sexe
-                              </h4>
                               <ReactVisChartAllDept data={dataUpdated} />
                         </div>
 
@@ -331,18 +488,60 @@ export default function DataScreen() {
                               <ReactVisChart data={dataUpdated} />
                               {/* <CovidChartScreen data={dataUpdated} /> */}
                         </div>
-                        {/* <div
-                              className="data-flex5 remove720"
+                        <div
+                              className="data-flex5"
                               style={{
                                     height: "100%",
                                     marginBottom: "20px",
                               }}
                         >
-                              <h4 style={{ color: option.syntax }}>
-                                    Impact de l'épidémie selon la classe d'âge
+                              <h4
+                                    style={{
+                                          color: option.syntax,
+                                    }}
+                              >
+                                    Impact de l'épidémie selon l'âge
                               </h4>
-                              <AllDeptAgeCovidChart />
-                        </div> */}
+                              <div className="select-info">
+                                    <h5 style={{ color: option.syntax }}>
+                                          Afficher les données par région:
+                                    </h5>
+                                    <select
+                                          className="select"
+                                          style={{
+                                                width: "165px",
+                                                marginBottom: "20px",
+                                          }}
+                                          onChange={(event) => {
+                                                setRegSelected(
+                                                      event.target.value
+                                                );
+                                          }}
+                                    >
+                                          {options}
+                                    </select>
+                              </div>
+                              <div className="chart-age-container">
+                                    <div className="chart-age-box">
+                                          <COVIDageBar
+                                                data={dataDCTodisplay}
+                                                type="Décès"
+                                          />
+                                    </div>
+                                    <div className="chart-age-box">
+                                          <COVIDageBar
+                                                data={dataHTodisplay}
+                                                type="Patients hospitalisés"
+                                          />
+                                    </div>
+                                    <div className="chart-age-box">
+                                          <COVIDageBar
+                                                data={dataRTodisplay}
+                                                type="Patients en réanimation"
+                                          />
+                                    </div>
+                              </div>
+                        </div>
                   </div>
             </div>
       );
