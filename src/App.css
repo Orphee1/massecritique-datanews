@@ -49,9 +49,13 @@ span,
 button {
       font-family: "Montserrat", sans-serif;
 }
+h5 {
+      font-family: "Roboto", sans-serif;
+}
 
 p {
       font-family: "Roboto", sans-serif;
+      font-size: 16px;
 }
 
 /* ==== COLORS ==== */

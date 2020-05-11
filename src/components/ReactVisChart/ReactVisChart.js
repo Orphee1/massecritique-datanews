@@ -182,7 +182,11 @@ export default function ReactVisChart({ data }) {
             <div>
                   <div className="fl-col">
                         <div className="select-info">
-                              <h5 style={{ color: option.syntax }}>
+                              <h5
+                                    style={{
+                                          color: option.syntax,
+                                    }}
+                              >
                                     Afficher les données par département:
                               </h5>
                               <select
@@ -201,15 +205,24 @@ export default function ReactVisChart({ data }) {
 
                         <XYPlot
                               xType="ordinal"
-                              width={400}
-                              height={400}
-                              xDistance={100}
-                              // yDomain={[0, 1200]}
+                              width={300}
+                              height={300}
+                              // xDistance={100}
+                              margin={{ left: 155, bottom: 70 }}
                         >
                               <VerticalGridLines />
                               <HorizontalGridLines />
-                              <XAxis />
-                              <YAxis />
+                              <XAxis
+                                    style={{
+                                          ticks: { fill: option.syntax },
+                                    }}
+                                    tickLabelAngle={-45}
+                              />
+                              <YAxis
+                                    style={{
+                                          ticks: { fill: option.syntax },
+                                    }}
+                              />
 
                               <VerticalBarSeries
                                     // barWidth={0.9}

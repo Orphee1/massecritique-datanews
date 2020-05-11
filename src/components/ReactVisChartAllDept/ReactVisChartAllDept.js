@@ -138,9 +138,9 @@ export default function ReactVisChartAllDept({ data }) {
       return (
             <div>
                   <div className="">
-                        <h4 style={{ color: option.syntax }}>
+                        <h5 style={{ color: option.syntax, fontSize: "18px" }}>
                               Impact de l'épidémie selon le sexe
-                        </h4>
+                        </h5>
                         <select
                               className="select"
                               style={{ width: "150px", marginBottom: "10px" }}
@@ -159,7 +159,7 @@ export default function ReactVisChartAllDept({ data }) {
                         <XYPlot
                               type="category"
                               yType="ordinal"
-                              margin={{ left: 135 }}
+                              margin={{ left: 155 }}
                               width={600}
                               height={1600}
                               stackBy="x"

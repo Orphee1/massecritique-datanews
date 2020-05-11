@@ -308,7 +308,7 @@ export default function DataScreen() {
                                     style={{
                                           color: option.syntax,
                                           fontWeight: "600",
-                                          fontSize: "30px",
+                                          fontSize: "25px",
                                     }}
                               >
                                     Epidémie de COVID-19
@@ -332,23 +332,26 @@ export default function DataScreen() {
                         </div>
                         <div
                               className="data-flex2"
-                              style={{
-                                    height: height * 0.9,
-                                    marginBottom: "20px",
-                              }}
+                              style={
+                                    {
+                                          // height: height * 0.9,
+                                          // marginBottom: "20px",
+                                    }
+                              }
                         >
                               <div className="graph-comment1">
-                                    <h4
+                                    <h5
                                           className=""
                                           style={{
                                                 color: option.syntax,
                                                 width: "100%",
+                                                // fontWeight: "bold",
                                                 marginLeft: "0",
                                           }}
                                     >
                                           Données hospitalières au {date}:
-                                    </h4>
-                                    <p style={{ color: option.syntax }}>
+                                    </h5>
+                                    <h5 style={{ color: option.syntax }}>
                                           Source:{" "}
                                           <a
                                                 style={{ color: option.syntax }}
@@ -356,42 +359,50 @@ export default function DataScreen() {
                                           >
                                                 Santé Publique France
                                           </a>
-                                    </p>
+                                    </h5>
                               </div>
                               <div className="graph-comment2">
-                                    <h4
+                                    <h5
                                           style={{
                                                 color: option.syntax,
+                                                fontFamily: "Roboto",
                                           }}
                                     >
                                           {hovered !== "None" && (
                                                 <code>{hovered} :</code>
                                           )}
-                                    </h4>
+                                    </h5>
 
                                     {hovered !== "None" && (
                                           <>
-                                                <div
+                                                <p
                                                       style={{
                                                             marginBottom: 5,
 
                                                             color:
                                                                   option.syntax,
+                                                            fontFamily:
+                                                                  "Roboto",
                                                       }}
                                                 >
                                                       Nombre de personnes
                                                       hospitalisées pour cause
                                                       de COVID-19 :{" "}
                                                       {dataHToDisplay && (
-                                                            <code>
+                                                            <code
+                                                                  style={{
+                                                                        fontWeight:
+                                                                              "bold",
+                                                                  }}
+                                                            >
                                                                   {
                                                                         dataHToDisplay
                                                                   }
                                                             </code>
                                                       )}
-                                                </div>
+                                                </p>
 
-                                                <div
+                                                <p
                                                       style={{
                                                             marginBottom: 5,
                                                             color:
@@ -402,14 +413,19 @@ export default function DataScreen() {
                                                       réanimation pour cause de
                                                       COVID-19 :{" "}
                                                       {dataRToDisplay && (
-                                                            <code>
+                                                            <code
+                                                                  style={{
+                                                                        fontWeight:
+                                                                              "bold",
+                                                                  }}
+                                                            >
                                                                   {
                                                                         dataRToDisplay
                                                                   }
                                                             </code>
                                                       )}
-                                                </div>
-                                                <div
+                                                </p>
+                                                <p
                                                       style={{
                                                             color:
                                                                   option.syntax,
@@ -420,32 +436,45 @@ export default function DataScreen() {
                                                       décédées depuis le début
                                                       de l'épidémie :{" "}
                                                       {dataDToDisplay && (
-                                                            <code>
+                                                            <code
+                                                                  style={{
+                                                                        fontWeight:
+                                                                              "bold",
+                                                                  }}
+                                                            >
                                                                   {
                                                                         dataDToDisplay
                                                                   }
                                                             </code>
                                                       )}
-                                                </div>
+                                                </p>
                                           </>
                                     )}
                               </div>
                               <div className="graph-comment3">
-                                    <h4 style={{ color: option.syntax }}>
+                                    <h5 style={{ color: option.syntax }}>
                                           Total national:
-                                    </h4>
+                                    </h5>
 
                                     <div>
-                                          <div
+                                          <p
                                                 style={{
                                                       color: option.syntax,
                                                       marginBottom: 5,
                                                 }}
                                           >
                                                 Personnes actuellement
-                                                hospitalisées: {totalH}
-                                          </div>
-                                          <div
+                                                hospitalisées:
+                                                <span
+                                                      style={{
+                                                            fontWeight: "bold",
+                                                      }}
+                                                >
+                                                      {" "}
+                                                      {totalH}
+                                                </span>
+                                          </p>
+                                          <p
                                                 style={{
                                                       color: option.syntax,
 
@@ -453,35 +482,52 @@ export default function DataScreen() {
                                                 }}
                                           >
                                                 Personnes actuellement en
-                                                réanimation: {totalR}
-                                          </div>
-                                          <div
+                                                réanimation:
+                                                <span
+                                                      style={{
+                                                            fontWeight: "bold",
+                                                      }}
+                                                >
+                                                      {" "}
+                                                      {totalR}
+                                                </span>
+                                          </p>
+                                          <p
                                                 style={{
                                                       color: option.syntax,
                                                       marginBottom: 5,
                                                 }}
                                           >
-                                                Personnes décédées à l'hôpital:{" "}
-                                                {totalD}
-                                          </div>
+                                                Personnes décédées à l'hôpital:
+                                                <span
+                                                      style={{
+                                                            fontWeight: "bold",
+                                                      }}
+                                                >
+                                                      {" "}
+                                                      {totalD}
+                                                </span>
+                                          </p>
                                     </div>
                               </div>
                         </div>
                         <div
-                              className="data-flex3"
+                              className="data-flex3 remove414 "
                               style={{
-                                    // height: height * 0.9,
                                     height: "100%",
                                     marginBottom: "20px",
                               }}
                         >
-                              <ReactVisChartAllDept data={dataUpdated} />
+                              <ReactVisChartAllDept
+                                    className="remove414"
+                                    data={dataUpdated}
+                              />
                         </div>
 
                         <div
                               className="data-flex4"
                               style={{
-                                    height: height * 0.9,
+                                    height: "100%",
                                     marginBottom: "20px",
                               }}
                         >
@@ -495,13 +541,14 @@ export default function DataScreen() {
                                     marginBottom: "20px",
                               }}
                         >
-                              <h4
+                              <h5
                                     style={{
                                           color: option.syntax,
+                                          fontSize: "18px",
                                     }}
                               >
                                     Impact de l'épidémie selon l'âge
-                              </h4>
+                              </h5>
                               <div className="select-info">
                                     <h5 style={{ color: option.syntax }}>
                                           Afficher les données par région:
