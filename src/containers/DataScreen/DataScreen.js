@@ -329,24 +329,35 @@ export default function DataScreen() {
                                           className="map"
                                     />
                               </div>
+                              <h5
+                                    style={{
+                                          color: option.syntax,
+                                    }}
+                              >
+                                    Librairie :{" "}
+                                    <a
+                                          href="https://react-vector-maps.netlify.app/"
+                                          style={{
+                                                fontWeight: "bold",
+
+                                                color: option.syntax,
+                                          }}
+                                    >
+                                          {" "}
+                                          React Vector Maps
+                                    </a>
+                              </h5>
                         </div>
-                        <div
-                              className="data-flex2"
-                              style={
-                                    {
-                                          // height: height * 0.9,
-                                          // marginBottom: "20px",
-                                    }
-                              }
-                        >
+                        <div className="data-flex2">
                               <div className="graph-comment1">
                                     <h5
-                                          className=""
                                           style={{
                                                 color: option.syntax,
                                                 width: "100%",
+                                                fontSize: "18px",
                                                 // fontWeight: "bold",
                                                 marginLeft: "0",
+                                                marginBottom: "0",
                                           }}
                                     >
                                           Données hospitalières au {date}:

@@ -141,6 +141,15 @@ export default function ReactVisChartAllDept({ data }) {
                         <h5 style={{ color: option.syntax, fontSize: "18px" }}>
                               Impact de l'épidémie selon le sexe
                         </h5>
+                        <h5 style={{ color: option.syntax }}>
+                              Librairie:{" "}
+                              <a
+                                    style={{ color: option.syntax }}
+                                    href="https://uber.github.io/react-vis/?r=m7"
+                              >
+                                    React-Vis
+                              </a>
+                        </h5>
                         <select
                               className="select"
                               style={{ width: "150px", marginBottom: "10px" }}

@@ -61,11 +61,6 @@
       flex-direction: column;
 }
 
-.graph-comment1 h5 {
-      font-size: 18px;
-      margin: 0;
-}
-
 .graph-comment2 {
       flex: 1 1 250px;
       height: 150px;
