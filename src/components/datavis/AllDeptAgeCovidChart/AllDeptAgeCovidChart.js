@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip } from "recharts";
-import { ThemeContext } from "../../context/ThemeContext";
+import { ThemeContext } from "../../../context/ThemeContext";
 
 import "../../App.css";
 import "./style.css";
@@ -10,13 +10,13 @@ import "./style.css";
 import CustomTooltip from "../../components/CustomToolTip/CustomToolTip";
 
 // Data import
-import COVIDDcAge2204 from "../../assets/data/COVID/COVIDDcAge2204.json";
-import COVIDHospAge2204 from "../../assets/data/COVID/COVIDHospAge2204.json";
-import COVIDReaAge2204 from "../../assets/data/COVID/COVIDReaAge2204.json";
+import COVIDDcAge2204 from "../../../assets/data/COVID/COVIDDcAge2204.json";
+import COVIDHospAge2204 from "../../../assets/data/COVID/COVIDHospAge2204.json";
+import COVIDReaAge2204 from "../../../assets/data/COVID/COVIDReaAge2204.json";
 
-import COVIDDcAge2604 from "../../assets/data/COVID/COVIDDcAge2604.json";
-import COVIDHospAge2604 from "../../assets/data/COVID/COVIDHospAge2604.json";
-import COVIDReaAge2604 from "../../assets/data/COVID/COVIDReaAge2604.json";
+import COVIDDcAge2604 from "../../../assets/data/COVID/COVIDDcAge2604.json";
+import COVIDHospAge2604 from "../../../assets/data/COVID/COVIDHospAge2604.json";
+import COVIDReaAge2604 from "../../../assets/data/COVID/COVIDReaAge2604.json";
 
 const optionReg = [
       "Île-de-France",

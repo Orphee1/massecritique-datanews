@@ -25,10 +25,11 @@
 
 .data-flex1 {
       flex: 1 1 550px;
+      height: 500px;
       margin: 10px;
       display: flex;
       justify-content: center;
-      flex-direction: column;
+      /* flex-direction: column; */
       align-items: center;
 }
 
@@ -40,12 +41,13 @@
 /* Bloc Flex 2 > child 1 */
 
 .data-flex2 {
-      flex: 1 1 300px;
-      height: auto;
+      flex: 1 1 550px;
+      /* height: auto; */
+      height: 500px;
       margin: 10px;
       display: flex;
 
-      flex-wrap: wrap;
+      /* flex-wrap: wrap; */
 }
 
 /* child1 */

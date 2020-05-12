@@ -9,11 +9,11 @@ import {
       Tooltip,
       Legend,
 } from "recharts";
-import { ThemeContext } from "../../context/ThemeContext";
+import { ThemeContext } from "../../../context/ThemeContext";
 
 import "../../App.css";
 import "./style.css";
-import useWindowDimensions from "../../assets/useWindowDimension";
+import useWindowDimensions from "../../../assets/useWindowDimension";
 
 const optionDepts = [
       "Sélectionner un département",
