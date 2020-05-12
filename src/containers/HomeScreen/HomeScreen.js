@@ -41,8 +41,8 @@ export default function HomeScreen() {
                         <div className="home-flex1">
                               <div className="head-line-home">
                                     <h1>
-                                          Masse Critique <br />
-                                          /Data News
+                                          {/* Masse Critique <br /> */}
+                                          Data News
                                     </h1>
                               </div>
                               <div
