@@ -188,7 +188,6 @@ export default function ReactVisChartAllDept({ data }) {
 
                               <XAxis
                                     style={{
-                                          // line: { stroke: option.syntax },
                                           ticks: { fill: option.syntax },
                                           // text: {stroke: 'none', fill: '#6b6b76', fontWeight: 600}
                                     }}

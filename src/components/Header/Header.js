@@ -48,7 +48,7 @@ export default function Header({ indexPage, setIndexPage }) {
                                                       color: option.syntax,
                                                 }}
                                           >
-                                                Masse Critique/Data News
+                                                Data News
                                           </span>
                                     </Link>
                               </li>
