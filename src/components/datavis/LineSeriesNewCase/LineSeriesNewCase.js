@@ -226,6 +226,8 @@ export default function LineSeriesNewCase() {
             );
       }
 
+      const [crossHairDepValues, setCrossHairDepValues] = useState(null);
+
       return (
             <div>
                   <h5 style={{ color: option.syntax, fontSize: "18px" }}>
@@ -386,10 +388,9 @@ export default function LineSeriesNewCase() {
                               // colorDomain={[0, 1, 2, 3]}
                               // colorRange={["black", "red", "blue", "green"]}
                               margin={{ bottom: 70, left: 50 }}
-                              // onMouseLeave={() => {
-                              //       setHintValue(null);
-                              //       setCrossHairValues(null);
-                              // }}
+                              onMouseLeave={() => {
+                                    setCrossHairDepValues(null);
+                              }}
                         >
                               <VerticalGridLines />
                               <HorizontalGridLines />
@@ -400,10 +401,46 @@ export default function LineSeriesNewCase() {
                                     data={dataDepToDisplay[0]}
                                     strokeWidth={6}
                                     color="red"
+                                    onNearestX={(value, { index }) => {
+                                          setCrossHairDepValues(
+                                                dataDepToDisplay.map(
+                                                      (d) => d[index]
+                                                )
+                                          );
+                                    }}
                               />
                               <LineSeries data={dataDepToDisplay[1]} />
                               <LineSeries data={dataDepToDisplay[2]} />
                               <LineSeries data={dataDepToDisplay[3]} />
+                              {crossHairDepValues ? (
+                                    <Crosshair values={crossHairDepValues}>
+                                          <div className="rv-hint__content">
+                                                <p
+                                                      style={{
+                                                            fontWeight: "bold",
+                                                      }}
+                                                >
+                                                      {crossHairDepValues[0].x}
+                                                </p>
+                                                <p>
+                                                      Décès:{" "}
+                                                      {crossHairDepValues[0].y}
+                                                </p>
+                                                <p>
+                                                      Hospitalisation:{" "}
+                                                      {crossHairDepValues[1].y}
+                                                </p>
+                                                <p>
+                                                      Réanimation:{" "}
+                                                      {crossHairDepValues[2].y}
+                                                </p>
+                                                <p>
+                                                      Retour à domicile:{" "}
+                                                      {crossHairDepValues[3].y}
+                                                </p>
+                                          </div>
+                                    </Crosshair>
+                              ) : null}
                         </XYPlot>
                   </div>
             </div>
