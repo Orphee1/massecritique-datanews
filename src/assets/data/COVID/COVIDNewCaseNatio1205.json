@@ -1,0 +1,387 @@
+[
+      {
+            "jour": "2020-03-19",
+            "incid_dc": 155,
+            "incid_hosp": 2229,
+            "incid_rea": 438,
+            "incid_rad": 519
+      },
+      {
+            "jour": "2020-03-20",
+            "incid_dc": 83,
+            "incid_hosp": 1256,
+            "incid_rea": 242,
+            "incid_rad": 317
+      },
+      {
+            "jour": "2020-03-21",
+            "incid_dc": 115,
+            "incid_hosp": 1540,
+            "incid_rea": 298,
+            "incid_rad": 368
+      },
+      {
+            "jour": "2020-03-22",
+            "incid_dc": 124,
+            "incid_hosp": 1534,
+            "incid_rea": 309,
+            "incid_rad": 315
+      },
+      {
+            "jour": "2020-03-23",
+            "incid_dc": 189,
+            "incid_hosp": 2053,
+            "incid_rea": 448,
+            "incid_rad": 377
+      },
+      {
+            "jour": "2020-03-24",
+            "incid_dc": 244,
+            "incid_hosp": 2618,
+            "incid_rea": 571,
+            "incid_rad": 743
+      },
+      {
+            "jour": "2020-03-25",
+            "incid_dc": 293,
+            "incid_hosp": 3166,
+            "incid_rea": 607,
+            "incid_rad": 834
+      },
+      {
+            "jour": "2020-03-26",
+            "incid_dc": 318,
+            "incid_hosp": 3096,
+            "incid_rea": 611,
+            "incid_rad": 888
+      },
+      {
+            "jour": "2020-03-27",
+            "incid_dc": 307,
+            "incid_hosp": 3058,
+            "incid_rea": 607,
+            "incid_rad": 814
+      },
+      {
+            "jour": "2020-03-28",
+            "incid_dc": 326,
+            "incid_hosp": 3352,
+            "incid_rea": 694,
+            "incid_rad": 969
+      },
+      {
+            "jour": "2020-03-29",
+            "incid_dc": 295,
+            "incid_hosp": 2685,
+            "incid_rea": 543,
+            "incid_rad": 543
+      },
+      {
+            "jour": "2020-03-30",
+            "incid_dc": 423,
+            "incid_hosp": 3108,
+            "incid_rea": 694,
+            "incid_rad": 861
+      },
+      {
+            "jour": "2020-03-31",
+            "incid_dc": 526,
+            "incid_hosp": 4145,
+            "incid_rea": 767,
+            "incid_rad": 1589
+      },
+      {
+            "jour": "2020-04-01",
+            "incid_dc": 516,
+            "incid_hosp": 4281,
+            "incid_rea": 771,
+            "incid_rad": 1647
+      },
+      {
+            "jour": "2020-04-02",
+            "incid_dc": 524,
+            "incid_hosp": 3845,
+            "incid_rea": 728,
+            "incid_rad": 1577
+      },
+      {
+            "jour": "2020-04-03",
+            "incid_dc": 606,
+            "incid_hosp": 3627,
+            "incid_rea": 640,
+            "incid_rad": 1655
+      },
+      {
+            "jour": "2020-04-04",
+            "incid_dc": 448,
+            "incid_hosp": 2822,
+            "incid_rea": 502,
+            "incid_rad": 1495
+      },
+      {
+            "jour": "2020-04-05",
+            "incid_dc": 361,
+            "incid_hosp": 1931,
+            "incid_rea": 390,
+            "incid_rad": 773
+      },
+      {
+            "jour": "2020-04-06",
+            "incid_dc": 613,
+            "incid_hosp": 2754,
+            "incid_rea": 478,
+            "incid_rad": 1133
+      },
+      {
+            "jour": "2020-04-07",
+            "incid_dc": 607,
+            "incid_hosp": 3277,
+            "incid_rea": 518,
+            "incid_rad": 2161
+      },
+      {
+            "jour": "2020-04-08",
+            "incid_dc": 562,
+            "incid_hosp": 3139,
+            "incid_rea": 482,
+            "incid_rad": 2022
+      },
+      {
+            "jour": "2020-04-09",
+            "incid_dc": 424,
+            "incid_hosp": 2990,
+            "incid_rea": 369,
+            "incid_rad": 2032
+      },
+      {
+            "jour": "2020-04-10",
+            "incid_dc": 578,
+            "incid_hosp": 3161,
+            "incid_rea": 431,
+            "incid_rad": 1967
+      },
+      {
+            "jour": "2020-04-11",
+            "incid_dc": 353,
+            "incid_hosp": 2044,
+            "incid_rea": 255,
+            "incid_rad": 1527
+      },
+      {
+            "jour": "2020-04-12",
+            "incid_dc": 315,
+            "incid_hosp": 1688,
+            "incid_rea": 220,
+            "incid_rad": 825
+      },
+      {
+            "jour": "2020-04-13",
+            "incid_dc": 343,
+            "incid_hosp": 1257,
+            "incid_rea": 227,
+            "incid_rad": 551
+      },
+      {
+            "jour": "2020-04-14",
+            "incid_dc": 559,
+            "incid_hosp": 1965,
+            "incid_rea": 275,
+            "incid_rad": 1125
+      },
+      {
+            "jour": "2020-04-15",
+            "incid_dc": 524,
+            "incid_hosp": 2415,
+            "incid_rea": 284,
+            "incid_rad": 2224
+      },
+      {
+            "jour": "2020-04-16",
+            "incid_dc": 435,
+            "incid_hosp": 2084,
+            "incid_rea": 270,
+            "incid_rad": 1925
+      },
+      {
+            "jour": "2020-04-17",
+            "incid_dc": 428,
+            "incid_hosp": 2166,
+            "incid_rea": 242,
+            "incid_rad": 1720
+      },
+      {
+            "jour": "2020-04-18",
+            "incid_dc": 368,
+            "incid_hosp": 1565,
+            "incid_rea": 206,
+            "incid_rad": 1605
+      },
+      {
+            "jour": "2020-04-19",
+            "incid_dc": 231,
+            "incid_hosp": 890,
+            "incid_rea": 137,
+            "incid_rad": 622
+      },
+      {
+            "jour": "2020-04-20",
+            "incid_dc": 450,
+            "incid_hosp": 1464,
+            "incid_rea": 208,
+            "incid_rad": 933
+      },
+      {
+            "jour": "2020-04-21",
+            "incid_dc": 404,
+            "incid_hosp": 1885,
+            "incid_rea": 190,
+            "incid_rad": 1875
+      },
+      {
+            "jour": "2020-04-22",
+            "incid_dc": 349,
+            "incid_hosp": 1619,
+            "incid_rea": 183,
+            "incid_rad": 1587
+      },
+      {
+            "jour": "2020-04-23",
+            "incid_dc": 320,
+            "incid_hosp": 1410,
+            "incid_rea": 178,
+            "incid_rad": 1531
+      },
+      {
+            "jour": "2020-04-24",
+            "incid_dc": 312,
+            "incid_hosp": 1346,
+            "incid_rea": 155,
+            "incid_rad": 1464
+      },
+      {
+            "jour": "2020-04-25",
+            "incid_dc": 207,
+            "incid_hosp": 999,
+            "incid_rea": 124,
+            "incid_rad": 1166
+      },
+      {
+            "jour": "2020-04-26",
+            "incid_dc": 152,
+            "incid_hosp": 481,
+            "incid_rea": 79,
+            "incid_rad": 318
+      },
+      {
+            "jour": "2020-04-27",
+            "incid_dc": 300,
+            "incid_hosp": 964,
+            "incid_rea": 125,
+            "incid_rad": 736
+      },
+      {
+            "jour": "2020-04-28",
+            "incid_dc": 328,
+            "incid_hosp": 1321,
+            "incid_rea": 153,
+            "incid_rad": 1491
+      },
+      {
+            "jour": "2020-04-29",
+            "incid_dc": 251,
+            "incid_hosp": 1070,
+            "incid_rea": 110,
+            "incid_rad": 1430
+      },
+      {
+            "jour": "2020-04-30",
+            "incid_dc": 207,
+            "incid_hosp": 1048,
+            "incid_rea": 121,
+            "incid_rad": 1327
+      },
+      {
+            "jour": "2020-05-01",
+            "incid_dc": 138,
+            "incid_hosp": 668,
+            "incid_rea": 73,
+            "incid_rad": 862
+      },
+      {
+            "jour": "2020-05-02",
+            "incid_dc": 120,
+            "incid_hosp": 453,
+            "incid_rea": 64,
+            "incid_rad": 381
+      },
+      {
+            "jour": "2020-05-03",
+            "incid_dc": 101,
+            "incid_hosp": 345,
+            "incid_rea": 80,
+            "incid_rad": 245
+      },
+      {
+            "jour": "2020-05-04",
+            "incid_dc": 245,
+            "incid_hosp": 689,
+            "incid_rea": 84,
+            "incid_rad": 619
+      },
+      {
+            "jour": "2020-05-05",
+            "incid_dc": 244,
+            "incid_hosp": 987,
+            "incid_rea": 111,
+            "incid_rad": 1435
+      },
+      {
+            "jour": "2020-05-06",
+            "incid_dc": 181,
+            "incid_hosp": 833,
+            "incid_rea": 69,
+            "incid_rad": 1298
+      },
+      {
+            "jour": "2020-05-07",
+            "incid_dc": 159,
+            "incid_hosp": 728,
+            "incid_rea": 99,
+            "incid_rad": 1291
+      },
+      {
+            "jour": "2020-05-08",
+            "incid_dc": 118,
+            "incid_hosp": 510,
+            "incid_rea": 89,
+            "incid_rad": 817
+      },
+      {
+            "jour": "2020-05-09",
+            "incid_dc": 77,
+            "incid_hosp": 265,
+            "incid_rea": 38,
+            "incid_rad": 274
+      },
+      {
+            "jour": "2020-05-10",
+            "incid_dc": 70,
+            "incid_hosp": 253,
+            "incid_rea": 38,
+            "incid_rad": 212
+      },
+      {
+            "jour": "2020-05-11",
+            "incid_dc": 184,
+            "incid_hosp": 523,
+            "incid_rea": 82,
+            "incid_rad": 560
+      },
+      {
+            "jour": "2020-05-12",
+            "incid_dc": 194,
+            "incid_hosp": 670,
+            "incid_rea": 92,
+            "incid_rad": 1118
+      }
+]

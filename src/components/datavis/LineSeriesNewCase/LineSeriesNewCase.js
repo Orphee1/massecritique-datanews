@@ -23,45 +23,18 @@ import "../../../App.css";
 import "./style.css";
 
 import data from "../../../assets/data/COVID/COVIDNewCase1205.json";
-
-const hintStyle = {
-      fontSize: 14,
-      color: "white",
-      background: "#3A3A48",
-      // width: "100%"
-      width: "80px",
-      height: "20px",
-      borderRadius: "5px",
-};
+import dataNat from "../../../assets/data/COVID/COVIDNewCaseNatio1205.json";
 
 let dataToDisplay = [];
-for (let i = 0; i < data.length; i++) {
-      if (data[i].dep === 1) {
-            dataToDisplay.push({
-                  x: data[i].jour,
-                  y: data[i].incid_dc,
-            });
-      }
+console.log(dataNat.length);
+for (let i = 0; i < dataNat.length; i++) {
+      dataToDisplay.push({
+            x: dataNat[i].jour,
+            y: dataNat[i].incid_dc,
+      });
 }
 
 // console.log(dataToDisplay);
-
-let dataOK = [];
-let incid_hosp;
-let incid_rea;
-let incid_dc;
-let incid_rad;
-
-// for (let i = 0; i < data.length; i + 55) {
-//       incid_hosp += data[i].incid_hosp;
-//       incid_rea += data[i].incid_rea;
-//       incid_dc += data[i].incid_dc;
-//       incid_rad += data[i].incid_rad;
-// }
-// console.log(incid_hosp);
-// console.log(incid_rea);
-// console.log(incid_dc);
-// console.log(incid_rad);
 
 export default function LineSeriesNewCase() {
       // Theme definition
