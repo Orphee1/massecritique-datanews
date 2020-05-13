@@ -267,7 +267,9 @@ export default function DataScreen() {
                               </h3>
                         </div>
                         <div className="data-flex1">
-                              <LineSeriesNewCase />
+                              <LineSeriesNewCase
+                              // className="lineGraph"
+                              />
                         </div>
                         {/* <div className="data-flex2 orange"></div> */}
 

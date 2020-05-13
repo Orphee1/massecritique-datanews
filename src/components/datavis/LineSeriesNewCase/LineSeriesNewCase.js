@@ -25,16 +25,42 @@ import "./style.css";
 import data from "../../../assets/data/COVID/COVIDNewCase1205.json";
 import dataNat from "../../../assets/data/COVID/COVIDNewCaseNatio1205.json";
 
-let dataToDisplay = [];
-console.log(dataNat.length);
+let dataDCToDisplay = [];
+
 for (let i = 0; i < dataNat.length; i++) {
-      dataToDisplay.push({
+      dataDCToDisplay.push({
             x: dataNat[i].jour,
             y: dataNat[i].incid_dc,
       });
 }
 
-// console.log(dataToDisplay);
+let dataHToDisplay = [];
+
+for (let i = 0; i < dataNat.length; i++) {
+      dataHToDisplay.push({
+            x: dataNat[i].jour,
+            y: dataNat[i].incid_hosp,
+      });
+}
+// console.log(dataHToDisplay);
+
+let dataRToDisplay = [];
+
+for (let i = 0; i < dataNat.length; i++) {
+      dataRToDisplay.push({
+            x: dataNat[i].jour,
+            y: dataNat[i].incid_rea,
+      });
+}
+
+let dataRDToDisplay = [];
+
+for (let i = 0; i < dataNat.length; i++) {
+      dataRDToDisplay.push({
+            x: dataNat[i].jour,
+            y: dataNat[i].incid_rad,
+      });
+}
 
 export default function LineSeriesNewCase() {
       // Theme definition
@@ -74,14 +100,53 @@ export default function LineSeriesNewCase() {
                         <XAxis tickLabelAngle={-45} />
                         <YAxis />
                         <LineSeries
-                              data={dataToDisplay}
+                              data={dataDCToDisplay}
                               // color="red"
                               color={0}
                               // onSeriesClick={}
                               // onSeriesMouseOver={}
                               onNearestX={(value, { event, innerX, index }) => {
-                                    setHintValue({ x: value.x, y: value.y });
+                                    setHintValue({
+                                          x: value.x,
+                                          y: value.y,
+                                    });
                               }}
+                        />
+                        <LineSeries
+                              data={dataHToDisplay}
+                              // color="red"
+                              color={0}
+
+                              // onNearestX={(value, { event, innerX, index }) => {
+                              //       setHintValue({
+                              //             x: value.x,
+                              //             y: value.y,
+                              //       });
+                              // }}
+                        />
+                        <LineSeries
+                              data={dataRToDisplay}
+                              // color="red"
+                              color={0}
+
+                              // onNearestX={(value, { event, innerX, index }) => {
+                              //       setHintValue({
+                              //             x: value.x,
+                              //             y: value.y,
+                              //       });
+                              // }}
+                        />
+                        <LineSeries
+                              data={dataRDToDisplay}
+                              // color="red"
+                              color={0}
+
+                              // onNearestX={(value, { event, innerX, index }) => {
+                              //       setHintValue({
+                              //             x: value.x,
+                              //             y: value.y,
+                              //       });
+                              // }}
                         />
                         {hintValue ? (
                               <Hint

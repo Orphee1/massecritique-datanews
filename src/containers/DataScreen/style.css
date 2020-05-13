@@ -24,20 +24,26 @@
 /* Bloc Flex 1 > child 1 = graph-covid-france-map */
 
 .data-flex1 {
-      flex: 1 1 550px;
-      height: 500px;
+      flex: 1 1 auto;
+      /* height: 500px; */
+      height: 100%;
       margin: 10px;
       display: flex;
       justify-content: center;
       /* flex-direction: column; */
       align-items: center;
+      position: relative;
+      /* padding-top: 56.25%;
+      Player ratio: 100 / (1280 / 720 ) */
 }
 
 /* child1 */
-.graph-covid-france-map {
-      width: 500px;
-}
 
+/* .lineGraph {
+      position: absolute;
+      top: 0;
+      left: 0;
+} */
 /* Bloc Flex 2 > child 1 */
 
 .data-flex2 {
