@@ -266,10 +266,10 @@ export default function DataScreen() {
                                     Epidémie de COVID-19
                               </h3>
                         </div>
-                        <div className="data-flex1 yellow">
+                        <div className="data-flex1">
                               <LineSeriesNewCase />
                         </div>
-                        <div className="data-flex2 orange"></div>
+                        {/* <div className="data-flex2 orange"></div> */}
 
                         <div
                               className="data-flex3 remove414 "
