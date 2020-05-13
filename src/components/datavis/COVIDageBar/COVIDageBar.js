@@ -2,9 +2,9 @@ import React, { useState, useContext } from "react";
 
 import { ThemeContext } from "../../../context/ThemeContext";
 
-import "../../App.css";
+import "../../../App.css";
 import "./style.css";
-import "../../../node_modules/react-vis/dist/style.css";
+import "../../../../node_modules/react-vis/dist/style.css";
 import {
       XYPlot,
       XAxis,

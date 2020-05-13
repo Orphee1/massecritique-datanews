@@ -10,12 +10,12 @@ import "./style.css";
 import useWindowDimensions from "../../assets/useWindowDimension";
 
 // Components import
-import CovidChartScreen from "../../components/CovidChartScreen/CovidChartScreen";
-import AllDeptsCovidChart from "../../components/AllDeptsCovidChart/AllDeptsCovidChart";
-import AllDeptAgeCovidChart from "../../components/AllDeptAgeCovidChart/AllDeptAgeCovidChart";
-import ReactVisChart from "../../components/ReactVisChart/ReactVisChart";
-import ReactVisChartAllDept from "../../components/ReactVisChartAllDept/ReactVisChartAllDept";
-import COVIDageBar from "../../components/COVIDageBar/COVIDageBar";
+import CovidChartScreen from "../../components/datavis/CovidChartScreen/CovidChartScreen";
+import AllDeptsCovidChart from "../../components/datavis/AllDeptsCovidChart/AllDeptsCovidChart";
+import AllDeptAgeCovidChart from "../../components/datavis/AllDeptAgeCovidChart/AllDeptAgeCovidChart";
+import ReactVisChart from "../../components/datavis/ReactVisChart/ReactVisChart";
+import ReactVisChartAllDept from "../../components/datavis/ReactVisChartAllDept/ReactVisChartAllDept";
+import COVIDageBar from "../../components/datavis/COVIDageBar/COVIDageBar";
 import LineSeriesNewCase from "../../components/datavis/LineSeriesNewCase/LineSeriesNewCase";
 
 // Icons import

@@ -11,7 +11,8 @@ import {
       HorizontalBarSeries,
       Hint,
 } from "react-vis";
-import "../../../node_modules/react-vis/dist/style.css";
+// import "../../../node_modules/react-vis/dist/style.css";
+import "../../../../node_modules/react-vis/dist/style.css";
 import { ThemeContext } from "../../../context/ThemeContext";
 
 export default function ReactVisChartAllDept({ data }) {

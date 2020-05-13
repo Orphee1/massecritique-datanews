@@ -11,7 +11,7 @@ import {
 } from "recharts";
 import { ThemeContext } from "../../../context/ThemeContext";
 
-import "../../App.css";
+import "../../../App.css";
 import "./style.css";
 import useWindowDimensions from "../../../assets/useWindowDimension";
 

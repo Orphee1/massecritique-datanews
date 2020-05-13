@@ -14,9 +14,10 @@ import {
       VerticalBarSeriesCanvas,
       LabelSeries,
 } from "react-vis";
-import "../../../node_modules/react-vis/dist/style.css";
 
-import "../../App.css";
+import "../../../../node_modules/react-vis/dist/style.css";
+
+import "../../../App.css";
 import "./style.css";
 
 const optionDepts = [

@@ -3,11 +3,11 @@ import React, { useState, useContext } from "react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip } from "recharts";
 import { ThemeContext } from "../../../context/ThemeContext";
 
-import "../../App.css";
+import "../../../App.css";
 import "./style.css";
 
 // Component import
-import CustomTooltip from "../../components/CustomToolTip/CustomToolTip";
+import CustomTooltip from "../CustomToolTip/CustomToolTip";
 
 // Data import
 import COVIDDcAge2204 from "../../../assets/data/COVID/COVIDDcAge2204.json";
