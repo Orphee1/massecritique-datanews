@@ -226,10 +226,6 @@ export default function ReactVisChart({ data }) {
                               />
 
                               <VerticalBarSeries
-                                    // barWidth={0.9}
-                                    // fill="pink"
-                                    // opacity=""
-                                    // stroke="red"
                                     className="vertical-bar-series-example"
                                     data={menData}
                               />
