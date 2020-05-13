@@ -246,10 +246,16 @@ export default function DataScreen() {
                               background: option.bg,
                         }}
                   >
-                        <div className="data-flex0">
+                        <div
+                              className="data-flex0 
+                        
+                        "
+                              // style={{ background: option.syntax }}
+                        >
                               <h2
                                     style={{
                                           color: option.syntax,
+                                          // color: option.bg,
                                           marginBottom: "0",
                                           marginTop: "0",
                                     }}
@@ -259,17 +265,68 @@ export default function DataScreen() {
                               <h3
                                     style={{
                                           color: option.syntax,
+                                          // color: option.bg,
                                           fontWeight: "600",
                                           fontSize: "25px",
                                     }}
                               >
                                     Epidémie de COVID-19
                               </h3>
+                              <h5
+                                    style={{
+                                          color: option.syntax,
+                                          // color: option.bg,
+                                          marginBottom: "0",
+                                          marginLeft: "10px",
+                                          fontSize: "18px",
+                                    }}
+                              >
+                                    Données hospitalières au 12 mai
+                              </h5>
+                              <h5
+                                    style={{
+                                          color: option.syntax,
+                                          // color: option.bg,
+                                          marginTop: "5px",
+                                          marginLeft: "10px",
+                                          fontSize: "18px",
+                                    }}
+                              >
+                                    Source :
+                                    <a
+                                          href="https://geodes.santepubliquefrance.fr/#c=home"
+                                          style={{
+                                                color: option.syntax,
+                                                // color: option.bg,
+                                          }}
+                                    >
+                                          {" "}
+                                          Santé publique France
+                                    </a>
+                              </h5>
+                              <h5
+                                    style={{
+                                          color: option.syntax,
+                                          // color: option.bg,
+                                          marginBottom: "0",
+                                          marginTop: "0",
+                                          marginLeft: "10px",
+                                    }}
+                              >
+                                    Librairie:{" "}
+                                    <a
+                                          style={{
+                                                color: option.syntax,
+                                                // color: option.bg,
+                                          }}
+                                          href="https://uber.github.io/react-vis/?r=m7"
+                                    >
+                                          React-Vis
+                                    </a>
+                              </h5>
                         </div>
-                        <div className="data-flex1">
-                              <LineSeriesNewCase
-                              // className="lineGraph"
-                              />
+                        <div className="data-flex1 remove414">
+                              <LineSeriesNewCase />
                         </div>
                         {/* <div className="data-flex2 orange"></div> */}
 

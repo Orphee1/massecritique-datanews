@@ -1,12 +1,31 @@
-.lineGraph-container {
-      position: relative;
-      /* width: 1000px;
-      height: 400px; */
-      padding-top: 56.25%; /* Player ratio: 100 / (1280 / 720) */
+.lineChart {
+      width: 1000px;
+}
+/* -------------------- media queries ---*/
+
+@media (max-width: 1024px /* Landscape tab */) {
 }
 
-.lineGraph {
-      position: absolute;
-      top: 0;
-      left: 0;
+@media (max-width: 768px /* Ipad vertical position zone */) {
+      .lineChart {
+            width: 768px;
+      }
+}
+
+@media (max-width: 720px /* Smartphone zone */) {
+      .lineChart {
+            width: 720px;
+      }
+}
+
+@media (max-width: 414px /* iPhone 11 vertical zone */) {
+      .remove414 {
+            display: none;
+      }
+}
+
+@media (max-width: 380px /* Smartphone vertical zone */) {
+}
+
+@media (max-width: 330px) {
 }
