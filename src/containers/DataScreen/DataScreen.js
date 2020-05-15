@@ -1,8 +1,6 @@
 import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 
-// Libraries
-
 import { ThemeContext } from "../../context/ThemeContext";
 
 import "../../App.css";
@@ -13,6 +11,7 @@ import useWindowDimensions from "../../assets/useWindowDimension";
 import CovidChartScreen from "../../components/datavis/CovidChartScreen/CovidChartScreen";
 import AllDeptsCovidChart from "../../components/datavis/AllDeptsCovidChart/AllDeptsCovidChart";
 import AllDeptAgeCovidChart from "../../components/datavis/AllDeptAgeCovidChart/AllDeptAgeCovidChart";
+import NewCaseFrance from "../../components/NewCaseFrance/NewCaseFrance";
 import ReactVisChart from "../../components/datavis/ReactVisChart/ReactVisChart";
 import ReactVisChartAllDept from "../../components/datavis/ReactVisChartAllDept/ReactVisChartAllDept";
 import COVIDageBar from "../../components/datavis/COVIDageBar/COVIDageBar";
@@ -326,19 +325,22 @@ export default function DataScreen() {
                               </h5>
                         </div>
                         <div className="data-flex1 remove414">
-                              <LineSeriesNewCase />
+                              <>
+                                    <NewCaseFrance />
+                                    {/* <LineSeriesNewCase /> */}
+                              </>
                         </div>
                         {/* <div className="data-flex2 orange"></div> */}
 
                         <div
-                              className="data-flex3 remove414 "
+                              className="data-flex3 remove568 "
                               style={{
                                     height: "100%",
                                     marginBottom: "20px",
                               }}
                         >
                               <ReactVisChartAllDept
-                                    className="remove414"
+                                    className="remove568"
                                     data={dataUpdated}
                               />
                         </div>

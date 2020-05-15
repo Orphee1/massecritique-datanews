@@ -1,6 +1,7 @@
-.lineChart {
-      width: 1000px;
-      margin-bottom: 30px;
+.lineChart-container {
+      /* width: 1000px;
+      height: 400px; */
+      margin-bottom: 40px;
 }
 /* -------------------- media queries ---*/
 
@@ -8,21 +9,25 @@
 }
 
 @media (max-width: 768px /* Ipad vertical position zone */) {
-      .lineChart {
-            width: 768px;
+      .lineChart-container {
+            /* width: 1000px;
+            height: 400px; */
+            margin-bottom: 30px;
+      }
+      .remove768 {
+            display: none;
       }
 }
 
 @media (max-width: 720px /* Smartphone zone */) {
-      .lineChart {
-            width: 720px;
+      .lineChart-container {
+            /* width: 1000px;
+            height: 400px; */
+            margin-bottom: 25px;
       }
 }
 
 @media (max-width: 414px /* iPhone 11 vertical zone */) {
-      .remove414 {
-            display: none;
-      }
 }
 
 @media (max-width: 380px /* Smartphone vertical zone */) {

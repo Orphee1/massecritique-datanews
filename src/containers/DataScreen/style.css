@@ -30,8 +30,8 @@
       margin: 10px;
       display: flex;
       justify-content: center;
-      /* flex-direction: column; */
-      align-items: center;
+      flex-direction: column;
+      align-items: flex-start;
       position: relative;
       /* padding-top: 56.25%;
       Player ratio: 100 / (1280 / 720 ) */
@@ -199,6 +199,12 @@
             display: flex;
             flex-direction: column;
             align-items: flex-start;
+      }
+}
+
+@media (max-width: 568px /* iPhone 11 vertical zone */) {
+      .remove568 {
+            display: none;
       }
 }
 
