@@ -26,6 +26,8 @@ import COVID09DeadAge from "../../assets/data/COVID/COVID0905DeadAge.json";
 import dead from "../../assets/data/COVID/COVID0905DeadAge.json";
 import hosp from "../../assets/data/COVID/COVID0905HospAge.json";
 import rea from "../../assets/data/COVID/COVID0905ReaAge.json";
+import data from "../../assets/data/COVID/COVIDNewCase1205.json";
+import dataNat from "../../assets/data/COVID/COVIDNewCaseNatio1205.json";
 
 const date = "09 mai";
 const dataUpdated = COVID0905;
@@ -326,11 +328,12 @@ export default function DataScreen() {
                         </div>
                         <div className="data-flex1 remove414">
                               <>
-                                    <NewCaseFrance />
-                                    {/* <LineSeriesNewCase /> */}
+                                    <NewCaseFrance
+                                          data={data}
+                                          dataNat={dataNat}
+                                    />
                               </>
                         </div>
-                        {/* <div className="data-flex2 orange"></div> */}
 
                         <div
                               className="data-flex3 remove568 "
@@ -339,10 +342,7 @@ export default function DataScreen() {
                                     marginBottom: "20px",
                               }}
                         >
-                              <ReactVisChartAllDept
-                                    className="remove568"
-                                    data={dataUpdated}
-                              />
+                              <ReactVisChartAllDept data={dataUpdated} />
                         </div>
 
                         <div

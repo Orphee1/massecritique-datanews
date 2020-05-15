@@ -4,19 +4,14 @@ import { ThemeContext } from "../../../context/ThemeContext";
 
 // React-vis
 import {
-      XYPlot,
       XAxis,
       YAxis,
       Crosshair,
-      Hint,
       DiscreteColorLegend,
       VerticalGridLines,
       HorizontalGridLines,
-      VerticalBarSeries,
       FlexibleXYPlot,
       LineSeries,
-      LabelSeries,
-      makeWidthFlexible,
 } from "react-vis";
 import "../../../../node_modules/react-vis/dist/style.css";
 
@@ -32,7 +27,6 @@ export default function LineSeriesNewCase({
 }) {
       const dataToDisplay = data;
 
-      // const FlexibleXYPlot = makeWidthFlexible(XYPlot);
       const { width, height } = useWindowDimensions();
       console.log(height);
 

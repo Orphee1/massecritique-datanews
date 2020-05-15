@@ -8,10 +8,7 @@ import "./style.css";
 // Component import
 import LineSeriesNewCase from "../../components/datavis/LineSeriesNewCase/LineSeriesNewCase";
 
-import data from "../../assets/data/COVID/COVIDNewCase1205.json";
-import dataNat from "../../assets/data/COVID/COVIDNewCaseNatio1205.json";
-
-export default function NewCaseFrance() {
+export default function NewCaseFrance({ data, dataNat }) {
       // Theme definition
       const [theme] = useContext(ThemeContext);
       const { themeSelected, themeOne, themeTwo, themeThree } = theme;
