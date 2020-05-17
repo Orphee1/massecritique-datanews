@@ -12,17 +12,6 @@ import { timeFormat, timeParse } from "d3-time-format";
 
 import useWindowDimensions from "../../assets/useWindowDimension";
 
-import covid from "../../assets/data/COVID/COVIDNewCaseNatio1205.json";
-
-const data = [];
-for (let i = 0; i < covid.length; i++) {
-      data.push({
-            date: Date.parse(covid[i].jour),
-            value: covid[i].incid_dc,
-      });
-}
-console.log(data);
-
 // accessors
 const x = (d) => d.date;
 const y = (d) => d.value;
@@ -47,7 +36,7 @@ function numTicksForWidth(width) {
       return 10;
 }
 
-export default function VXLinepath() {
+export default function VXLinepath({ data }) {
       const { width } = useWindowDimensions();
       const widthGraph = width * 0.8;
       const height = 400;
@@ -59,11 +48,11 @@ export default function VXLinepath() {
       // scales
       const xScale = scaleTime({
             range: [0, xMax],
-            domain: extent(data, x),
+            domain: extent(data[1], x),
       });
       const yScale = scaleLinear({
             range: [yMax, 0],
-            domain: [0, Math.max(...data.map(y))],
+            domain: [0, Math.max(...data[1].map(y))],
             nice: true,
       });
 
@@ -73,6 +62,7 @@ export default function VXLinepath() {
                   style={{
                         width: widthGraph,
                         height: "400px",
+                        marginBottom: "40px",
                   }}
             >
                   <svg width={widthGraph} height={height}>
@@ -104,7 +94,7 @@ export default function VXLinepath() {
                         />
                         <Group top={margin.top} left={margin.left}>
                               <Area
-                                    data={data}
+                                    data={data[1]}
                                     x={(d) => xScale(x(d))}
                                     y0={(d) => yScale.range()[0]}
                                     y1={(d) => yScale(y(d))}
@@ -114,7 +104,31 @@ export default function VXLinepath() {
                                     curve={curveBasis}
                               />
                               <LinePath
-                                    data={data}
+                                    data={data[0]}
+                                    x={(d) => xScale(x(d))}
+                                    y={(d) => yScale(y(d))}
+                                    stroke={"url('#linear')"}
+                                    strokeWidth={2}
+                                    curve={curveBasis}
+                              />
+                              <LinePath
+                                    data={data[1]}
+                                    x={(d) => xScale(x(d))}
+                                    y={(d) => yScale(y(d))}
+                                    stroke={"url('#linear')"}
+                                    strokeWidth={2}
+                                    curve={curveBasis}
+                              />
+                              <LinePath
+                                    data={data[2]}
+                                    x={(d) => xScale(x(d))}
+                                    y={(d) => yScale(y(d))}
+                                    stroke={"url('#linear')"}
+                                    strokeWidth={2}
+                                    curve={curveBasis}
+                              />
+                              <LinePath
+                                    data={data[3]}
                                     x={(d) => xScale(x(d))}
                                     y={(d) => yScale(y(d))}
                                     stroke={"url('#linear')"}

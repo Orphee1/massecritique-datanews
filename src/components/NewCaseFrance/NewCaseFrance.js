@@ -58,7 +58,6 @@ export default function NewCaseFrance({ data, dataNat }) {
 
       const [depSelected, setDepSelected] = useState(1);
       console.log(depSelected);
-      console.log(typeof depSelected);
 
       // Data treatment for each department
       let dataDepRD = [];

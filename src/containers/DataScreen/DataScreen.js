@@ -466,7 +466,7 @@ export default function DataScreen() {
                                     </div>
                               </>
                         ) : (
-                              <VXPage />
+                              <VXPage data={data} dataNat={dataNat} />
                         )}
                   </div>
             </div>
