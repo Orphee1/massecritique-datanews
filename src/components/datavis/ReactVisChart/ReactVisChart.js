@@ -214,15 +214,16 @@ export default function ReactVisChart({ data }) {
                               <VerticalGridLines />
                               <HorizontalGridLines />
                               <XAxis
-                                    style={{
-                                          ticks: { fill: option.syntax },
-                                    }}
+                                    // style={{
+                                    //       ticks: { fill: option.syntax },
+                                    // }}
                                     tickLabelAngle={-45}
+                                    // width={300}
                               />
                               <YAxis
-                                    style={{
-                                          ticks: { fill: option.syntax },
-                                    }}
+                              // style={{
+                              //       ticks: { fill: option.syntax },
+                              // }}
                               />
 
                               <VerticalBarSeries

@@ -16,6 +16,7 @@ import ReactVisChart from "../../components/datavis/ReactVisChart/ReactVisChart"
 import ReactVisChartAllDept from "../../components/datavis/ReactVisChartAllDept/ReactVisChartAllDept";
 import COVIDageBar from "../../components/datavis/COVIDageBar/COVIDageBar";
 import LineSeriesNewCase from "../../components/datavis/LineSeriesNewCase/LineSeriesNewCase";
+import VXPage from "../../components/VXPage/VXPage";
 
 // Icons import
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -79,6 +80,10 @@ export default function DataScreen() {
                   option = themeThree;
                   break;
       }
+
+      // const [librarieSelected, setLibrarieSelected] = useState("react-vis");
+      const [librarieSelected, setLibrarieSelected] = useState("vx");
+      console.log(librarieSelected);
 
       // Date treatment
 
@@ -305,111 +310,164 @@ export default function DataScreen() {
                                           Santé publique France
                                     </a>
                               </h5>
-                              <h5
-                                    style={{
-                                          color: option.syntax,
-                                          // color: option.bg,
-                                          marginBottom: "0",
-                                          marginTop: "0",
-                                          marginLeft: "10px",
-                                    }}
-                              >
-                                    Librairie:{" "}
-                                    <a
+                              <div className="d-flex">
+                                    <h5
                                           style={{
                                                 color: option.syntax,
                                                 // color: option.bg,
+                                                marginBottom: "0",
+                                                marginTop: "0",
+                                                marginLeft: "10px",
                                           }}
-                                          href="https://uber.github.io/react-vis/?r=m7"
                                     >
-                                          React-Vis
-                                    </a>
-                              </h5>
-                        </div>
-                        <div className="data-flex1 remove414">
-                              <>
-                                    <NewCaseFrance
-                                          data={data}
-                                          dataNat={dataNat}
-                                    />
-                              </>
-                        </div>
-
-                        <div
-                              className="data-flex3 remove568 "
-                              style={{
-                                    height: "100%",
-                                    marginBottom: "20px",
-                              }}
-                        >
-                              <ReactVisChartAllDept data={dataUpdated} />
-                        </div>
-
-                        <div
-                              className="data-flex4"
-                              style={{
-                                    height: "100%",
-                                    marginBottom: "20px",
-                              }}
-                        >
-                              <ReactVisChart data={dataUpdated} />
-                              {/* <CovidChartScreen data={dataUpdated} /> */}
-                        </div>
-                        <div
-                              className="data-flex5"
-                              style={{
-                                    height: "100%",
-                                    marginBottom: "20px",
-                              }}
-                        >
-                              <h5
-                                    style={{
-                                          color: option.syntax,
-                                          fontSize: "18px",
-                                    }}
-                              >
-                                    Impact de l'épidémie selon l'âge
-                              </h5>
-                              <div className="select-info">
-                                    <h5 style={{ color: option.syntax }}>
-                                          Afficher les données par région:
+                                          Librairies:{" "}
+                                          <a
+                                                style={{
+                                                      color: option.syntax,
+                                                      cursor: "pointer",
+                                                      // color: option.bg,
+                                                }}
+                                                // href="https://uber.github.io/react-vis/?r=m7"
+                                                onClick={() => {
+                                                      setLibrarieSelected(
+                                                            "react-vis"
+                                                      );
+                                                }}
+                                          >
+                                                React-Vis
+                                          </a>
                                     </h5>
-                                    <select
-                                          className="select"
+                                    <h5
                                           style={{
-                                                width: "165px",
+                                                color: option.syntax,
+                                                // color: option.bg,
+                                                marginBottom: "0",
+                                                marginTop: "0",
+                                                marginLeft: "10px",
+                                          }}
+                                    >
+                                          <a
+                                                style={{
+                                                      color: option.syntax,
+                                                      cursor: "pointer",
+                                                      // color: option.bg,
+                                                }}
+                                                // href="https://vx-demo.now.sh/"
+                                                onClick={() => {
+                                                      setLibrarieSelected("vx");
+                                                }}
+                                          >
+                                                VX
+                                          </a>
+                                    </h5>
+                              </div>
+                        </div>
+                        {librarieSelected === "react-vis" ? (
+                              <>
+                                    <div className="data-flex1 remove414">
+                                          <>
+                                                <NewCaseFrance
+                                                      data={data}
+                                                      dataNat={dataNat}
+                                                />
+                                          </>
+                                    </div>
+
+                                    <div
+                                          className="data-flex3 remove568 "
+                                          style={{
+                                                height: "100%",
                                                 marginBottom: "20px",
                                           }}
-                                          onChange={(event) => {
-                                                setRegSelected(
-                                                      event.target.value
-                                                );
+                                    >
+                                          <ReactVisChartAllDept
+                                                data={dataUpdated}
+                                          />
+                                    </div>
+
+                                    <div
+                                          className="data-flex4"
+                                          style={{
+                                                height: "100%",
+                                                marginBottom: "20px",
                                           }}
                                     >
-                                          {options}
-                                    </select>
-                              </div>
-                              <div className="chart-age-container">
-                                    <div className="chart-age-box">
-                                          <COVIDageBar
-                                                data={dataDCTodisplay}
-                                                type="Décès"
-                                          />
+                                          <ReactVisChart data={dataUpdated} />
+                                          {/* <CovidChartScreen data={dataUpdated} /> */}
                                     </div>
-                                    <div className="chart-age-box">
-                                          <COVIDageBar
-                                                data={dataHTodisplay}
-                                                type="Patients hospitalisés"
-                                          />
+                                    <div
+                                          className="data-flex5"
+                                          style={{
+                                                height: "100%",
+                                                marginBottom: "20px",
+                                          }}
+                                    >
+                                          <h5
+                                                style={{
+                                                      color: option.syntax,
+                                                      fontSize: "18px",
+                                                }}
+                                          >
+                                                Impact de l'épidémie selon l'âge
+                                          </h5>
+                                          <div className="select-info">
+                                                <h5
+                                                      style={{
+                                                            color:
+                                                                  option.syntax,
+                                                      }}
+                                                >
+                                                      Afficher les données par
+                                                      région:
+                                                </h5>
+                                                <select
+                                                      className="select"
+                                                      style={{
+                                                            width: "165px",
+                                                            marginBottom:
+                                                                  "20px",
+                                                      }}
+                                                      onChange={(event) => {
+                                                            setRegSelected(
+                                                                  event.target
+                                                                        .value
+                                                            );
+                                                      }}
+                                                >
+                                                      {options}
+                                                </select>
+                                          </div>
+                                          <div className="chart-age-container">
+                                                <div className="chart-age-box">
+                                                      <COVIDageBar
+                                                            data={
+                                                                  dataDCTodisplay
+                                                            }
+                                                            type="Décès"
+                                                      />
+                                                </div>
+                                                <div className="chart-age-box">
+                                                      <COVIDageBar
+                                                            data={
+                                                                  dataHTodisplay
+                                                            }
+                                                            type="Patients hospitalisés"
+                                                      />
+                                                </div>
+                                                <div className="chart-age-box">
+                                                      <COVIDageBar
+                                                            data={
+                                                                  dataRTodisplay
+                                                            }
+                                                            type="Patients en réanimation"
+                                                      />
+                                                </div>
+                                          </div>
                                     </div>
-                                    <div className="chart-age-box">
-                                          <COVIDageBar
-                                                data={dataRTodisplay}
-                                                type="Patients en réanimation"
-                                          />
-                                    </div>
-                              </div>
-                        </div>
+                              </>
+                        ) : (
+                              <VXPage />
+                        )}
                   </div>
             </div>
       );
