@@ -78,7 +78,7 @@ export default function VXLinepath({ data }) {
                               y={0}
                               width={widthGraph}
                               height={height}
-                              fill="#FF0000"
+                              // fill="#c998ff"
                               // rx={0}
                         />
                         <Grid
@@ -102,8 +102,7 @@ export default function VXLinepath({ data }) {
                                     strokeWidth={2}
                                     stroke={"transparent"}
                                     fill={"url(#linear)"}
-
-                                    // curve={curveBasis}
+                                    curve={curveBasis}
                               />
                               <LinePath
                                     data={data[0]}
@@ -112,7 +111,7 @@ export default function VXLinepath({ data }) {
                                     // stroke={"url('#linear')"}
                                     stroke="#6284FF"
                                     strokeWidth={2}
-                                    // curve={curveBasis}
+                                    curve={curveBasis}
                               />
                               <LinePath
                                     data={data[1]}
@@ -121,7 +120,7 @@ export default function VXLinepath({ data }) {
                                     stroke={"url('#linear')"}
                                     // stroke="#6284FF"
                                     strokeWidth={2}
-                                    // curve={curveBasis}
+                                    curve={curveBasis}
                               />
                               <LinePath
                                     data={data[2]}
@@ -130,16 +129,16 @@ export default function VXLinepath({ data }) {
                                     // stroke={"url('#linear')"}
                                     stroke="#FFE53B"
                                     strokeWidth={2}
-                                    // curve={curveBasis}
+                                    curve={curveBasis}
                               />
                               <LinePath
                                     data={data[3]}
                                     x={(d) => xScale(x(d))}
                                     y={(d) => yScale(y(d))}
-                                    stroke={"url('#linear')"}
+                                    // stroke={"url('#linear')"}
                                     stroke="#FF3B94"
                                     strokeWidth={2}
-                                    // curve={curveBasis}
+                                    curve={curveBasis}
                               />
                         </Group>
                         <Group left={margin.left}>
@@ -156,13 +155,13 @@ export default function VXLinepath({ data }) {
                                     //       fontSize: 12,
                                     //       fontFamily: "Arial",
                                     // }}
-                                    // stroke="#1b1a1e"
-                                    stroke="white"
-                                    // tickStroke="#8e205f"
-                                    tickStroke="white"
+                                    stroke="#1b1a1e"
+                                    // stroke="white"
+                                    tickStroke="#8e205f"
+                                    // tickStroke="white"
                                     tickLabelProps={(value, index) => ({
-                                          // fill: "#8e205f",
-                                          fill: "white",
+                                          fill: "#8e205f",
+                                          // fill: "white",
                                           textAnchor: "end",
                                           fontSize: 20,
                                           fontFamily: "Roboto",
@@ -189,8 +188,8 @@ export default function VXLinepath({ data }) {
                                     {(axis) => {
                                           const tickLabelSize = 10;
                                           const tickRotate = 315;
-                                          // const tickColor = "#8e205f";
-                                          const tickColor = "white";
+                                          const tickColor = "#8e205f";
+                                          // const tickColor = "white";
                                           const axisCenter =
                                                 (axis.axisToPoint.x -
                                                       axis.axisFromPoint.x) /

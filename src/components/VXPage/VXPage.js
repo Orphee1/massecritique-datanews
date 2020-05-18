@@ -7,6 +7,7 @@ import "./style.css";
 
 // Component import
 import VXLinepath from "../VXTools/VXLinepath";
+import VXBarStackHorizon from "../VXTools/VXBarStackHorizon";
 
 const optionDepts = [
       ["Ain", 1],
@@ -122,7 +123,7 @@ for (let i = 0; i < optionDepts.length; i++) {
       );
 }
 
-export default function VXPage({ data, dataNat }) {
+export default function VXPage({ data, dataNat, dataUpdated }) {
       // Theme definition
       const [theme] = useContext(ThemeContext);
       const { themeSelected, themeOne, themeTwo, themeThree } = theme;
@@ -199,29 +200,37 @@ export default function VXPage({ data, dataNat }) {
       let dataDepToDisplay = [dataDepDC, dataDepH, dataDepR, dataDepRD];
 
       return (
-            <div className="data-vx-flex1 ">
-                  <h5
-                        style={{
-                              color: option.syntax,
-                              fontSize: "18px",
-                        }}
-                  >
-                        Nouveaux cas quotidiens depuis le 19 mars
-                  </h5>
-                  <h5 style={{ color: option.syntax }}>
-                        Ensemble du territoire
-                  </h5>
-                  <VXLinepath data={dataToDisplay} />
-                  <select
-                        className="select"
-                        style={{ width: "140px" }}
-                        onChange={(event) => {
-                              setDepSelected(Number(event.target.value));
-                        }}
-                  >
-                        {options}
-                  </select>
-                  <VXLinepath data={dataDepToDisplay} />
-            </div>
+            <>
+                  <div className="data-vx-flex1 ">
+                        <h5
+                              style={{
+                                    color: option.syntax,
+                                    fontSize: "18px",
+                              }}
+                        >
+                              Nouveaux cas quotidiens depuis le 19 mars
+                        </h5>
+                        <h5 style={{ color: option.syntax }}>
+                              Ensemble du territoire
+                        </h5>
+                        <VXLinepath data={dataToDisplay} />
+                        <select
+                              className="select"
+                              style={{ width: "140px" }}
+                              onChange={(event) => {
+                                    setDepSelected(Number(event.target.value));
+                              }}
+                        >
+                              {options}
+                        </select>
+                        <VXLinepath data={dataDepToDisplay} />
+                  </div>
+                  <div className="data-vx-flex3 remove568 ">
+                        <h5 style={{ color: option.syntax, fontSize: "18px" }}>
+                              Impact de l'épidémie selon le sexe
+                        </h5>
+                        <VXBarStackHorizon data={dataUpdated} />
+                  </div>
+            </>
       );
 }
