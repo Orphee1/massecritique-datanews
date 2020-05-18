@@ -198,6 +198,7 @@ export default function VXPage({ data, dataNat, dataUpdated }) {
       }
 
       let dataDepToDisplay = [dataDepDC, dataDepH, dataDepR, dataDepRD];
+      const [type, setType] = useState("hosp");
 
       return (
             <>
@@ -229,6 +230,21 @@ export default function VXPage({ data, dataNat, dataUpdated }) {
                         <h5 style={{ color: option.syntax, fontSize: "18px" }}>
                               Impact de l'épidémie selon le sexe
                         </h5>
+                        <select
+                              className="select"
+                              style={{ width: "150px", marginBottom: "10px" }}
+                              onChange={(event) => {
+                                    setType(event.target.value);
+                              }}
+                        >
+                              <option value="hosp">
+                                    Patients hospitalsées
+                              </option>
+                              <option value="rea">
+                                    Patients en réanimation
+                              </option>
+                              <option value="dec">Patients décédés</option>
+                        </select>
                         <VXBarStackHorizon data={dataUpdated} />
                   </div>
             </>
