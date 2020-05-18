@@ -16,6 +16,7 @@
             "@vx/gradient": "0.0.196",
             "@vx/grid": "0.0.196",
             "@vx/group": "0.0.196",
+            "@vx/legend": "0.0.196",
             "@vx/mock-data": "0.0.196",
             "@vx/scale": "0.0.196",
             "@vx/shape": "0.0.196",

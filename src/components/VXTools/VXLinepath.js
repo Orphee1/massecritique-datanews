@@ -26,13 +26,13 @@ const margin = {
 // responsive utils for axis ticks
 function numTicksForHeight(height) {
       if (height <= 300) return 3;
-      if (300 < height && height <= 600) return 5;
+      if (300 < height && height <= 600) return 6;
       return 10;
 }
 
 function numTicksForWidth(width) {
       if (width <= 300) return 2;
-      if (300 < width && width <= 400) return 5;
+      if (300 < width && width <= 400) return 6;
       return 10;
 }
 
@@ -78,8 +78,8 @@ export default function VXLinepath({ data }) {
                               y={0}
                               width={widthGraph}
                               height={height}
-                              fill="#f4419f"
-                              rx={14}
+                              fill="#FF0000"
+                              // rx={0}
                         />
                         <Grid
                               top={margin.top}
@@ -87,6 +87,7 @@ export default function VXLinepath({ data }) {
                               xScale={xScale}
                               yScale={yScale}
                               stroke="rgba(142, 32, 95, 0.9)"
+                              // stroke="white"
                               width={widthGraph}
                               height={height}
                               numTicksRows={numTicksForHeight(600)}
@@ -101,39 +102,44 @@ export default function VXLinepath({ data }) {
                                     strokeWidth={2}
                                     stroke={"transparent"}
                                     fill={"url(#linear)"}
-                                    curve={curveBasis}
+
+                                    // curve={curveBasis}
                               />
                               <LinePath
                                     data={data[0]}
                                     x={(d) => xScale(x(d))}
                                     y={(d) => yScale(y(d))}
-                                    stroke={"url('#linear')"}
+                                    // stroke={"url('#linear')"}
+                                    stroke="#6284FF"
                                     strokeWidth={2}
-                                    curve={curveBasis}
+                                    // curve={curveBasis}
                               />
                               <LinePath
                                     data={data[1]}
                                     x={(d) => xScale(x(d))}
                                     y={(d) => yScale(y(d))}
                                     stroke={"url('#linear')"}
+                                    // stroke="#6284FF"
                                     strokeWidth={2}
-                                    curve={curveBasis}
+                                    // curve={curveBasis}
                               />
                               <LinePath
                                     data={data[2]}
                                     x={(d) => xScale(x(d))}
                                     y={(d) => yScale(y(d))}
-                                    stroke={"url('#linear')"}
+                                    // stroke={"url('#linear')"}
+                                    stroke="#FFE53B"
                                     strokeWidth={2}
-                                    curve={curveBasis}
+                                    // curve={curveBasis}
                               />
                               <LinePath
                                     data={data[3]}
                                     x={(d) => xScale(x(d))}
                                     y={(d) => yScale(y(d))}
                                     stroke={"url('#linear')"}
+                                    stroke="#FF3B94"
                                     strokeWidth={2}
-                                    curve={curveBasis}
+                                    // curve={curveBasis}
                               />
                         </Group>
                         <Group left={margin.left}>
@@ -143,20 +149,23 @@ export default function VXLinepath({ data }) {
                                     scale={yScale}
                                     hideZero
                                     numTicks={numTicksForHeight(600)}
-                                    label="Axis Left Label"
-                                    labelProps={{
-                                          fill: "#8e205f",
-                                          textAnchor: "middle",
-                                          fontSize: 12,
-                                          fontFamily: "Arial",
-                                    }}
-                                    stroke="#1b1a1e"
-                                    tickStroke="#8e205f"
+                                    // label="Nombre de cas"
+                                    // labelProps={{
+                                    //       fill: "#8e205f",
+                                    //       textAnchor: "middle",
+                                    //       fontSize: 12,
+                                    //       fontFamily: "Arial",
+                                    // }}
+                                    // stroke="#1b1a1e"
+                                    stroke="white"
+                                    // tickStroke="#8e205f"
+                                    tickStroke="white"
                                     tickLabelProps={(value, index) => ({
-                                          fill: "#8e205f",
+                                          // fill: "#8e205f",
+                                          fill: "white",
                                           textAnchor: "end",
                                           fontSize: 20,
-                                          fontFamily: "Arial",
+                                          fontFamily: "Roboto",
                                           dx: "-0.25em",
                                           dy: "0.25em",
                                     })}
@@ -175,12 +184,13 @@ export default function VXLinepath({ data }) {
                                     left={0}
                                     scale={xScale}
                                     numTicks={numTicksForWidth(width)}
-                                    label="Time"
+                                    // label="Time"
                               >
                                     {(axis) => {
                                           const tickLabelSize = 10;
                                           const tickRotate = 315;
-                                          const tickColor = "#8e205f";
+                                          // const tickColor = "#8e205f";
+                                          const tickColor = "white";
                                           const axisCenter =
                                                 (axis.axisToPoint.x -
                                                       axis.axisFromPoint.x) /
