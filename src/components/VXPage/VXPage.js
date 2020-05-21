@@ -230,7 +230,7 @@ export default function VXPage({ data, dataNat, dataUpdated }) {
                         <h5 style={{ color: option.syntax, fontSize: "18px" }}>
                               Impact de l'épidémie selon le sexe
                         </h5>
-                        <select
+                        {/* <select
                               className="select"
                               style={{ width: "150px", marginBottom: "10px" }}
                               onChange={(event) => {
@@ -244,7 +244,7 @@ export default function VXPage({ data, dataNat, dataUpdated }) {
                                     Patients en réanimation
                               </option>
                               <option value="dec">Patients décédés</option>
-                        </select>
+                        </select> */}
                         <VXBarStackHorizon data={dataUpdated} />
                   </div>
             </>

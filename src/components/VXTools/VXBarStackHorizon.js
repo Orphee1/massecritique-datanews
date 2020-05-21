@@ -5,10 +5,12 @@ import { AxisBottom, AxisLeft } from "@vx/axis";
 import { cityTemperature } from "@vx/mock-data";
 import { scaleBand, scaleLinear, scaleOrdinal } from "@vx/scale";
 import { timeParse, timeFormat } from "d3-time-format";
-import { withTooltip, Tooltip } from "@vx/tooltip";
+import { useTooltip, Tooltip, TooltipWithBounds } from "@vx/tooltip";
+import { localPoint } from "@vx/event";
 import { LegendOrdinal } from "@vx/legend";
 
 import "../../App.css";
+import "./style.css";
 import useWindowDimensions from "../../assets/useWindowDimension";
 
 const purple1 = "#6c5efb";
@@ -27,10 +29,27 @@ export default function BarStackHorizonExample({
       data,
 }) {
       const { width } = useWindowDimensions();
+      const {
+            tooltipData,
+            tooltipLeft,
+            tooltipTop,
+            tooltipOpen,
+
+            showTooltip,
+            hideTooltip,
+      } = useTooltip();
+      let tooltipTimeout = useTooltip();
+
+      console.log(tooltipOpen);
+      console.log(tooltipTop);
+      console.log(tooltipLeft);
+      console.log(tooltipData);
+
       const widthGraph = width * 0.8;
       const height = 2400;
       if (widthGraph < 10) return null;
 
+      // Data treatment
       function compareDeadDec(a, b) {
             const deadA = a.dead;
             const deadB = b.dead;
@@ -44,11 +63,9 @@ export default function BarStackHorizonExample({
       }
 
       const dataTodisplay = data.sort(compareDeadDec);
-      console.log(data.length);
       const keys = Object.keys(data[0]).filter(
             (d) => d === "deadh" || d === "deadf"
       );
-      console.log(keys);
 
       // Value required by xScale
       const totals = dataTodisplay.reduce((ret, cur) => {
@@ -79,130 +96,249 @@ export default function BarStackHorizonExample({
             range: [purple1, purple2, purple3],
       });
 
-      let tooltipTimeout;
-
       // bounds
       const xMax = widthGraph - margin.left - margin.right;
       const yMax = height - margin.top - margin.bottom;
 
       xScale.rangeRound([0, xMax]);
       yScale.rangeRound([yMax, 0]);
+
       return (
-            <div style={{ position: "relative" }}>
-                  <svg width={widthGraph} height={height}>
-                        <rect
-                              width={widthGraph}
-                              height={height}
-                              // fill={bg}
-                              rx={0}
-                        />
-                        <Group top={margin.top} left={margin.left}>
-                              <BarStackHorizontal
-                                    data={dataTodisplay}
-                                    keys={keys}
-                                    height={yMax}
-                                    y={y}
-                                    xScale={xScale}
-                                    yScale={yScale}
-                                    color={color}
-                              >
-                                    {(barStacks) => {
-                                          return barStacks.map((barStack) => {
-                                                return barStack.bars.map(
-                                                      (bar) => {
-                                                            return (
-                                                                  <rect
-                                                                        key={`barstack-horizontal-${barStack.index}-${bar.index}`}
-                                                                        x={
-                                                                              bar.x
-                                                                        }
-                                                                        y={
-                                                                              bar.y
-                                                                        }
-                                                                        width={
-                                                                              bar.width
-                                                                        }
-                                                                        // height={
-                                                                        //       bar.height
-                                                                        // }
-                                                                        height={
-                                                                              20
-                                                                        }
-                                                                        fill={
-                                                                              bar.color
-                                                                        }
-                                                                        // onClick={event => {
-                                                                        //       if (!events) return;
-                                                                        //       alert(`clicked: ${JSON.stringify(bar)}`);
-                                                                        //     }}
-                                                                        // onMouseLeave={event => {
-                                                                        //       tooltipTimeout = setTimeout(() => {
-                                                                        //         hideTooltip();
-                                                                        //       }, 300);
-                                                                        //     }}
-                                                                        // onMouseMove={event => {
-                                                                        //       if (tooltipTimeout) clearTimeout(tooltipTimeout);
-                                                                        //       const top = bar.y + margin.top;
-                                                                        //       const left = bar.x + bar.width + margin.left;
-                                                                        //       showTooltip({
-                                                                        //         tooltipData: bar,
-                                                                        //         tooltipTop: top,
-                                                                        //         tooltipLeft: left
-                                                                        //       });
-                                                                        //     }}
-                                                                  ></rect>
+            <>
+                  <div className="orange" style={{ position: "relative" }}>
+                        <svg width={widthGraph} height={height}>
+                              <rect
+                                    width={widthGraph}
+                                    height={height}
+                                    // fill={bg}
+                                    rx={0}
+                              />
+                              <Group top={margin.top} left={margin.left}>
+                                    <BarStackHorizontal
+                                          data={dataTodisplay}
+                                          keys={keys}
+                                          height={yMax}
+                                          y={y}
+                                          xScale={xScale}
+                                          yScale={yScale}
+                                          color={color}
+                                    >
+                                          {(barStacks) => {
+                                                return barStacks.map(
+                                                      (barStack) => {
+                                                            return barStack.bars.map(
+                                                                  (bar) => {
+                                                                        return (
+                                                                              <rect
+                                                                                    key={`barstack-horizontal-${barStack.index}-${bar.index}`}
+                                                                                    x={
+                                                                                          bar.x
+                                                                                    }
+                                                                                    y={
+                                                                                          bar.y
+                                                                                    }
+                                                                                    width={
+                                                                                          bar.width
+                                                                                    }
+                                                                                    height={
+                                                                                          20
+                                                                                    }
+                                                                                    fill={
+                                                                                          bar.color
+                                                                                    }
+                                                                                    // onClick={event => {
+                                                                                    //       if (!events) return;
+                                                                                    //       alert(`clicked: ${JSON.stringify(bar)}`);
+                                                                                    //     }}
+                                                                                    onMouseLeave={(
+                                                                                          event
+                                                                                    ) => {
+                                                                                          tooltipTimeout = setTimeout(
+                                                                                                () => {
+                                                                                                      hideTooltip();
+                                                                                                },
+                                                                                                300
+                                                                                          );
+                                                                                    }}
+                                                                                    onMouseMove={(
+                                                                                          event
+                                                                                    ) => {
+                                                                                          if (
+                                                                                                tooltipTimeout
+                                                                                          )
+                                                                                                clearTimeout(
+                                                                                                      tooltipTimeout
+                                                                                                );
+                                                                                          const top =
+                                                                                                bar.y +
+                                                                                                margin.top;
+                                                                                          const left =
+                                                                                                bar.x +
+                                                                                                bar.width +
+                                                                                                margin.left;
+                                                                                          showTooltip(
+                                                                                                {
+                                                                                                      tooltipData: bar,
+                                                                                                      tooltipTop: top,
+                                                                                                      tooltipLeft: left,
+                                                                                                }
+                                                                                          );
+                                                                                    }}
+                                                                              ></rect>
+                                                                        );
+                                                                  }
                                                             );
                                                       }
                                                 );
-                                          });
-                                    }}
-                              </BarStackHorizontal>
-                              <AxisLeft
-                                    hideAxisLine={true}
-                                    hideTicks={true}
-                                    scale={yScale}
-                                    // tickFormat={formatDate}
-                                    numTicks={dataTodisplay.length}
-                                    stroke="#8e205f"
-                                    tickStroke="#8e205f"
-                                    tickLabelProps={(value, index) => ({
-                                          fill: "#8e205f",
-                                          fontSize: 11,
-                                          textAnchor: "end",
-                                          dy: "0.33em",
-                                    })}
+                                          }}
+                                    </BarStackHorizontal>
+                                    <AxisLeft
+                                          hideAxisLine={true}
+                                          hideTicks={true}
+                                          scale={yScale}
+                                          // tickFormat={formatDate}
+                                          numTicks={dataTodisplay.length}
+                                          stroke="#8e205f"
+                                          tickStroke="#8e205f"
+                                          tickLabelProps={(value, index) => ({
+                                                fill: "#8e205f",
+                                                fontSize: 11,
+                                                textAnchor: "end",
+                                                dy: "0.33em",
+                                          })}
+                                    />
+                                    <AxisBottom
+                                          top={yMax}
+                                          scale={xScale}
+                                          stroke="#8e205f"
+                                          tickStroke="#8e205f"
+                                          tickLabelProps={(value, index) => ({
+                                                fill: "#8e205f",
+                                                fontSize: 11,
+                                                textAnchor: "middle",
+                                          })}
+                                    />
+                              </Group>
+                        </svg>
+                        <div
+                              style={{
+                                    position: "absolute",
+                                    top: margin.top / 2 - 10,
+                                    width: "100%",
+                                    display: "flex",
+                                    justifyContent: "center",
+                                    fontSize: "14px",
+                                    // color: purple3,
+                                    color: "#8e205f",
+                              }}
+                        >
+                              <LegendOrdinal
+                                    scale={color}
+                                    direction="row"
+                                    labelMargin="0 15px 0 0"
                               />
-                              <AxisBottom
-                                    top={yMax}
-                                    scale={xScale}
-                                    stroke="#8e205f"
-                                    tickStroke="#8e205f"
-                                    tickLabelProps={(value, index) => ({
-                                          fill: "#8e205f",
-                                          fontSize: 11,
-                                          textAnchor: "middle",
-                                    })}
-                              />
-                        </Group>
-                  </svg>
-                  <div
-                        style={{
-                              position: "absolute",
-                              top: margin.top / 2 - 10,
-                              width: "100%",
-                              display: "flex",
-                              justifyContent: "center",
-                              fontSize: "14px",
-                              // color: purple3,
-                              color: "#8e205f",
-                        }}
-                  >
-                        <LegendOrdinal
-                              scale={color}
-                              direction="row"
-                              labelMargin="0 15px 0 0"
-                        />
+                        </div>
+                        {tooltipOpen && (
+                              <div
+                                    // className="toolTip-wrapper red"
+                                    className="red"
+                                    // style={{
+                                    //       position: "absolute",
+                                    //       top: tooltipTop,
+                                    //       left: tooltipLeft,
+                                    //       width: "100px",
+                                    //       height: "50px",
+                                    // }}
+                              >
+                                    <Tooltip
+                                          top={tooltipTop}
+                                          left={tooltipLeft}
+                                          style={{
+                                                position: "absolute",
+                                                width: 160,
+                                                height: 60,
+                                                borderRadius: "5px",
+                                                minWidth: 60,
+                                                // backgroundColor:
+                                                //       "rgba(0,0,0,0.9)",
+                                                backgroundColor: "pink",
+                                                // color: "white",
+                                          }}
+                                    >
+                                          <div
+                                                style={{
+                                                      color:
+                                                            // color(tooltipData.key)
+                                                            "#6c5efb",
+                                                      padding: "5px",
+                                                      justifyContent: "center",
+                                                      alignItems: "center",
+                                                }}
+                                          >
+                                                <strong
+                                                      style={{
+                                                            fontSize: "14px",
+                                                      }}
+                                                >
+                                                      {tooltipData.bar.data.dep}
+                                                      :
+                                                </strong>
+                                                <div>
+                                                      <strong
+                                                            style={{
+                                                                  fontSize:
+                                                                        "12px",
+                                                            }}
+                                                      >
+                                                            {
+                                                                  tooltipData
+                                                                        .bar
+                                                                        .data[
+                                                                        tooltipData
+                                                                              .key
+                                                                  ]
+                                                            }{" "}
+                                                      </strong>
+                                                      {tooltipData.key ===
+                                                            "deadh" && (
+                                                            <strong
+                                                                  style={{
+                                                                        fontSize:
+                                                                              "12px",
+                                                                  }}
+                                                            >
+                                                                  décès hommes
+                                                            </strong>
+                                                      )}
+                                                      {tooltipData.key ===
+                                                            "deadf" && (
+                                                            <strong
+                                                                  style={{
+                                                                        fontSize:
+                                                                              "12px",
+                                                                  }}
+                                                            >
+                                                                  décès femmes
+                                                            </strong>
+                                                      )}
+                                                </div>
+                                                <div
+                                                      style={{
+                                                            fontSize: "12px",
+                                                      }}
+                                                >
+                                                      Total :{" "}
+                                                      {
+                                                            tooltipData.bar.data
+                                                                  .dead
+                                                      }{" "}
+                                                      décès
+                                                </div>
+                                          </div>
+                                    </Tooltip>
+                              </div>
+                        )}
                   </div>
-            </div>
+            </>
       );
 }
