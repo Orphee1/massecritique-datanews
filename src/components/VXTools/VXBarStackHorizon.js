@@ -39,11 +39,7 @@ export default function BarStackHorizonExample({
             hideTooltip,
       } = useTooltip();
       let tooltipTimeout = useTooltip();
-
-      console.log(tooltipOpen);
-      console.log(tooltipTop);
-      console.log(tooltipLeft);
-      console.log(tooltipData);
+      // console.log(tooltipData);
 
       const widthGraph = width * 0.8;
       const height = 2400;
@@ -105,7 +101,7 @@ export default function BarStackHorizonExample({
 
       return (
             <>
-                  <div className="orange" style={{ position: "relative" }}>
+                  <div style={{ position: "relative" }}>
                         <svg width={widthGraph} height={height}>
                               <rect
                                     width={widthGraph}
@@ -239,104 +235,89 @@ export default function BarStackHorizonExample({
                               />
                         </div>
                         {tooltipOpen && (
-                              <div
-                                    // className="toolTip-wrapper red"
-                                    className="red"
-                                    // style={{
-                                    //       position: "absolute",
-                                    //       top: tooltipTop,
-                                    //       left: tooltipLeft,
-                                    //       width: "100px",
-                                    //       height: "50px",
-                                    // }}
+                              <Tooltip
+                                    top={tooltipTop}
+                                    left={tooltipLeft}
+                                    style={{
+                                          position: "absolute",
+                                          width: 160,
+                                          height: 60,
+                                          borderRadius: "5px",
+                                          minWidth: 60,
+                                          backgroundColor: "pink",
+                                    }}
                               >
-                                    <Tooltip
-                                          top={tooltipTop}
-                                          left={tooltipLeft}
+                                    <div
                                           style={{
-                                                position: "absolute",
-                                                width: 160,
-                                                height: 60,
-                                                borderRadius: "5px",
-                                                minWidth: 60,
-                                                // backgroundColor:
-                                                //       "rgba(0,0,0,0.9)",
-                                                backgroundColor: "pink",
-                                                // color: "white",
+                                                color:
+                                                      // color(tooltipData.key)
+                                                      "#6c5efb",
+                                                padding: "5px",
+                                                justifyContent: "center",
+                                                alignItems: "center",
                                           }}
                                     >
-                                          <div
+                                          <strong
                                                 style={{
-                                                      color:
-                                                            // color(tooltipData.key)
-                                                            "#6c5efb",
-                                                      padding: "5px",
-                                                      justifyContent: "center",
-                                                      alignItems: "center",
+                                                      fontSize: "14px",
                                                 }}
                                           >
+                                                {tooltipData.bar.data.dep}:
+                                          </strong>
+                                          <div>
                                                 <strong
                                                       style={{
-                                                            fontSize: "14px",
+                                                            fontSize: "12px",
                                                       }}
                                                 >
-                                                      {tooltipData.bar.data.dep}
-                                                      :
+                                                      {
+                                                            tooltipData.bar
+                                                                  .data[
+                                                                  tooltipData
+                                                                        .key
+                                                            ]
+                                                      }{" "}
                                                 </strong>
-                                                <div>
+                                                {tooltipData.key ===
+                                                      "deadh" && (
                                                       <strong
                                                             style={{
                                                                   fontSize:
                                                                         "12px",
                                                             }}
                                                       >
-                                                            {
-                                                                  tooltipData
-                                                                        .bar
-                                                                        .data[
-                                                                        tooltipData
-                                                                              .key
-                                                                  ]
-                                                            }{" "}
+                                                            décès hommes
                                                       </strong>
-                                                      {tooltipData.key ===
-                                                            "deadh" && (
-                                                            <strong
-                                                                  style={{
-                                                                        fontSize:
-                                                                              "12px",
-                                                                  }}
-                                                            >
-                                                                  décès hommes
-                                                            </strong>
-                                                      )}
-                                                      {tooltipData.key ===
-                                                            "deadf" && (
-                                                            <strong
-                                                                  style={{
-                                                                        fontSize:
-                                                                              "12px",
-                                                                  }}
-                                                            >
-                                                                  décès femmes
-                                                            </strong>
-                                                      )}
-                                                </div>
-                                                <div
-                                                      style={{
-                                                            fontSize: "12px",
-                                                      }}
-                                                >
+                                                )}
+                                                {tooltipData.key ===
+                                                      "deadf" && (
+                                                      <strong
+                                                            style={{
+                                                                  fontSize:
+                                                                        "12px",
+                                                            }}
+                                                      >
+                                                            décès femmes
+                                                      </strong>
+                                                )}
+                                          </div>
+                                          <div
+                                                style={{
+                                                      fontSize: "12px",
+                                                }}
+                                          >
+                                                <strong>
+                                                      {" "}
                                                       Total :{" "}
                                                       {
                                                             tooltipData.bar.data
                                                                   .dead
                                                       }{" "}
                                                       décès
-                                                </div>
+                                                </strong>
                                           </div>
-                                    </Tooltip>
-                              </div>
+                                    </div>
+                              </Tooltip>
                         )}
                   </div>
             </>
