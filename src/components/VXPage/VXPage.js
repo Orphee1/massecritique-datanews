@@ -8,6 +8,7 @@ import "./style.css";
 // Component import
 import VXLinepath from "../VXTools/VXLinepath";
 import VXBarStackHorizon from "../VXTools/VXBarStackHorizon";
+import VXArea from "../VXTools/VXArea";
 
 const optionDepts = [
       ["Ain", 1],
@@ -201,7 +202,19 @@ export default function VXPage({ data, dataNat, dataUpdated }) {
       const [type, setType] = useState("hosp");
 
       return (
-            <>
+            <div>
+                  <div className="data-vx-flex1">
+                        <h5
+                              style={{
+                                    color: option.syntax,
+                                    fontSize: "18px",
+                              }}
+                        >
+                              Nouveaux cas quotidiens depuis le 19 mars
+                        </h5>{" "}
+                        <h5 style={{ color: option.syntax }}>France</h5>
+                        <VXArea dataArea={dataNat} />
+                  </div>
                   <div className="data-vx-flex1 ">
                         <h5
                               style={{
@@ -247,6 +260,6 @@ export default function VXPage({ data, dataNat, dataUpdated }) {
                         </select> */}
                         <VXBarStackHorizon data={dataUpdated} />
                   </div>
-            </>
+            </div>
       );
 }

@@ -3,11 +3,12 @@ import { Grid } from "@vx/grid";
 import { Group } from "@vx/group";
 import { curveBasis } from "@vx/curve";
 import { GradientOrangeRed } from "@vx/gradient";
-import { genDateValue } from "@vx/mock-data";
+import { localPoint } from "@vx/event";
 import { AxisLeft, AxisRight, AxisBottom } from "@vx/axis";
 import { Area, LinePath, Line } from "@vx/shape";
 import { scaleTime, scaleLinear } from "@vx/scale";
-import { extent } from "d3-array";
+import { useTooltip, Tooltip, TooltipWithBounds } from "@vx/tooltip";
+import { bisector, extent } from "d3-array";
 import { timeFormat, timeParse } from "d3-time-format";
 
 import useWindowDimensions from "../../assets/useWindowDimension";
@@ -15,6 +16,7 @@ import useWindowDimensions from "../../assets/useWindowDimension";
 // accessors
 const x = (d) => d.date;
 const y = (d) => d.value;
+const bisectDate = bisector((d) => new Date(d.date)).left;
 
 const margin = {
       left: 80,
@@ -40,6 +42,34 @@ export default function VXLinepath({ data }) {
       const { width } = useWindowDimensions();
       const widthGraph = width * 0.8;
       const height = 400;
+      const {
+            tooltipData,
+            tooltipLeft,
+            tooltipTop,
+            tooltipOpen,
+
+            showTooltip,
+            hideTooltip,
+      } = useTooltip();
+      let tooltipTimeout = useTooltip();
+      // console.log(tooltipData);
+
+      const handleTooltip = ({ event, data, xStock, xScale, yScale }) => {
+            const { x } = localPoint(event);
+            const x0 = xScale.invert(x);
+            const index = bisectDate(data, x0, 1);
+            const d0 = data[index - 1];
+            const d1 = data[index];
+            let d = d0;
+            if (d1 && d1.date) {
+                  d = x0 - xStock(d0.date) > xStock(d1.date) - x0 ? d1 : d0;
+            }
+            showTooltip({
+                  tooltipData: d,
+                  tooltipLeft: x,
+                  tooltipTop: yScale(d.close),
+            });
+      };
 
       // bounds
       const xMax = width - margin.left - margin.right;
@@ -112,6 +142,27 @@ export default function VXLinepath({ data }) {
                                     stroke="#6284FF"
                                     strokeWidth={2}
                                     curve={curveBasis}
+                                    onMouseLeave={(event) => {
+                                          tooltipTimeout = setTimeout(() => {
+                                                hideTooltip();
+                                          }, 300);
+                                    }}
+                                    onMouseMove={(event) => {
+                                          if (tooltipTimeout)
+                                                clearTimeout(tooltipTimeout);
+                                          // const top =
+                                          //       bar.y +
+                                          //       margin.top;
+                                          // const left =
+                                          //       bar.x +
+                                          //       bar.width +
+                                          //       margin.left;
+                                          showTooltip({
+                                                // tooltipData: bar,
+                                                // tooltipTop: top,
+                                                // tooltipLeft: left,
+                                          });
+                                    }}
                               />
                               <LinePath
                                     data={data[1]}

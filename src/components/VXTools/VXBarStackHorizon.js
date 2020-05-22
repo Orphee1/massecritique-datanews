@@ -10,7 +10,7 @@ import { localPoint } from "@vx/event";
 import { LegendOrdinal } from "@vx/legend";
 
 import "../../App.css";
-import "./style.css";
+
 import useWindowDimensions from "../../assets/useWindowDimension";
 
 const purple1 = "#6c5efb";
@@ -81,7 +81,6 @@ export default function BarStackHorizonExample({
             domain: [0, Math.max(...totals)],
             nice: true,
       });
-      // console.log(Math.max(...totals));
 
       const yScale = scaleBand({
             domain: dataTodisplay.map(y),
@@ -240,9 +239,9 @@ export default function BarStackHorizonExample({
                                     left={tooltipLeft}
                                     style={{
                                           position: "absolute",
-                                          width: 160,
-                                          height: 60,
-                                          borderRadius: "5px",
+                                          width: 150,
+                                          height: 65,
+                                          borderRadius: "10px",
                                           minWidth: 60,
                                           backgroundColor: "pink",
                                     }}
