@@ -65,11 +65,11 @@ export default function Header({ indexPage, setIndexPage }) {
                                                 });
                                           }}
                                     >
-                                          <option value="theme1">
-                                                mode clair
-                                          </option>
                                           <option value="theme2">
                                                 mode sombre
+                                          </option>
+                                          <option value="theme1">
+                                                mode clair
                                           </option>
                                           <option value="theme3">
                                                 mode couleur

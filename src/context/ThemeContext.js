@@ -4,7 +4,7 @@ export const ThemeContext = createContext();
 
 export const ThemeContextProvider = (props) => {
       const [theme, setTheme] = useState({
-            themeSelected: "theme1",
+            themeSelected: "theme2",
 
             themeOne: {
                   syntax: "#000000",

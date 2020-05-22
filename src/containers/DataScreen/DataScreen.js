@@ -28,7 +28,10 @@ import dead from "../../assets/data/COVID/COVID0905DeadAge.json";
 import hosp from "../../assets/data/COVID/COVID0905HospAge.json";
 import rea from "../../assets/data/COVID/COVID0905ReaAge.json";
 import data from "../../assets/data/COVID/COVIDNewCase1205.json";
-import dataNat from "../../assets/data/COVID/COVIDNewCaseNatio1205.json";
+import dataNat from "../../assets/data/COVID/COVIDNewCaseNatio2105.json";
+
+import C19USA from "../../assets/data/COVID/owid/C19USACasesOverTime2205.json";
+import C19FRA from "../../assets/data/COVID/owid/C19FRACasesOverTime2205.json";
 
 const date = "09 mai";
 const dataUpdated = COVID0905;
@@ -278,38 +281,7 @@ export default function DataScreen() {
                               >
                                     Epidémie de COVID-19
                               </h3>
-                              <h5
-                                    style={{
-                                          color: option.syntax,
-                                          // color: option.bg,
-                                          marginBottom: "0",
-                                          marginLeft: "10px",
-                                          fontSize: "18px",
-                                    }}
-                              >
-                                    Données hospitalières au 12 mai
-                              </h5>
-                              <h5
-                                    style={{
-                                          color: option.syntax,
-                                          // color: option.bg,
-                                          marginTop: "5px",
-                                          marginLeft: "10px",
-                                          fontSize: "18px",
-                                    }}
-                              >
-                                    Source :
-                                    <a
-                                          href="https://geodes.santepubliquefrance.fr/#c=home"
-                                          style={{
-                                                color: option.syntax,
-                                                // color: option.bg,
-                                          }}
-                                    >
-                                          {" "}
-                                          Santé publique France
-                                    </a>
-                              </h5>
+
                               <div className="d-flex">
                                     <h5
                                           style={{
@@ -470,6 +442,8 @@ export default function DataScreen() {
                                     data={data}
                                     dataNat={dataNat}
                                     dataUpdated={dataUpdated}
+                                    dataUSA={C19USA}
+                                    dataFRA={C19FRA}
                               />
                         )}
                   </div>

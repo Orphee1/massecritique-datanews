@@ -41,7 +41,7 @@ function numTicksForWidth(width) {
 export default function VXLinepath({ data }) {
       const { width } = useWindowDimensions();
       const widthGraph = width * 0.8;
-      const height = 400;
+      const height = 500;
       const {
             tooltipData,
             tooltipLeft,
@@ -72,7 +72,7 @@ export default function VXLinepath({ data }) {
       };
 
       // bounds
-      const xMax = width - margin.left - margin.right;
+      const xMax = widthGraph - margin.left - margin.right;
       const yMax = height - margin.top - margin.bottom;
 
       // scales

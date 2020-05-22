@@ -20,9 +20,9 @@ const max = (arr, fn) => Math.max(...arr.map(fn));
 const extent = (arr, fn) => [min(arr, fn), max(arr, fn)];
 
 // // accessors
-const xStock = (d) => new Date(d.jour);
-const yStock = (d) => d.incid_dc;
-const bisectDate = bisector((d) => new Date(d.jour)).left;
+const xStock = (d) => new Date(d.date);
+const yStock = (d) => d.new_deaths;
+const bisectDate = bisector((d) => new Date(d.date)).left;
 
 export default function VXArea({ dataArea }) {
       // console.log(dataArea);
@@ -38,13 +38,13 @@ export default function VXArea({ dataArea }) {
       const widthGraph = width * 0.8;
       const height = 400;
       const margin = {
-            left: 80,
+            left: 20,
             right: 20,
-            top: 30,
-            bottom: 60,
+            top: 0,
+            bottom: 40,
       };
       // bounds
-      const xMax = widthGraph - margin.left - margin.right;
+      const xMax = widthGraph - margin.right;
       const yMax = height - margin.top - margin.bottom;
 
       // scales
@@ -66,17 +66,17 @@ export default function VXArea({ dataArea }) {
             const d1 = data[index];
             let d = d0;
             if (d1 && d1.date) {
-                  d = x0 - xStock(d0.jour) > xStock(d1.jour) - x0 ? d1 : d0;
+                  d = x0 - xStock(d0.date) > xStock(d1.date) - x0 ? d1 : d0;
             }
             showTooltip({
                   tooltipData: d,
                   tooltipLeft: x,
-                  tooltipTop: yScale(d.incid_dc),
+                  tooltipTop: yScale(d.new_deaths),
             });
       };
 
       return (
-            <div style={{ position: "relative" }}>
+            <div style={{ position: "relative" }} className="fl-col">
                   <svg width={widthGraph} height={height}>
                         <rect
                               x={0}
@@ -232,6 +232,15 @@ export default function VXArea({ dataArea }) {
                               </Tooltip>
                         </div>
                   )}
+                  <p style={{ color: "white" }}>
+                        VX main component :{" "}
+                        <a
+                              style={{ color: "white" }}
+                              href="https://vx-demo.now.sh/static/docs/vx-shape.html#areaclosed-"
+                        >
+                              AreaClosed
+                        </a>
+                  </p>
             </div>
       );
 }

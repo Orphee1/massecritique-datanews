@@ -124,7 +124,13 @@ for (let i = 0; i < optionDepts.length; i++) {
       );
 }
 
-export default function VXPage({ data, dataNat, dataUpdated }) {
+export default function VXPage({
+      data,
+      dataNat,
+      dataUpdated,
+      dataUSA,
+      dataFRA,
+}) {
       // Theme definition
       const [theme] = useContext(ThemeContext);
       const { themeSelected, themeOne, themeTwo, themeThree } = theme;
@@ -210,10 +216,12 @@ export default function VXPage({ data, dataNat, dataUpdated }) {
                                     fontSize: "18px",
                               }}
                         >
-                              Nouveaux cas quotidiens depuis le 19 mars
+                              Evolution du nombre de décès
                         </h5>{" "}
                         <h5 style={{ color: option.syntax }}>France</h5>
-                        <VXArea dataArea={dataNat} />
+                        <VXArea dataArea={dataFRA} />
+                        <h5 style={{ color: option.syntax }}>Etats-Unis</h5>
+                        <VXArea dataArea={dataUSA} />
                   </div>
                   <div className="data-vx-flex1 ">
                         <h5
