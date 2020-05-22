@@ -2,7 +2,7 @@ import React from "react";
 import { Grid } from "@vx/grid";
 import { Group } from "@vx/group";
 import { curveBasis } from "@vx/curve";
-import { GradientOrangeRed } from "@vx/gradient";
+import { GradientOrangeRed, GradientTealBlue } from "@vx/gradient";
 import { localPoint } from "@vx/event";
 import { AxisLeft, AxisRight, AxisBottom } from "@vx/axis";
 import { Area, LinePath, Line } from "@vx/shape";
@@ -88,36 +88,29 @@ export default function VXLinepath({ data }) {
 
       return (
             <div
-                  className=""
                   style={{
                         width: widthGraph,
-                        height: "400px",
                         marginBottom: "40px",
                   }}
             >
                   <svg width={widthGraph} height={height}>
                         {" "}
-                        <GradientOrangeRed
-                              id="linear"
-                              vertical={false}
-                              fromOpacity={0.8}
-                              toOpacity={0.3}
-                        />
+                        <GradientTealBlue id="teal" />
                         <rect
                               x={0}
                               y={0}
                               width={widthGraph}
                               height={height}
-                              // fill="#c998ff"
-                              // rx={0}
+                              fill={"url(#teal)"}
+                              rx={14}
                         />
                         <Grid
                               top={margin.top}
                               left={margin.left}
                               xScale={xScale}
                               yScale={yScale}
-                              stroke="rgba(142, 32, 95, 0.9)"
-                              // stroke="white"
+                              strokeDasharray="2,2"
+                              stroke="rgba(255,255,255,0.6)"
                               width={widthGraph}
                               height={height}
                               numTicksRows={numTicksForHeight(600)}
@@ -135,60 +128,40 @@ export default function VXLinepath({ data }) {
                                     curve={curveBasis}
                               />
                               <LinePath
+                                    // DataDC
                                     data={data[0]}
                                     x={(d) => xScale(x(d))}
                                     y={(d) => yScale(y(d))}
-                                    // stroke={"url('#linear')"}
-                                    stroke="#6284FF"
-                                    strokeWidth={2}
+                                    stroke="red"
+                                    strokeWidth={4}
                                     curve={curveBasis}
-                                    onMouseLeave={(event) => {
-                                          tooltipTimeout = setTimeout(() => {
-                                                hideTooltip();
-                                          }, 300);
-                                    }}
-                                    onMouseMove={(event) => {
-                                          if (tooltipTimeout)
-                                                clearTimeout(tooltipTimeout);
-                                          // const top =
-                                          //       bar.y +
-                                          //       margin.top;
-                                          // const left =
-                                          //       bar.x +
-                                          //       bar.width +
-                                          //       margin.left;
-                                          showTooltip({
-                                                // tooltipData: bar,
-                                                // tooltipTop: top,
-                                                // tooltipLeft: left,
-                                          });
-                                    }}
                               />
                               <LinePath
+                                    // DataH
                                     data={data[1]}
                                     x={(d) => xScale(x(d))}
                                     y={(d) => yScale(y(d))}
-                                    stroke={"url('#linear')"}
-                                    // stroke="#6284FF"
-                                    strokeWidth={2}
+                                    stroke="purple"
+                                    strokeWidth={3}
                                     curve={curveBasis}
                               />
                               <LinePath
+                                    // DataR
                                     data={data[2]}
                                     x={(d) => xScale(x(d))}
                                     y={(d) => yScale(y(d))}
                                     // stroke={"url('#linear')"}
-                                    stroke="#FFE53B"
-                                    strokeWidth={2}
+                                    stroke="pink"
+                                    strokeWidth={3}
                                     curve={curveBasis}
                               />
                               <LinePath
+                                    // DataRD
                                     data={data[3]}
                                     x={(d) => xScale(x(d))}
                                     y={(d) => yScale(y(d))}
-                                    // stroke={"url('#linear')"}
-                                    stroke="#FF3B94"
-                                    strokeWidth={2}
+                                    stroke="orange"
+                                    strokeWidth={3}
                                     curve={curveBasis}
                               />
                         </Group>

@@ -130,6 +130,9 @@ export default function VXPage({
       dataUpdated,
       dataUSA,
       dataFRA,
+      dataSPA,
+      dataGER,
+      dataGBR,
 }) {
       // Theme definition
       const [theme] = useContext(ThemeContext);
@@ -220,6 +223,12 @@ export default function VXPage({
                         </h5>{" "}
                         <h5 style={{ color: option.syntax }}>France</h5>
                         <VXArea dataArea={dataFRA} />
+                        <h5 style={{ color: option.syntax }}>Espagne</h5>
+                        <VXArea dataArea={dataSPA} />
+                        <h5 style={{ color: option.syntax }}>Allemagne</h5>
+                        <VXArea dataArea={dataGER} />
+                        <h5 style={{ color: option.syntax }}>Royaume-Uni</h5>
+                        <VXArea dataArea={dataGBR} />
                         <h5 style={{ color: option.syntax }}>Etats-Unis</h5>
                         <VXArea dataArea={dataUSA} />
                   </div>

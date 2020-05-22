@@ -32,6 +32,9 @@ import dataNat from "../../assets/data/COVID/COVIDNewCaseNatio2105.json";
 
 import C19USA from "../../assets/data/COVID/owid/C19USACasesOverTime2205.json";
 import C19FRA from "../../assets/data/COVID/owid/C19FRACasesOverTime2205.json";
+import C19SPA from "../../assets/data/COVID/owid/C19SPACasesOverTime2205.json";
+import C19GER from "../../assets/data/COVID/owid/C19GERCasesOverTime2205.json";
+import C19GBR from "../../assets/data/COVID/owid/C19GBRCasesOverTime2205.json";
 
 const date = "09 mai";
 const dataUpdated = COVID0905;
@@ -444,6 +447,9 @@ export default function DataScreen() {
                                     dataUpdated={dataUpdated}
                                     dataUSA={C19USA}
                                     dataFRA={C19FRA}
+                                    dataSPA={C19SPA}
+                                    dataGER={C19GER}
+                                    dataGBR={C19GBR}
                               />
                         )}
                   </div>
