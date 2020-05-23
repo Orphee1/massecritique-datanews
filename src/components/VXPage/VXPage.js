@@ -5,6 +5,8 @@ import { ThemeContext } from "../../context/ThemeContext";
 import "../../App.css";
 import "./style.css";
 
+import useWindowDimension from "../../assets/useWindowDimension";
+
 // Component import
 import VXLinepath from "../VXTools/VXLinepath";
 import VXBarStackHorizon from "../VXTools/VXBarStackHorizon";
@@ -149,7 +151,8 @@ export default function VXPage({
                   option = themeThree;
                   break;
       }
-
+      const { width } = useWindowDimension();
+      const widthGraph = width * 0.8;
       // national data treatment
       let dataRDToDisplay = [];
       let dataRToDisplay = [];
@@ -220,17 +223,17 @@ export default function VXPage({
                               }}
                         >
                               Evolution du nombre de décès
-                        </h5>{" "}
-                        <h5 style={{ color: option.syntax }}>France</h5>
-                        <VXArea dataArea={dataFRA} />
-                        <h5 style={{ color: option.syntax }}>Espagne</h5>
-                        <VXArea dataArea={dataSPA} />
-                        <h5 style={{ color: option.syntax }}>Allemagne</h5>
-                        <VXArea dataArea={dataGER} />
-                        <h5 style={{ color: option.syntax }}>Royaume-Uni</h5>
-                        <VXArea dataArea={dataGBR} />
-                        <h5 style={{ color: option.syntax }}>Etats-Unis</h5>
-                        <VXArea dataArea={dataUSA} />
+                        </h5>
+
+                        <VXArea dataArea={dataFRA} title="France" />
+
+                        <VXArea dataArea={dataSPA} title="Espagne" />
+
+                        <VXArea dataArea={dataGER} title="Allemagne" />
+
+                        <VXArea dataArea={dataGBR} title="Royaume-Uni" />
+
+                        <VXArea dataArea={dataUSA} title="Etats-Unis" />
                   </div>
                   <div className="data-vx-flex1 ">
                         <h5
