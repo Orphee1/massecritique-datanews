@@ -28,7 +28,7 @@ export default function LineSeriesNewCase({
       const dataToDisplay = data;
 
       const { width, height } = useWindowDimensions();
-      console.log(height);
+      // console.log(height);
 
       // Theme definition
       const [theme] = useContext(ThemeContext);

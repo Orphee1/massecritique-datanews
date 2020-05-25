@@ -11,15 +11,9 @@ import useWindowDimensions from "../../assets/useWindowDimension";
 import CovidChartScreen from "../../components/datavis/CovidChartScreen/CovidChartScreen";
 import AllDeptsCovidChart from "../../components/datavis/AllDeptsCovidChart/AllDeptsCovidChart";
 import AllDeptAgeCovidChart from "../../components/datavis/AllDeptAgeCovidChart/AllDeptAgeCovidChart";
-import NewCaseFrance from "../../components/NewCaseFrance/NewCaseFrance";
-import ReactVisChart from "../../components/datavis/ReactVisChart/ReactVisChart";
-import ReactVisChartAllDept from "../../components/datavis/ReactVisChartAllDept/ReactVisChartAllDept";
-import COVIDageBar from "../../components/datavis/COVIDageBar/COVIDageBar";
-import LineSeriesNewCase from "../../components/datavis/LineSeriesNewCase/LineSeriesNewCase";
-import VXPage from "../../components/VXPage/VXPage";
 
-// Icons import
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import VXPage from "../../components/VXPage/VXPage";
+import ReactVisPage from "../../components/ReactVisPage/ReactVisPage";
 
 // Data import
 import COVID0905 from "../../assets/data/COVID/COVID0905.json";
@@ -36,38 +30,8 @@ import C19SPA from "../../assets/data/COVID/owid/C19SPACasesOverTime2205.json";
 import C19GER from "../../assets/data/COVID/owid/C19GERCasesOverTime2205.json";
 import C19GBR from "../../assets/data/COVID/owid/C19GBRCasesOverTime2205.json";
 
-const date = "09 mai";
+// const date = "09 mai";
 const dataUpdated = COVID0905;
-
-const optionReg = [
-      "Île-de-France",
-      "Guadeloupe",
-      "Martinique",
-      "Guyane",
-      "La Réunion",
-      "Mayotte",
-      "Centre-Val de Loire",
-      "Bourgogne-Franche-Comté",
-      "Normandie",
-      "Hauts-de-France",
-      "Grand-Est",
-      "Pays de la Loire",
-      "Bretagne",
-      "Nouvelle-Aquitaine",
-      "Occitanie",
-      "Auvergne-Rhône-Alpes",
-      "Provence-Alpes-Côte d'Azur",
-      "Corse",
-];
-
-const options = [];
-for (let i = 0; i < optionReg.length; i++) {
-      options.push(
-            <option key={i} value={optionReg[i]}>
-                  {optionReg[i]}
-            </option>
-      );
-}
 
 export default function DataScreen() {
       const { height } = useWindowDimensions();
@@ -89,160 +53,6 @@ export default function DataScreen() {
 
       // const [librarieSelected, setLibrarieSelected] = useState("react-vis");
       const [librarieSelected, setLibrarieSelected] = useState("vx");
-      console.log(librarieSelected);
-
-      // Date treatment
-
-      let totalH = 0;
-      for (let i = 0; i < dataUpdated.length; i++) {
-            totalH += dataUpdated[i].hosp;
-      }
-      // console.log(totalH);
-
-      let totalR = 0;
-      for (let i = 0; i < dataUpdated.length; i++) {
-            totalR += dataUpdated[i].rea;
-      }
-      // console.log(totalR);
-
-      let totalD = 0;
-      for (let i = 0; i < dataUpdated.length; i++) {
-            totalD += dataUpdated[i].dead;
-      }
-      // console.log(totalD);
-
-      // State required by COVIDageBar component
-      const [regSelected, setRegSelected] = useState("Île-de-France");
-      // console.log(regSelected);
-      // Data treatment for COVIDageBar component
-      let dataDCTodisplay = [];
-      for (let i = 0; i < dead.length; i++) {
-            if (dead[i].Libellé === regSelected) {
-                  dataDCTodisplay.push(
-                        { x: "0-9 ans", y: dead[i].re09 },
-                        { x: "10-19 ans", y: dead[i].rel1019 },
-                        {
-                              x: "20-29 ans",
-                              y: dead[i].rel2029,
-                        },
-                        {
-                              x: "30-39 ans",
-                              y: dead[i].rel3039,
-                        },
-                        {
-                              x: "40-49 ans",
-                              y: dead[i].rel4049,
-                        },
-                        {
-                              x: "50-59 ans",
-                              y: dead[i].rel5059,
-                        },
-                        {
-                              x: "60-69 ans",
-                              y: dead[i].rel6069,
-                        },
-                        {
-                              x: "70-79 ans",
-                              y: dead[i].rel7079,
-                        },
-                        {
-                              x: "80-89 ans",
-                              y: dead[i].rel8089,
-                        },
-                        {
-                              x: "Plus de 90 ans",
-                              y: dead[i].rel90,
-                        }
-                  );
-            }
-      }
-      // console.log(dataDCTodisplay);
-
-      let dataHTodisplay = [];
-      for (let i = 0; i < hosp.length; i++) {
-            if (hosp[i].Libelle === regSelected) {
-                  dataHTodisplay.push(
-                        { x: "0-9 ans", y: hosp[i].rel09 },
-                        { x: "10-19 ans", y: hosp[i].rel1019 },
-                        {
-                              x: "20-29 ans",
-                              y: hosp[i].rel2029,
-                        },
-                        {
-                              x: "30-39 ans",
-                              y: hosp[i].rel3039,
-                        },
-                        {
-                              x: "40-49 ans",
-                              y: hosp[i].rel4049,
-                        },
-                        {
-                              x: "50-59 ans",
-                              y: hosp[i].rel5059,
-                        },
-                        {
-                              x: "60-69 ans",
-                              y: hosp[i].rel6069,
-                        },
-                        {
-                              x: "70-79 ans",
-                              y: hosp[i].rel7079,
-                        },
-                        {
-                              x: "80-89 ans",
-                              y: hosp[i].rel8089,
-                        },
-                        {
-                              x: "Plus de 90 ans",
-                              y: hosp[i].rel90,
-                        }
-                  );
-            }
-      }
-      // console.log(dataHTodisplay);
-
-      let dataRTodisplay = [];
-      for (let i = 0; i < rea.length; i++) {
-            if (rea[i].Libellé === regSelected) {
-                  dataRTodisplay.push(
-                        { x: "0-9 ans", y: rea[i].rea09 },
-                        { x: "10-19 ans", y: rea[i].rel1019 },
-                        {
-                              x: "20-29 ans",
-                              y: rea[i].rel2029,
-                        },
-                        {
-                              x: "30-39 ans",
-                              y: rea[i].rel3039,
-                        },
-                        {
-                              x: "40-49 ans",
-                              y: rea[i].rel4049,
-                        },
-                        {
-                              x: "50-59 ans",
-                              y: rea[i].rel5059,
-                        },
-                        {
-                              x: "60-69 ans",
-                              y: rea[i].rel6069,
-                        },
-                        {
-                              x: "70-79 ans",
-                              y: rea[i].rel7079,
-                        },
-                        {
-                              x: "80-89 ans",
-                              y: rea[i].rel8089,
-                        },
-                        {
-                              x: "Plus de 90 ans",
-                              y: rea[i].rel90,
-                        }
-                  );
-            }
-      }
-      // console.log(dataRTodisplay);
 
       return (
             <div
@@ -338,108 +148,14 @@ export default function DataScreen() {
                               </div>
                         </div>
                         {librarieSelected === "react-vis" ? (
-                              <>
-                                    <div className="data-flex1 remove414">
-                                          <>
-                                                <NewCaseFrance
-                                                      data={data}
-                                                      dataNat={dataNat}
-                                                />
-                                          </>
-                                    </div>
-
-                                    <div
-                                          className="data-flex3 remove568 "
-                                          style={{
-                                                height: "100%",
-                                                marginBottom: "20px",
-                                          }}
-                                    >
-                                          <ReactVisChartAllDept
-                                                data={dataUpdated}
-                                          />
-                                    </div>
-
-                                    <div
-                                          className="data-flex4"
-                                          style={{
-                                                height: "100%",
-                                                marginBottom: "20px",
-                                          }}
-                                    >
-                                          <ReactVisChart data={dataUpdated} />
-                                          {/* <CovidChartScreen data={dataUpdated} /> */}
-                                    </div>
-                                    <div
-                                          className="data-flex5"
-                                          style={{
-                                                height: "100%",
-                                                marginBottom: "20px",
-                                          }}
-                                    >
-                                          <h5
-                                                style={{
-                                                      color: option.syntax,
-                                                      fontSize: "18px",
-                                                }}
-                                          >
-                                                Impact de l'épidémie selon l'âge
-                                          </h5>
-                                          <div className="select-info">
-                                                <h5
-                                                      style={{
-                                                            color:
-                                                                  option.syntax,
-                                                      }}
-                                                >
-                                                      Afficher les données par
-                                                      région:
-                                                </h5>
-                                                <select
-                                                      className="select"
-                                                      style={{
-                                                            width: "165px",
-                                                            marginBottom:
-                                                                  "20px",
-                                                      }}
-                                                      onChange={(event) => {
-                                                            setRegSelected(
-                                                                  event.target
-                                                                        .value
-                                                            );
-                                                      }}
-                                                >
-                                                      {options}
-                                                </select>
-                                          </div>
-                                          <div className="chart-age-container">
-                                                <div className="chart-age-box">
-                                                      <COVIDageBar
-                                                            data={
-                                                                  dataDCTodisplay
-                                                            }
-                                                            type="Décès"
-                                                      />
-                                                </div>
-                                                <div className="chart-age-box">
-                                                      <COVIDageBar
-                                                            data={
-                                                                  dataHTodisplay
-                                                            }
-                                                            type="Patients hospitalisés"
-                                                      />
-                                                </div>
-                                                <div className="chart-age-box">
-                                                      <COVIDageBar
-                                                            data={
-                                                                  dataRTodisplay
-                                                            }
-                                                            type="Patients en réanimation"
-                                                      />
-                                                </div>
-                                          </div>
-                                    </div>
-                              </>
+                              <ReactVisPage
+                                    data={data}
+                                    dataNat={dataNat}
+                                    dataUpdated={dataUpdated}
+                                    dead={dead}
+                                    hosp={hosp}
+                                    rea={rea}
+                              />
                         ) : (
                               <VXPage
                                     data={data}

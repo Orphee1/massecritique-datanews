@@ -1,0 +1,159 @@
+/* Bloc Flex 1 > child 1 = graph-covid-france-map */
+
+.reactVis-flex1 {
+      flex: 1 1 auto;
+      /* height: 500px; */
+      /* height: 100%; */
+      margin: 10px;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: flex-start;
+      position: relative;
+}
+
+/* .reactVis-flex2 {
+
+} */
+
+.reactVis-flex3 {
+      flex: 1 1 800px;
+      margin: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+}
+
+.reactVis-flex4 {
+      flex: 1 1 600px;
+      margin: 10px;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: flex-start;
+}
+
+.reactVis-flex5 {
+      flex: 1 1 1000px;
+      margin: 10px;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: flex-start;
+}
+
+.chart-age-container {
+      display: flex;
+      width: 100%;
+      flex-wrap: wrap;
+}
+
+.chart-age-box {
+      flex: 1 1 300px;
+}
+
+/* -------------------- media queries ---*/
+
+@media (max-width: 1024px /* Landscape tab */) {
+}
+
+@media (max-width: 768px /* Ipad vertical position zone */) {
+      .reactVis-flex3 {
+            flex: 1 1 768;
+            margin: 0px;
+            display: flex;
+            flex-direction: column;
+      }
+
+      .alldept-chart {
+            width: 768px;
+      }
+}
+
+@media (max-width: 720px /* Smartphone zone */) {
+      .remove720 {
+            display: none;
+      }
+
+      .reactVis-flex3 {
+            flex: 1 1 720px;
+            margin: 10px 0;
+            display: flex;
+            flex-direction: column;
+      }
+
+      .alldept-chart {
+            width: 720px;
+      }
+
+      .reactVis-flex5 {
+            flex: 1 1 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+      }
+}
+
+@media (max-width: 568px /* iPhone 11 vertical zone */) {
+      .remove568 {
+            display: none;
+      }
+}
+
+@media (max-width: 414px /* iPhone 11 vertical zone */) {
+      .remove414 {
+            display: none;
+      }
+
+      .reactVis-flex1 {
+            flex: 1 1 414px;
+            margin: 0px;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+      }
+
+      .graph-covid-france-map {
+            width: 414px;
+      }
+
+      .reactVis-flex3 {
+            flex: 1 1 414px;
+            margin: 10px 0;
+            display: flex;
+            flex-direction: column;
+      }
+
+      .alldept-chart {
+            width: 414px;
+      }
+
+      .reactVis-flex5 {
+            flex: 1 1 414px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+      }
+}
+
+@media (max-width: 380px /* Smartphone vertical zone */) {
+      .reactVis-flex1 {
+            flex: 1 1 380px;
+            margin: 0px;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+      }
+
+      .graph-covid-france-map {
+            width: 380px;
+      }
+}
+
+@media (max-width: 330px) {
+      .graph-covid-france-map {
+            width: 280px;
+      }
+}

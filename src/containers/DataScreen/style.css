@@ -21,121 +21,6 @@
       align-items: flex-start;
 }
 
-/* Bloc Flex 1 > child 1 = graph-covid-france-map */
-
-.data-flex1 {
-      flex: 1 1 auto;
-      /* height: 500px; */
-      height: 100%;
-      margin: 10px;
-      display: flex;
-      justify-content: center;
-      flex-direction: column;
-      align-items: flex-start;
-      position: relative;
-      /* padding-top: 56.25%;
-      Player ratio: 100 / (1280 / 720 ) */
-}
-
-/* child1 */
-
-/* .lineGraph {
-      position: absolute;
-      top: 0;
-      left: 0;
-} */
-/* Bloc Flex 2 > child 1 */
-
-.data-flex2 {
-      flex: 1 1 550px;
-      /* height: auto; */
-      height: 500px;
-      margin: 10px;
-      display: flex;
-
-      /* flex-wrap: wrap; */
-}
-
-/* child1 */
-
-.graph-comment1 {
-      flex: 1 1 250px;
-      height: 60px;
-      /* margin-bottom: 10px; */
-      padding: 10px;
-      display: flex;
-      align-items: flex-start;
-      justify-content: flex-start;
-      flex-direction: column;
-}
-
-.graph-comment2 {
-      flex: 1 1 250px;
-      height: 150px;
-      /* margin-bottom: 10px; */
-      padding: 10px;
-      font-family: "Roboto", sans-serif;
-}
-
-.graph-comment2 h5 {
-      font-weight: bold;
-      font-size: 18px;
-      margin: 0;
-}
-.graph-comment3 {
-      flex: 1 1 250px;
-      /* margin-bottom: 10px; */
-      height: 150x;
-      padding: 10px;
-}
-.graph-comment3 h5 {
-      font-weight: bold;
-      font-size: 18px;
-      margin: 0;
-}
-
-.data-flex3 {
-      flex: 1 1 800px;
-      margin: 10px;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-}
-
-.hosp-rea-dead-select {
-}
-
-/* Bloc Flex 4 > child 1 =  CovidChartScreen*/
-
-.data-flex4 {
-      flex: 1 1 600px;
-      margin: 10px;
-      display: flex;
-      justify-content: center;
-      flex-direction: column;
-      align-items: flex-start;
-}
-
-/* Bloc Flex 5 > child 1 =  */
-
-.data-flex5 {
-      flex: 1 1 1000px;
-      margin: 10px;
-      display: flex;
-      justify-content: center;
-      flex-direction: column;
-      align-items: flex-start;
-}
-
-.chart-age-container {
-      display: flex;
-      width: 100%;
-      flex-wrap: wrap;
-}
-.chart-age-box {
-      flex: 1 1 300px;
-}
-
 /* -------------------- media queries ---*/
 
 @media (max-width: 1024px /* Landscape tab */) {
@@ -149,56 +34,11 @@
             flex-wrap: wrap;
             padding: 0px;
       }
-      .data-flex0 {
-            flex: 1 1 768px;
-            height: 100%;
-            margin: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-      }
-
-      .data-flex3 {
-            flex: 1 1 768;
-            margin: 0px;
-            display: flex;
-            flex-direction: column;
-      }
-
-      .alldept-chart {
-            width: 768px;
-      }
 }
 
 @media (max-width: 720px /* Smartphone zone */) {
       .remove720 {
             display: none;
-      }
-      .data-flex0 {
-            flex: 1 1 720px;
-            height: 100%;
-            margin: 0px;
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-      }
-
-      .data-flex3 {
-            flex: 1 1 720px;
-            margin: 10px 0;
-            display: flex;
-            flex-direction: column;
-      }
-
-      .alldept-chart {
-            width: 720px;
-      }
-
-      .data-flex5 {
-            flex: 1 1 auto;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
       }
 }
 
@@ -220,37 +60,6 @@
             justify-content: space-between;
             align-items: baseline;
       }
-
-      .data-flex1 {
-            flex: 1 1 414px;
-            margin: 0px;
-            display: flex;
-            justify-content: center;
-            flex-direction: column;
-            align-items: center;
-      }
-
-      .graph-covid-france-map {
-            width: 414px;
-      }
-
-      .data-flex3 {
-            flex: 1 1 414px;
-            margin: 10px 0;
-            display: flex;
-            flex-direction: column;
-      }
-
-      .alldept-chart {
-            width: 414px;
-      }
-
-      .data-flex5 {
-            flex: 1 1 414px;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-      }
 }
 
 @media (max-width: 380px /* Smartphone vertical zone */) {
@@ -262,22 +71,7 @@
             justify-content: space-between;
             align-items: baseline;
       }
-
-      .data-flex1 {
-            flex: 1 1 380px;
-            margin: 0px;
-            display: flex;
-            justify-content: center;
-            flex-direction: column;
-            align-items: center;
-      }
-      .graph-covid-france-map {
-            width: 380px;
-      }
 }
 
 @media (max-width: 330px) {
-      .graph-covid-france-map {
-            width: 280px;
-      }
 }

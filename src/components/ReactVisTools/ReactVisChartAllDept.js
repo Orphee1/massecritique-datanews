@@ -11,9 +11,9 @@ import {
       HorizontalBarSeries,
       Hint,
 } from "react-vis";
-// import "../../../node_modules/react-vis/dist/style.css";
-import "../../../../node_modules/react-vis/dist/style.css";
-import { ThemeContext } from "../../../context/ThemeContext";
+
+import "../../../node_modules/react-vis/dist/style.css";
+import { ThemeContext } from "../../context/ThemeContext";
 
 export default function ReactVisChartAllDept({ data }) {
       // Theme definition
@@ -139,10 +139,6 @@ export default function ReactVisChartAllDept({ data }) {
       return (
             <div>
                   <div className="">
-                        <h5 style={{ color: option.syntax, fontSize: "18px" }}>
-                              Impact de l'épidémie selon le sexe
-                        </h5>
-
                         <select
                               className="select"
                               style={{ width: "150px", marginBottom: "10px" }}
