@@ -224,6 +224,23 @@ export default function VXPage({
                         >
                               Evolution du nombre de décès
                         </h5>
+                        <h5
+                              style={{
+                                    color: option.syntax,
+                                    // fontSize: "16px",
+                              }}
+                        >
+                              Source :{" "}
+                              <a
+                                    style={{
+                                          color: option.syntax,
+                                          // fontSize: "18px",
+                                    }}
+                                    href="https://ourworldindata.org/covid-deaths"
+                              >
+                                    Our World in Data
+                              </a>
+                        </h5>
 
                         <VXArea dataArea={dataFRA} title="France" />
 

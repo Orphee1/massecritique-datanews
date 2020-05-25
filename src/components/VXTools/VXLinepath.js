@@ -5,7 +5,7 @@ import { curveBasis } from "@vx/curve";
 import { GradientOrangeRed, GradientTealBlue } from "@vx/gradient";
 import { localPoint } from "@vx/event";
 import { AxisLeft, AxisRight, AxisBottom } from "@vx/axis";
-import { Area, LinePath, Line } from "@vx/shape";
+import { Area, Bar, LinePath, Line } from "@vx/shape";
 import { scaleTime, scaleLinear } from "@vx/scale";
 import { useTooltip, Tooltip, TooltipWithBounds } from "@vx/tooltip";
 import { bisector, extent } from "d3-array";
@@ -13,9 +13,15 @@ import { timeFormat, timeParse } from "d3-time-format";
 
 import useWindowDimensions from "../../assets/useWindowDimension";
 
+const formatDate = timeFormat("%d %b %y"); // Required by tooltip
+
 // accessors
 const x = (d) => d.date;
 const y = (d) => d.value;
+// const bisectDate = bisector((d) => new Date(d.date)).left;
+// // accessors
+const xStock = (d) => new Date(d.date);
+const yStock = (d) => d.value;
 const bisectDate = bisector((d) => new Date(d.date)).left;
 
 const margin = {
@@ -52,23 +58,53 @@ export default function VXLinepath({ data }) {
             hideTooltip,
       } = useTooltip();
       let tooltipTimeout = useTooltip();
-      // console.log(tooltipData);
 
       const handleTooltip = ({ event, data, xStock, xScale, yScale }) => {
             const { x } = localPoint(event);
             const x0 = xScale.invert(x);
-            const index = bisectDate(data, x0, 1);
-            const d0 = data[index - 1];
-            const d1 = data[index];
+            const index = bisectDate(data[0], x0, 1);
+            const index2 = bisectDate(data[1], x0, 1);
+            const index3 = bisectDate(data[2], x0, 1);
+            const index4 = bisectDate(data[3], x0, 1);
+            const d0 = data[0][index - 1];
+            const d02 = data[1][index2 - 1];
+            const d03 = data[2][index3 - 1];
+            const d04 = data[3][index4 - 1];
+            const d1 = data[0][index];
+            const d12 = data[1][index2];
+            const d13 = data[2][index3];
+            const d14 = data[3][index4];
             let d = d0;
+            let d2 = d02;
+            let d3 = d03;
+            let d4 = d04;
             if (d1 && d1.date) {
                   d = x0 - xStock(d0.date) > xStock(d1.date) - x0 ? d1 : d0;
             }
+            if (d12 && d12.date) {
+                  d2 =
+                        x0 - xStock(d02.date) > xStock(d12.date) - x0
+                              ? d12
+                              : d02;
+            }
+            if (d13 && d13.date) {
+                  d3 =
+                        x0 - xStock(d03.date) > xStock(d13.date) - x0
+                              ? d13
+                              : d03;
+            }
+            if (d14 && d14.date) {
+                  d4 =
+                        x0 - xStock(d04.date) > xStock(d14.date) - x0
+                              ? d14
+                              : d04;
+            }
             showTooltip({
-                  tooltipData: d,
+                  tooltipData: [d, d2, d3, d4],
                   tooltipLeft: x,
-                  tooltipTop: yScale(d.close),
+                  tooltipTop: yScale(d2.value),
             });
+            console.log(tooltipTop);
       };
 
       // bounds
@@ -117,7 +153,45 @@ export default function VXLinepath({ data }) {
                               numTicksColumns={numTicksForWidth(800)}
                         />
                         <Group top={margin.top} left={margin.left}>
-                              <Area
+                              <Bar
+                                    x={0}
+                                    y={0}
+                                    width={width}
+                                    height={height}
+                                    fill="transparent"
+                                    rx={14}
+                                    // data={data[1]}
+                                    data={data}
+                                    onTouchStart={(event) =>
+                                          handleTooltip({
+                                                event,
+                                                xStock,
+                                                xScale,
+                                                yScale,
+                                                data: data,
+                                          })
+                                    }
+                                    onTouchMove={(event) =>
+                                          handleTooltip({
+                                                event,
+                                                xStock,
+                                                xScale,
+                                                yScale,
+                                                data: data,
+                                          })
+                                    }
+                                    onMouseMove={(event) =>
+                                          handleTooltip({
+                                                event,
+                                                xStock,
+                                                xScale,
+                                                yScale,
+                                                data: data,
+                                          })
+                                    }
+                                    onMouseLeave={(event) => hideTooltip()}
+                              />
+                              {/* <Area
                                     data={data[1]}
                                     x={(d) => xScale(x(d))}
                                     y0={(d) => yScale.range()[0]}
@@ -126,7 +200,8 @@ export default function VXLinepath({ data }) {
                                     stroke={"transparent"}
                                     fill={"url(#linear)"}
                                     curve={curveBasis}
-                              />
+                              /> */}
+
                               <LinePath
                                     // DataDC
                                     data={data[0]}
@@ -164,6 +239,44 @@ export default function VXLinepath({ data }) {
                                     strokeWidth={3}
                                     curve={curveBasis}
                               />
+                              {tooltipData && (
+                                    <g>
+                                          <Line
+                                                from={{ x: tooltipLeft, y: 0 }}
+                                                to={{ x: tooltipLeft, y: yMax }}
+                                                stroke="rgba(92, 119, 235, 1.000)"
+                                                strokeWidth={2}
+                                                style={{
+                                                      pointerEvents: "none",
+                                                }}
+                                                strokeDasharray="2,2"
+                                          />
+                                          <circle
+                                                cx={tooltipLeft}
+                                                cy={tooltipTop + 1}
+                                                r={4}
+                                                fill="black"
+                                                fillOpacity={0.1}
+                                                stroke="black"
+                                                strokeOpacity={0.1}
+                                                strokeWidth={2}
+                                                style={{
+                                                      pointerEvents: "none",
+                                                }}
+                                          />
+                                          <circle
+                                                cx={tooltipLeft}
+                                                cy={tooltipTop}
+                                                r={4}
+                                                fill="rgba(92, 119, 235, 1.000)"
+                                                stroke="white"
+                                                strokeWidth={2}
+                                                style={{
+                                                      pointerEvents: "none",
+                                                }}
+                                          />
+                                    </g>
+                              )}
                         </Group>
                         <Group left={margin.left}>
                               <AxisLeft
@@ -279,6 +392,76 @@ export default function VXLinepath({ data }) {
                               </AxisBottom>
                         </Group>
                   </svg>
+                  {tooltipData && (
+                        <div>
+                              <Tooltip
+                                    top={tooltipTop - 12}
+                                    left={tooltipLeft + 12}
+                                    style={{
+                                          position: "absolute",
+                                          width: "210px",
+                                          height: "90px",
+                                          borderRadius: "5px",
+                                          // backgroundColor:
+                                          //       "rgba(92, 119, 235, 1.000)",
+                                          backgroundColor: "black",
+                                          color: "white",
+
+                                          justifyContent: "center",
+                                          alignItems: "center",
+                                    }}
+                              >
+                                    <div
+                                          style={{
+                                                width: "90%",
+                                                height: "90%",
+                                                padding: "5px",
+                                          }}
+                                    >
+                                          Hospitalisations:{" "}
+                                          <strong>
+                                                {yStock(tooltipData[1])}
+                                          </strong>
+                                          <br />
+                                          Décès:{" "}
+                                          <strong>
+                                                {yStock(tooltipData[0])}
+                                          </strong>
+                                          <br />
+                                          Réanimations:{" "}
+                                          <strong>
+                                                {yStock(tooltipData[2])}
+                                          </strong>
+                                          <br />
+                                          Retours à domicile:{" "}
+                                          <strong>
+                                                {yStock(tooltipData[3])}
+                                          </strong>
+                                    </div>
+                              </Tooltip>
+                              <Tooltip
+                                    top={yMax + 90}
+                                    left={tooltipLeft}
+                                    style={{
+                                          position: "absolute",
+                                          transform: "translateX(-50%)",
+                                    }}
+                              >
+                                    <div
+                                          style={{
+                                                background: "white",
+                                                color: "blue",
+                                                width: "90px",
+
+                                                borderRadius: "5px",
+                                                height: "20px",
+                                          }}
+                                    >
+                                          {formatDate(xStock(tooltipData[0]))}
+                                    </div>
+                              </Tooltip>
+                        </div>
+                  )}
             </div>
       );
 }

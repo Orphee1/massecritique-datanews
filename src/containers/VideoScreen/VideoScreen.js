@@ -6,8 +6,6 @@ import { ThemeContext } from "../../context/ThemeContext";
 import "../../App.css";
 import "./style.css";
 
-// import tango from "../../videos/Tango.mp4";
-
 export default function VideoScreen() {
       const [watchComplete, setWatchComplete] = useState(false);
       console.log(watchComplete);
@@ -53,7 +51,9 @@ export default function VideoScreen() {
             >
                   <div
                         className="video-container"
-                        style={{ background: option.bg }}
+                        style={{
+                              background: option.bg,
+                        }}
                   >
                         <div className="video-flex0">
                               <h2
@@ -72,7 +72,7 @@ export default function VideoScreen() {
                                           // light={true}
                                           width="100%"
                                           height="100%"
-                                          url="https://www.youtube.com/watch?v=Mv-y4meRSf4&t=97s"
+                                          url="https://www.youtube.com/watch?v=Mv-y4meRSf4"
                                           onProgress={handleWatchComplete}
                                     />
                               </div>
@@ -91,36 +91,6 @@ export default function VideoScreen() {
                                           juillet 2019. Boîtier: Panasonic GH4.
                                           Micros: Sennheiser XSW-D. Montage:
                                           Premiere Pro.
-                                    </h5>
-                              </div>
-                        </div>
-                        <div className="video-flex2">
-                              <div className="player-container">
-                                    <ReactPlayer
-                                          className="react-player"
-                                          controls={true}
-                                          // light={true}
-                                          width="100%"
-                                          height="100%"
-                                          url="https://www.youtube.com/watch?v=r3IL-JXt2uA&feature=youtu.be"
-                                          onProgress={handleWatchCompleteBis}
-                                    />
-                              </div>
-                              <div
-                                    className={
-                                          watchCompleteBis
-                                                ? "video-info-complete"
-                                                : "video-info"
-                                    }
-                              >
-                                    <h5 style={{ color: option.syntax }}>
-                                          Milonga un jour de canicule animée par
-                                          Philippe Stainvurcel, au Caminito,
-                                          lieu dédié au tango dans le 11e
-                                          arrondissement, à Paris. Vidéo
-                                          réalisée en juin 2019. Camera: Canon
-                                          XF100. Micros: Sennheiser XSW-D.
-                                          Montage: Final Cut Pro.
                                     </h5>
                               </div>
                         </div>
