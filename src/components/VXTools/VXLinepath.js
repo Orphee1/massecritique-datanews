@@ -462,6 +462,15 @@ export default function VXLinepath({ data }) {
                               </Tooltip>
                         </div>
                   )}
+                  <p style={{ color: "white" }}>
+                        VX main component :{" "}
+                        <a
+                              style={{ color: "white" }}
+                              href="https://vx-demo.now.sh/static/docs/vx-shape.html#linepath-"
+                        >
+                              LinePath
+                        </a>
+                  </p>
             </div>
       );
 }
