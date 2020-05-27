@@ -178,14 +178,14 @@ export default function ReactVisPage() {
       const [regSelected, setRegSelected] = useState("Île-de-France");
 
       // Data import from the context
-      const [datasReactVis] = useContext(DataContext);
+      const [datas] = useContext(DataContext);
       // console.log(datasReactVis);
-      const data = datasReactVis[0];
-      const dataNat = datasReactVis[1];
-      const dataUpdated = datasReactVis[2]; // Required by ReactVisChartAllDept and ReactVisChart components
-      const dead = datasReactVis[3]; // Required by firt CovidAgeBar component
-      const hosp = datasReactVis[4]; // Required by second CovidAgeBar component
-      const rea = datasReactVis[5]; // Required by third CovidAgeBar component
+      const data = datas[0][0];
+      const dataNat = datas[0][1];
+      const dataUpdated = datas[0][2]; // Required by ReactVisChartAllDept and ReactVisChart components
+      const dead = datas[0][3]; // Required by firt CovidAgeBar component
+      const hosp = datas[0][4]; // Required by second CovidAgeBar component
+      const rea = datas[0][5]; // Required by third CovidAgeBar component
 
       // Data treatment
       // national data
