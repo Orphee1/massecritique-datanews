@@ -8,7 +8,7 @@ import "./style.css";
 
 export default function Header({ indexPage, setIndexPage }) {
       // Theme definition
-      const [theme, setTheme] = useContext(ThemeContext);
+      const [theme, toggleTheme] = useContext(ThemeContext);
       const { themeSelected, themeOne, themeTwo, themeThree } = theme;
       let option;
       let hoverOption;
@@ -56,13 +56,14 @@ export default function Header({ indexPage, setIndexPage }) {
                                     <select
                                           className="theme-select"
                                           onChange={(event) => {
-                                                setTheme({
-                                                      themeSelected:
-                                                            event.target.value,
-                                                      themeOne: themeOne,
-                                                      themeTwo: themeTwo,
-                                                      themeThree: themeThree,
-                                                });
+                                                // setTheme({
+                                                //       themeSelected:
+                                                //             event.target.value,
+                                                //       themeOne: themeOne,
+                                                //       themeTwo: themeTwo,
+                                                //       themeThree: themeThree,
+                                                // });
+                                                toggleTheme(event.target.value);
                                           }}
                                     >
                                           <option value="theme2">
