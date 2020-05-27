@@ -15,15 +15,12 @@ import "../../../App.css";
 import "./style.css";
 import useWindowDimensions from "../../../assets/useWindowDimension";
 
-// import COVID2104 from "../../assets/data/COVID/COVID2104.json";
-// const dataUpdated = COVID2104;
-
 export default function AllDeptsCovidChart({ data }) {
       const { width } = useWindowDimensions();
       console.log(width);
 
       // Theme definition
-      const [theme, setTheme] = useContext(ThemeContext);
+      const [theme] = useContext(ThemeContext);
       const { themeSelected, themeOne, themeTwo, themeThree } = theme;
       let option;
       switch (themeSelected) {

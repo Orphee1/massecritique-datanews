@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
-
 import { ThemeContext } from "../../context/ThemeContext";
+import { DataContext } from "../../context/DataContext";
 
 import "../../App.css";
 import "./style.css";
@@ -126,16 +126,7 @@ for (let i = 0; i < optionDepts.length; i++) {
       );
 }
 
-export default function VXPage({
-      data,
-      dataNat,
-      dataUpdated,
-      dataUSA,
-      dataFRA,
-      dataSPA,
-      dataGER,
-      dataGBR,
-}) {
+export default function VXPage() {
       // Theme definition
       const [theme] = useContext(ThemeContext);
       const { themeSelected, themeOne, themeTwo, themeThree } = theme;
@@ -153,6 +144,22 @@ export default function VXPage({
       }
       const { width } = useWindowDimension();
       const widthGraph = width * 0.8;
+
+      // Data import from the context
+      const [datasVX] = useContext(DataContext);
+      // console.log(datasVX[5]);
+      const data = datasVX[0];
+      const dataNat = datasVX[1];
+      const dataUpdated = datasVX[2];
+      const dataUSA = datasVX[3];
+      const dataFRA = datasVX[4];
+      const dataSPA = datasVX[5];
+
+      // const dataGER = datasVX[5];
+      // const dataGBR = datasVX[7];
+      // const test = datasVX[6];
+      // console.log(test);
+
       // national data treatment
       let dataRDToDisplay = [];
       let dataRToDisplay = [];
@@ -242,15 +249,15 @@ export default function VXPage({
                               </a>
                         </h5>
 
-                        <VXArea dataArea={dataFRA} title="France" />
+                        {/* <VXArea dataArea={dataFRA} title="France" /> */}
 
-                        <VXArea dataArea={dataSPA} title="Espagne" />
+                        {/* <VXArea dataArea={dataSPA} title="Espagne" /> */}
 
-                        <VXArea dataArea={dataGER} title="Allemagne" />
+                        {/* <VXArea dataArea={dataGER} title="Allemagne" /> */}
 
-                        <VXArea dataArea={dataGBR} title="Royaume-Uni" />
+                        {/* <VXArea dataArea={dataGBR} title="Royaume-Uni" /> */}
 
-                        <VXArea dataArea={dataUSA} title="Etats-Unis" />
+                        {/* <VXArea dataArea={dataUSA} title="Etats-Unis" /> */}
                   </div>
                   <div className="data-vx-flex1 ">
                         <h5

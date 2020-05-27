@@ -8,7 +8,7 @@ import articles from "../../assets/data/Articles";
 
 export default function ArticleScreen() {
       // Theme definition
-      const [theme, setTheme] = useContext(ThemeContext);
+      const [theme] = useContext(ThemeContext);
       const { themeSelected, themeOne, themeTwo, themeThree } = theme;
       let option;
       let selected;

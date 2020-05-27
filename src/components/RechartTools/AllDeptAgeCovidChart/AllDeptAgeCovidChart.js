@@ -10,9 +10,6 @@ import "./style.css";
 import CustomTooltip from "../CustomToolTip/CustomToolTip";
 
 // Data import
-import COVIDDcAge2204 from "../../../assets/data/COVID/COVIDDcAge2204.json";
-import COVIDHospAge2204 from "../../../assets/data/COVID/COVIDHospAge2204.json";
-import COVIDReaAge2204 from "../../../assets/data/COVID/COVIDReaAge2204.json";
 
 import COVIDDcAge2604 from "../../../assets/data/COVID/COVIDDcAge2604.json";
 import COVIDHospAge2604 from "../../../assets/data/COVID/COVIDHospAge2604.json";
@@ -50,7 +47,7 @@ for (let i = 0; i < optionReg.length; i++) {
 
 export default function AllDeptAgeCovidChart() {
       // Theme definition
-      const [theme, setTheme] = useContext(ThemeContext);
+      const [theme] = useContext(ThemeContext);
       const { themeSelected, themeOne, themeTwo, themeThree } = theme;
       let option;
       switch (themeSelected) {

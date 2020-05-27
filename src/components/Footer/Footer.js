@@ -7,7 +7,7 @@ import "./style.css";
 
 export default function Footer() {
       // Theme definition
-      const [theme, setTheme] = useContext(ThemeContext);
+      const [theme] = useContext(ThemeContext);
       const { themeSelected, themeOne, themeTwo, themeThree } = theme;
       let option;
       switch (themeSelected) {

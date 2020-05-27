@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import { ThemeContext } from "../../context/ThemeContext";
+import { DataContext } from "../../context/DataContext";
 
 import "../../App.css";
 import "./style.css";
@@ -155,14 +156,7 @@ for (let i = 0; i < optionReg.length; i++) {
       );
 }
 
-export default function ReactVisPage({
-      data,
-      dataNat,
-      dataUpdated,
-      dead,
-      hosp,
-      rea,
-}) {
+export default function ReactVisPage() {
       // Theme definition
       const [theme] = useContext(ThemeContext);
       const { themeSelected, themeOne, themeTwo, themeThree } = theme;
@@ -183,7 +177,18 @@ export default function ReactVisPage({
       // console.log(depSelected);
       const [regSelected, setRegSelected] = useState("Île-de-France");
 
-      // National data treatment
+      // Data import from the context
+      const [datasReactVis] = useContext(DataContext);
+      // console.log(datasReactVis);
+      const data = datasReactVis[0];
+      const dataNat = datasReactVis[1];
+      const dataUpdated = datasReactVis[2]; // Required by ReactVisChartAllDept and ReactVisChart components
+      const dead = datasReactVis[3]; // Required by firt CovidAgeBar component
+      const hosp = datasReactVis[4]; // Required by second CovidAgeBar component
+      const rea = datasReactVis[5]; // Required by third CovidAgeBar component
+
+      // Data treatment
+      // national data
       let dataRDToDisplay = [];
       let dataRToDisplay = [];
       let dataHToDisplay = [];
@@ -213,7 +218,8 @@ export default function ReactVisPage({
             dataRDToDisplay,
       ];
       // console.log(dataToDisplay);
-      // Data treatment for each department
+
+      // data treatment for each department
       let dataDepRD = [];
       let dataDepH = [];
       let dataDepR = [];
