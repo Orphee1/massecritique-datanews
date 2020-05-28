@@ -180,12 +180,12 @@ export default function ReactVisPage() {
       // Data import from the context
       const [datas] = useContext(DataContext);
       // console.log(datasReactVis);
-      const data = datas[0][0];
-      const dataNat = datas[0][1];
-      const dataUpdated = datas[0][2]; // Required by ReactVisChartAllDept and ReactVisChart components
-      const dead = datas[0][3]; // Required by firt CovidAgeBar component
-      const hosp = datas[0][4]; // Required by second CovidAgeBar component
-      const rea = datas[0][5]; // Required by third CovidAgeBar component
+      const data = datas.reactVis[0];
+      const dataNat = datas.reactVis[1];
+      const dataUpdated = datas.reactVis[2]; // Required by ReactVisChartAllDept and ReactVisChart components
+      const dead = datas.reactVis[3]; // Required by firt CovidAgeBar component
+      const hosp = datas.reactVis[4]; // Required by second CovidAgeBar component
+      const rea = datas.reactVis[5]; // Required by third CovidAgeBar component
 
       // Data treatment
       // national data

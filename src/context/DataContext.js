@@ -21,9 +21,9 @@ const test = "test";
 export const DataContext = createContext();
 
 export const DataContextProvider = (props) => {
-      const [datas, setDatas] = useState([
-            [data, dataNat, dataUpdated, dead, hosp, rea],
-            [
+      const [datas, setDatas] = useState({
+            reactVis: [data, dataNat, dataUpdated, dead, hosp, rea],
+            VX: [
                   data,
                   dataNat,
                   dataUpdated,
@@ -33,7 +33,7 @@ export const DataContextProvider = (props) => {
                   C19GER,
                   C19GBR,
             ],
-      ]);
+      });
 
       return (
             <DataContext.Provider value={[datas]}>

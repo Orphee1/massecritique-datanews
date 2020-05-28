@@ -56,13 +56,6 @@ export default function Header({ indexPage, setIndexPage }) {
                                     <select
                                           className="theme-select"
                                           onChange={(event) => {
-                                                // setTheme({
-                                                //       themeSelected:
-                                                //             event.target.value,
-                                                //       themeOne: themeOne,
-                                                //       themeTwo: themeTwo,
-                                                //       themeThree: themeThree,
-                                                // });
                                                 toggleTheme(event.target.value);
                                           }}
                                     >

@@ -148,14 +148,14 @@ export default function VXPage() {
       // Data import from the context
       const [datas] = useContext(DataContext);
 
-      const data = datas[1][0];
-      const dataNat = datas[1][1];
-      const dataUpdated = datas[1][2];
-      const dataUSA = datas[1][3];
-      const dataFRA = datas[1][4];
-      const dataSPA = datas[1][5];
-      const dataGER = datas[1][6];
-      const dataGBR = datas[1][7];
+      const data = datas.VX[0];
+      const dataNat = datas.VX[1];
+      const dataUpdated = datas.VX[2];
+      const dataUSA = datas.VX[3];
+      const dataFRA = datas.VX[4];
+      const dataSPA = datas.VX[5];
+      const dataGER = datas.VX[6];
+      const dataGBR = datas.VX[7];
 
       // national data treatment
       let dataRDToDisplay = [];
