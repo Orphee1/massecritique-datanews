@@ -1,9 +1,6 @@
 import React, { useState, useContext } from "react";
-import { Link } from "react-router-dom";
 
-// import DataContextProvider from "../../context/DataContext";
 import { ThemeContext } from "../../context/ThemeContext";
-// import { DataContext } from "../../context/DataContext";
 
 import "../../App.css";
 import "./style.css";
@@ -47,12 +44,7 @@ export default function DataScreen() {
                               background: option.bg,
                         }}
                   >
-                        <div
-                              className="data-flex0 
-                        
-                        "
-                              // style={{ background: option.syntax }}
-                        >
+                        <div className="data-flex0">
                               <h2
                                     style={{
                                           color: option.syntax,
@@ -74,24 +66,25 @@ export default function DataScreen() {
                                     Epidémie de COVID-19
                               </h3>
 
-                              <div className="d-flex">
+                              <div
+                                    className="d-flex"
+                                    style={{ marginTop: "20px" }}
+                              >
                                     <h5
                                           style={{
                                                 color: option.syntax,
-                                                // color: option.bg,
                                                 marginBottom: "0",
                                                 marginTop: "0",
                                                 marginLeft: "10px",
                                           }}
                                     >
-                                          Librairies:{" "}
+                                          Choisir une librairie de
+                                          visualisation:{" "}
                                           <a
                                                 style={{
                                                       color: option.syntax,
                                                       cursor: "pointer",
-                                                      // color: option.bg,
                                                 }}
-                                                // href="https://uber.github.io/react-vis/?r=m7"
                                                 onClick={() => {
                                                       setLibrarieSelected(
                                                             "react-vis"
@@ -104,7 +97,6 @@ export default function DataScreen() {
                                     <h5
                                           style={{
                                                 color: option.syntax,
-                                                // color: option.bg,
                                                 marginBottom: "0",
                                                 marginTop: "0",
                                                 marginLeft: "10px",
@@ -116,7 +108,6 @@ export default function DataScreen() {
                                                       cursor: "pointer",
                                                       // color: option.bg,
                                                 }}
-                                                // href="https://vx-demo.now.sh/"
                                                 onClick={() => {
                                                       setLibrarieSelected("vx");
                                                 }}

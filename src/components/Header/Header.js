@@ -6,7 +6,7 @@ import { ThemeContext } from "../../context/ThemeContext";
 import "../../App.css";
 import "./style.css";
 
-export default function Header({ indexPage, setIndexPage }) {
+export default function Header({ setIndexPage }) {
       // Theme definition
       const [theme, toggleTheme] = useContext(ThemeContext);
       const { themeSelected, themeOne, themeTwo, themeThree } = theme;

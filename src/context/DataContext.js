@@ -17,7 +17,7 @@ import C19GER from "../assets/data/COVID/owid/C19GERCasesOverTime2205.json";
 import C19GBR from "../assets/data/COVID/owid/C19GBRCasesOverTime2205.json";
 
 const dataUpdated = COVID0905;
-const test = "test";
+
 export const DataContext = createContext();
 
 export const DataContextProvider = (props) => {
