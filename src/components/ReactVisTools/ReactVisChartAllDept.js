@@ -63,7 +63,6 @@ export default function ReactVisChartAllDept({ data }) {
       ];
 
       const [value, setValue] = useState(null);
-      console.log(value);
 
       const _rememberValue = (value) => {
             setValue(value);

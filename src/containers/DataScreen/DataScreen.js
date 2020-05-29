@@ -10,7 +10,6 @@ import VXPage from "../../components/VXPage/VXPage";
 import ReactVisPage from "../../components/ReactVisPage/ReactVisPage";
 
 export default function DataScreen() {
-      const { height } = useWindowDimensions();
       // Theme definition
       const [theme] = useContext(ThemeContext);
       const { themeSelected, themeOne, themeTwo, themeThree } = theme;

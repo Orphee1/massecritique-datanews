@@ -11,7 +11,6 @@ import {
       VerticalGridLines,
       HorizontalGridLines,
       VerticalBarSeries,
-      VerticalBarSeriesCanvas,
       LabelSeries,
 } from "react-vis";
 
@@ -174,8 +173,8 @@ export default function ReactVisChart({ data }) {
                         { x: "reanimation", y: data[i].reaf },
                         { x: "décès", y: data[i].deadf }
                   );
-                  console.log(menData);
-                  console.log(womenData);
+                  // console.log(menData);
+                  // console.log(womenData);
             }
       }
 

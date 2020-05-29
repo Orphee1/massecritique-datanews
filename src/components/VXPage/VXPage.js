@@ -142,8 +142,6 @@ export default function VXPage() {
                   option = themeThree;
                   break;
       }
-      const { width } = useWindowDimension();
-      // const widthGraph = width * 0.8;
 
       // Data import from the context
       const [datas] = useContext(DataContext);

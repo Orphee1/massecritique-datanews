@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { ThemeContext } from "../../context/ThemeContext";
 import { DataContext } from "../../context/DataContext";
 
@@ -172,7 +172,7 @@ export default function ReactVisPage() {
                   option = themeThree;
                   break;
       }
-      const { width } = useWindowDimension();
+
       const [depSelected, setDepSelected] = useState(1);
       // console.log(depSelected);
       const [regSelected, setRegSelected] = useState("Île-de-France");
@@ -189,72 +189,67 @@ export default function ReactVisPage() {
 
       // Data treatment
       // national data
-      {
-            // Explicit block for following variables to locally bind to
-            var dataRDToDisplay = [];
-            var dataRToDisplay = [];
-            var dataHToDisplay = [];
-            var dataDCToDisplay = [];
-            for (let i = 0; i < dataNat.length; i++) {
-                  dataDCToDisplay.push({
-                        x: dataNat[i].jour,
-                        y: dataNat[i].incid_dc,
-                  });
-                  dataHToDisplay.push({
-                        x: dataNat[i].jour,
-                        y: dataNat[i].incid_hosp,
-                  });
-                  dataRToDisplay.push({
-                        x: dataNat[i].jour,
-                        y: dataNat[i].incid_rea,
-                  });
-                  dataRDToDisplay.push({
-                        x: dataNat[i].jour,
-                        y: dataNat[i].incid_rad,
-                  });
-            }
-
-            var dataToDisplay = [
-                  dataDCToDisplay,
-                  dataHToDisplay,
-                  dataRToDisplay,
-                  dataRDToDisplay,
-            ];
+      const dataRDToDisplay = [];
+      const dataRToDisplay = [];
+      const dataHToDisplay = [];
+      const dataDCToDisplay = [];
+      for (let i = 0; i < dataNat.length; i++) {
+            dataDCToDisplay.push({
+                  x: dataNat[i].jour,
+                  y: dataNat[i].incid_dc,
+            });
+            dataHToDisplay.push({
+                  x: dataNat[i].jour,
+                  y: dataNat[i].incid_hosp,
+            });
+            dataRToDisplay.push({
+                  x: dataNat[i].jour,
+                  y: dataNat[i].incid_rea,
+            });
+            dataRDToDisplay.push({
+                  x: dataNat[i].jour,
+                  y: dataNat[i].incid_rad,
+            });
       }
+      const dataToDisplay = [
+            dataDCToDisplay,
+            dataHToDisplay,
+            dataRToDisplay,
+            dataRDToDisplay,
+      ];
+
       // console.log(dataToDisplay);
 
       // data treatment for each department
 
-      {
-            // Explicit block for following variables to locally bind to
-            var dataDepRD = [];
-            var dataDepH = [];
-            var dataDepR = [];
-            var dataDepDC = [];
-            for (let i = 0; i < data.length; i++) {
-                  if (data[i].dep === depSelected) {
-                        dataDepDC.push({
-                              x: data[i].jour,
-                              y: data[i].incid_dc,
-                        });
-                        dataDepH.push({
-                              x: data[i].jour,
-                              y: data[i].incid_hosp,
-                        });
-                        dataDepR.push({
-                              x: data[i].jour,
-                              y: data[i].incid_rea,
-                        });
-                        dataDepRD.push({
-                              x: data[i].jour,
-                              y: data[i].incid_rad,
-                        });
-                  }
+      const dataDepRD = [];
+      const dataDepH = [];
+      const dataDepR = [];
+      const dataDepDC = [];
+      for (let i = 0; i < data.length; i++) {
+            if (data[i].dep === depSelected) {
+                  dataDepDC.push({
+                        x: data[i].jour,
+                        y: data[i].incid_dc,
+                  });
+                  dataDepH.push({
+                        x: data[i].jour,
+                        y: data[i].incid_hosp,
+                  });
+                  dataDepR.push({
+                        x: data[i].jour,
+                        y: data[i].incid_rea,
+                  });
+                  dataDepRD.push({
+                        x: data[i].jour,
+                        y: data[i].incid_rad,
+                  });
             }
-
-            var dataDepToDisplay = [dataDepDC, dataDepH, dataDepR, dataDepRD];
-            // console.log(dataDepToDisplay);
       }
+
+      const dataDepToDisplay = [dataDepDC, dataDepH, dataDepR, dataDepRD];
+      // console.log(dataDepToDisplay);
+
       // Data treatment for COVIDageBar component
       let dataDCATodisplay = [];
       for (let i = 0; i < dead.length; i++) {
