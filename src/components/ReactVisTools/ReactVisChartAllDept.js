@@ -30,6 +30,8 @@ export default function ReactVisChartAllDept({ data }) {
             case "theme3":
                   option = themeThree;
                   break;
+            default:
+                  console.log("default");
       }
       //
       const [type, setType] = useState("hosp");

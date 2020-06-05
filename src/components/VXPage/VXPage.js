@@ -141,6 +141,8 @@ export default function VXPage() {
             case "theme3":
                   option = themeThree;
                   break;
+            default:
+                  console.log("default");
       }
 
       // Data import from the context

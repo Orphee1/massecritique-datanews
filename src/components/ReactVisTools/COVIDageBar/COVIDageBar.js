@@ -35,6 +35,8 @@ export default function COVIDageBar({
             case "theme3":
                   option = themeThree;
                   break;
+            default:
+                  console.log("default");
       }
 
       const [value, setValue] = useState(null);

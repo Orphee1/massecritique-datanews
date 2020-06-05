@@ -25,6 +25,8 @@ export default function ArticleScreen() {
                   option = themeThree;
                   selected = "selected3";
                   break;
+            default:
+                  console.log("default");
       }
 
       const [selectedTab, setSelectedTab] = useState("all");
@@ -46,7 +48,7 @@ export default function ArticleScreen() {
             }
       } else {
             articlesSelected = articles;
-      } // NOPE du coup tu peux pas faire la pagination après le slice, car forcémebt, il n'y aura qu'une page.
+      }
       let tab = [];
       for (let i = 0; i < articlesSelected.length / limit; i++) {
             tab.push(i + 1);
@@ -173,11 +175,11 @@ export default function ArticleScreen() {
                                                                         ? selected
                                                                         : "unselected"
                                                             }
-                                                            // onClick={() => {
-                                                            //       setSelectedTab(
-                                                            //             "cult"
-                                                            //       );
-                                                            // }}
+                                                            onClick={() => {
+                                                                  setSelectedTab(
+                                                                        "cult"
+                                                                  );
+                                                            }}
                                                       >
                                                             Culture
                                                       </span>
@@ -222,7 +224,11 @@ export default function ArticleScreen() {
                                                       backgroundSize: "cover",
                                                 }}
                                           >
-                                                <h2>
+                                                <h2
+                                                // style={{
+                                                //       width: "80%",
+                                                // }}
+                                                >
                                                       {article.image ===
                                                       undefined ? (
                                                             <a

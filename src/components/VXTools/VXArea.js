@@ -35,6 +35,8 @@ export default function VXArea({ dataArea, title }) {
             case "theme3":
                   option = themeThree;
                   break;
+            default:
+                  console.log("default");
       }
       const {
             tooltipData,

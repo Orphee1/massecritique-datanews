@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import ReactPlayer from "react-player";
 import { ThemeContext } from "../../context/ThemeContext";
 import "../../App.css";
@@ -13,20 +13,18 @@ export default function SoundScreen() {
       const [theme] = useContext(ThemeContext);
       const { themeSelected, themeOne, themeTwo, themeThree } = theme;
       let option;
-      let selected;
       switch (themeSelected) {
             case "theme1":
                   option = themeOne;
-                  selected = "selected1";
                   break;
             case "theme2":
                   option = themeTwo;
-                  selected = "selected2";
                   break;
             case "theme3":
                   option = themeThree;
-                  selected = "selected3";
                   break;
+            default:
+                  console.log("default");
       }
 
       return (

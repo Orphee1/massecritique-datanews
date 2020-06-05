@@ -25,6 +25,8 @@ export default function Header({ setIndexPage }) {
                   option = themeThree;
                   hoverOption = "span3";
                   break;
+            default:
+                  console.log("default");
       }
 
       return (

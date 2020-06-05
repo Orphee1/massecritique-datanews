@@ -7,6 +7,7 @@ import SansPapiers from "../images/articles/SansPapiers.jpg";
 import desk from "../images/articles/desk.jpg";
 import gonzalo from "../images/articles/gonzalo.jpeg";
 import euros from "../images/articles/euros.jpg";
+import naufrage from "../images/articles/naufrage.jpg";
 
 const articles = [
       {
@@ -98,6 +99,22 @@ const articles = [
                   "Depuis quelques mois, à la faveur du repli des cours du pétrole, l'économie vit sous la menace de la déflation. Loin d'être une réjouissance, une baisse généralisée des prix serait au contraire une catastrophe.",
             image: euros,
             category: "eco",
+      },
+      {
+            title: "L'Espoir et le Soleil font vivre",
+            link:
+                  "http://ruedutheatre.eu/article/809/les-naufrages-du-fol-espoir/",
+            p:
+                  "Dans son nouveau spectacle, le Théâtre du Soleil adapte Jules Verne et ressuscite une époque gorgée d’espoirs où l’homme avait une soif inépuisable d’aventures.",
+            image: naufrage,
+            category: "cult",
+      },
+      {
+            title: "Antoine et Cléopâtre aux prises avec l'histoire",
+            link: "https://www.humanite.fr/node/337309",
+            p: undefined,
+            image: undefined,
+            category: "cult",
       },
       {
             title:

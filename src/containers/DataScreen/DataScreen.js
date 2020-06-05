@@ -24,10 +24,12 @@ export default function DataScreen() {
             case "theme3":
                   option = themeThree;
                   break;
+            default:
+                  console.log("default");
       }
 
-      // const [librarieSelected, setLibrarieSelected] = useState("react-vis");
-      const [librarieSelected, setLibrarieSelected] = useState("vx");
+      const [librarieSelected, setLibrarieSelected] = useState("react-vis");
+      // const [librarieSelected, setLibrarieSelected] = useState("vx");
 
       return (
             <div

@@ -148,6 +148,8 @@ export default function ReactVisChart({ data }) {
             case "theme3":
                   option = themeThree;
                   break;
+            default:
+                  console.log("default");
       }
 
       const [depSelected, setDepSelected] = useState("Ain");

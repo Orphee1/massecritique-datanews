@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useContext } from "react";
 import { ThemeContext } from "../../context/ThemeContext";
 import { DataContext } from "../../context/DataContext";
 
@@ -171,6 +171,8 @@ export default function ReactVisPage() {
             case "theme3":
                   option = themeThree;
                   break;
+            default:
+                  console.log("default");
       }
 
       const [depSelected, setDepSelected] = useState(1);

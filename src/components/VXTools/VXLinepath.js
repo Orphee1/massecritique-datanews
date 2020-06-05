@@ -2,14 +2,14 @@ import React from "react";
 import { Grid } from "@vx/grid";
 import { Group } from "@vx/group";
 import { curveBasis } from "@vx/curve";
-import { GradientOrangeRed, GradientTealBlue } from "@vx/gradient";
+import { GradientTealBlue } from "@vx/gradient";
 import { localPoint } from "@vx/event";
-import { AxisLeft, AxisRight, AxisBottom } from "@vx/axis";
-import { Area, Bar, LinePath, Line } from "@vx/shape";
+import { AxisLeft, AxisBottom } from "@vx/axis";
+import { Bar, LinePath, Line } from "@vx/shape";
 import { scaleTime, scaleLinear } from "@vx/scale";
-import { useTooltip, Tooltip, TooltipWithBounds } from "@vx/tooltip";
+import { useTooltip, Tooltip } from "@vx/tooltip";
 import { bisector, extent } from "d3-array";
-import { timeFormat, timeParse } from "d3-time-format";
+import { timeFormat } from "d3-time-format";
 
 import useWindowDimensions from "../../assets/useWindowDimension";
 

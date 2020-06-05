@@ -26,20 +26,19 @@ export default function VideoScreen() {
       const [theme] = useContext(ThemeContext);
       const { themeSelected, themeOne, themeTwo, themeThree } = theme;
       let option;
-      let selected;
+
       switch (themeSelected) {
             case "theme1":
                   option = themeOne;
-                  selected = "selected1";
                   break;
             case "theme2":
                   option = themeTwo;
-                  selected = "selected2";
                   break;
             case "theme3":
                   option = themeThree;
-                  selected = "selected3";
                   break;
+            default:
+                  console.log("default");
       }
 
       return (
@@ -91,6 +90,35 @@ export default function VideoScreen() {
                                           juillet 2019. Boîtier: Panasonic GH4.
                                           Micros: Sennheiser XSW-D. Montage:
                                           Premiere Pro.
+                                    </h5>
+                              </div>
+                        </div>
+                        <div className="video-flex1">
+                              <div className="player-container">
+                                    <ReactPlayer
+                                          className="react-player2"
+                                          controls={true}
+                                          // light={true}
+                                          width="100%"
+                                          height="100%"
+                                          url="https://www.youtube.com/watch?v=r3IL-JXt2uA"
+                                          onProgress={handleWatchComplete}
+                                    />
+                              </div>
+                              <div
+                                    className={
+                                          watchComplete
+                                                ? "video-info-complete"
+                                                : "video-info"
+                                    }
+                              >
+                                    <h5 style={{ color: option.syntax }}>
+                                          Milonga un jour de canicule oganisée
+                                          au Caminito, lieu dédié au Tango, dans
+                                          le 11e arrondissement, à Paris. Vidéo
+                                          réalisée en juin 2019. Canon XF 100.
+                                          Micros: Sennheiser XSW-D. Montage:
+                                          Final Cut Pro.
                                     </h5>
                               </div>
                         </div>

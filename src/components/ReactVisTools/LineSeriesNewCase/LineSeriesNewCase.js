@@ -27,7 +27,7 @@ export default function LineSeriesNewCase({
 }) {
       const dataToDisplay = data;
 
-      const { width, height } = useWindowDimensions();
+      const { width } = useWindowDimensions();
       // console.log(height);
 
       // Theme definition
@@ -44,6 +44,8 @@ export default function LineSeriesNewCase({
             case "theme3":
                   option = themeThree;
                   break;
+            default:
+                  console.log("default");
       }
 
       return (
@@ -63,8 +65,10 @@ export default function LineSeriesNewCase({
                                     setCrossHairValues(null);
                               }}
                         >
-                              <VerticalGridLines />
-                              <HorizontalGridLines />
+                              {/* <VerticalGridLines /> */}
+                              <HorizontalGridLines
+                                    style={{ strokeWidth: 0.7 }}
+                              />
                               <XAxis
                                     className="remove768"
                                     tickLabelAngle={-45}

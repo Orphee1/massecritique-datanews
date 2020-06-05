@@ -18,16 +18,15 @@ export default function PhotoScreen() {
       switch (themeSelected) {
             case "theme1":
                   option = themeOne;
-
                   break;
             case "theme2":
                   option = themeTwo;
-
                   break;
             case "theme3":
                   option = themeThree;
-
                   break;
+            default:
+                  console.log("default");
       }
 
       // Get Images to display
