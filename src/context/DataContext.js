@@ -21,25 +21,16 @@ const dataUpdated = COVID0905;
 export const DataContext = createContext();
 
 export const DataContextProvider = (props) => {
-      const [datas, setDatas] = useState({
-            reactVis: [data, dataNat, dataUpdated, dead, hosp, rea],
-            VX: [
-                  data,
-                  dataNat,
-                  dataUpdated,
-                  C19USA,
-                  C19FRA,
-                  C19SPA,
-                  C19GER,
-                  C19GBR,
-            ],
-      });
+  const [datas] = useState({
+    reactVis: [data, dataNat, dataUpdated, dead, hosp, rea],
+    VX: [data, dataNat, dataUpdated, C19USA, C19FRA, C19SPA, C19GER, C19GBR],
+  });
 
-      return (
-            <DataContext.Provider value={[datas]}>
-                  {props.children}
-            </DataContext.Provider>
-      );
+  return (
+    <DataContext.Provider value={[datas]}>
+      {props.children}
+    </DataContext.Provider>
+  );
 };
 
 export default DataContextProvider;
