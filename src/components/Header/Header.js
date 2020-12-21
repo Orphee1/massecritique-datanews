@@ -50,7 +50,7 @@ export default function Header({ setIndexPage }) {
                                                       color: option.syntax,
                                                 }}
                                           >
-                                                Data News
+                                                Super Data News
                                           </span>
                                     </Link>
                               </li>
